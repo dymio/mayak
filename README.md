@@ -111,19 +111,19 @@ In the file `config/initializers/devise.rb` replace value of `config.mailer_send
 
 You also need create file `config/database.yml` for database connection. I made file `config/database-example.yml` for example.
 
-In the first migration file (`db/migrate/..`) you can change email and password of admin user. By default it admin@mayak.com with password 'master'.
+In the first migration file (`db/migrate/20140401000000_devise_create_admin_users.rb`) you can change email and password of admin user. By default it admin@mayak.com with password 'master'.
 
 In the migration file of site settings (`db/migrate/20140405000000_create_site_settings.rb`) you can change default settings values and add new settings.
 
 Right now you can remove components you do not need...
 
-When already done, run:
+When done, run:
 
-  - `> bundle install`
-  - `> bundle exec rake db:create db:migrate`
+  - `bundle install`
+  - `bundle exec rake db:create db:migrate`
 
 Demo data you can install wit command:
 
-  - `> bundle exec rake db:seed`
+  - `bundle exec rake db:seed`
 
 And when you finish installation pleace replace this file content with description of your project.
