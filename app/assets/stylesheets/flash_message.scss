@@ -1,0 +1,12 @@
+.flmsg-popup {
+  top: 12px;
+  right: 12px;
+  max-width: 240px;
+  text-align: center;
+  color: white;
+  .notice, .alert {
+    margin: 0 0 12px 0;
+    padding: 24px 12px;
+    border-radius: 12px; }
+  .notice { background: #A0D7FA; }
+  .alert { background: #FF8585; } }

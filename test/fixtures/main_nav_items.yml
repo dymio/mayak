@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  url_type: 1
+  url_page: 
+  url_text: MyString
+  prior: 1
+  hided: false
+
+two:
+  title: MyString
+  url_type: 1
+  url_page: 
+  url_text: MyString
+  prior: 1
+  hided: false

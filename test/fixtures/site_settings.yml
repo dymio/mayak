@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ident: MyString
+  name: MyString
+  descr: MyString
+  val_type: 1
+  setted_val: MyString
+  hided: false
+
+two:
+  ident: MyString
+  name: MyString
+  descr: MyString
+  val_type: 1
+  setted_val: MyString
+  hided: false

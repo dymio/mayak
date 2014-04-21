@@ -1,0 +1,42 @@
+#        _
+#       ( )
+#        H
+#        H
+#       _H_ 
+#    .-'-.-'-.
+#   /         \
+#  |           |
+#  |   .-------'._
+#  |  / /  '.' '. \
+#  |  \ \ @   @ / / 
+#  |   '---------'        
+#  |    _______|  
+#  |  .'-+-+-+|      
+#  |  '.-+-+-+|  ------ KILL ALL HUMANS!
+#  |    """""" |
+#  '-.__   __.-'
+#       """  sul
+#
+#   Art by Sulliwan Sucks
+#
+#
+#! User-agent: Yandex
+#! Disallow: /assets/
+#! Disallow: /*.xls$
+#! Allow: /
+#! Host: example.com
+#! 
+#! User-agent: Googlebot
+#! Disallow: /assets/
+#! Disallow: /*.xls$
+#! Allow: /
+#! 
+#! User-agent: *
+#! Disallow: /assets/
+#! Disallow: /temp/privatedata.xls
+#! Disallow:
+#! 
+#! Sitemap: http://example.com/sitemap.xml
+
+User-agent:
+Disallow: /

@@ -1,0 +1,43 @@
+/** STICKY FOOTER **/
+html, body { height: 100%; }
+
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -72px;
+  padding: 0 0 72px; }
+#footer { height: 72px; background: silver; }
+/** END OF STICKY FOOTER FUNCTIONAL **/
+
+/*
+ * Sometimes, first, modern variant don't work because different reasons,
+ * but we have less stylish bulletproof
+ ** OLD FASHIONED STICKY FOOTER **
+#wrap {
+  overflow: hidden;
+  position: relative;
+  min-height: 100%;
+  height:auto !important;
+  height:100%; }
+#wrap .dilator { padding-bottom: 72px; }
+#footer {
+  overflow: hidden;
+  position: relative;
+  margin-top: -72px;
+  height: 72px; }
+/** END OF OLD FASHIONED STICKY FOOTER **/
+
+/* Responsive media rules from Bootstrap 3 */
+/* DEFAULT IS EXTRA SMALL - less than 768px */
+@media (min-width: 768px) {} /* SMALL */
+@media (min-width: 992px) {} /* MEDIUM */
+@media (min-width: 1200px) {} /* LARGE */
+
+
+/* Responsive media rules from Bootstrap 2 */
+@media (min-width: 1200px) { } /* Large desktop */
+/* DEFAULT IS width from 980px to 1999px */
+@media (min-width: 768px) and (max-width: 979px) { } /* Portrait tablet to landscape and desktop */
+@media (max-width: 767px) { } /* Landscape phone to portrait tablet */
+@media (max-width: 480px) { } /* Landscape phones and down */

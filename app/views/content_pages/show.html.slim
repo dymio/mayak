@@ -1,0 +1,11 @@
+- have_sidenav = @page.root.has_children?
+- if have_sidenav
+  .breadcrumbs.holder
+    = render_breadcrumbs separator: ' / '
+section.holder.clearfix class="#{have_sidenav ? 'with-sidenav' : 'without-sidenav'}"
+  - if have_sidenav
+    aside
+      nav.sidenav
+        = render partial: "sidenav_level", locals: { items: @page.root.children.by_prior }
+  article.content
+    == @page.body

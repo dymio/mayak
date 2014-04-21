@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  slug: MyString
+  body: MyText
+  description: MyString
+  keywords: MyString
+  ancestry: MyString
+  prior: 1
+  hided: false
+
+two:
+  title: MyString
+  slug: MyString
+  body: MyText
+  description: MyString
+  keywords: MyString
+  ancestry: MyString
+  prior: 1
+  hided: false

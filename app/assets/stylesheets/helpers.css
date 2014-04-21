@@ -1,0 +1,65 @@
+/*!
+ * Some helpers
+ *  taken from Bootstrap v3.1.1
+ */
+
+/**
+ * ====================================================================
+ * ---> MICRO CLEARFIX HACK <---
+ * http://nicolasgallagher.com/micro-clearfix-hack/
+ * http://stackoverflow.com/questions/211383/which-method-of-clearfix-is-best
+ * ====================================================================
+ */
+.clearfix:before, .clearfix:after { display: table; content: " "; }
+.clearfix:after { clear: both; }
+
+.pull-right { float: right !important; }
+.pull-left { float: left !important; }
+
+.hide { display: none !important; }
+.show { display: block !important; }
+.invisible { visibility: hidden; }
+.hidden {
+  display: none !important;
+  visibility: hidden !important; }
+
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+.text-justify { text-align: justify; }
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.affix { position: fixed; }
+
+/* Adaptive instruction for IE */
+/*@-ms-viewport { width: device-width; }*/
+
+.visible-print {
+  display: none !important;
+}
+@media print {
+  .visible-print {
+    display: block !important;
+  }
+  table.visible-print {
+    display: table;
+  }
+  tr.visible-print {
+    display: table-row !important;
+  }
+  th.visible-print,
+  td.visible-print {
+    display: table-cell !important;
+  }
+}
+@media print {
+  .hidden-print {
+    display: none !important;
+  }
+}

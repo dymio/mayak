@@ -1,0 +1,19 @@
+.inner
+  .controls
+    - unless page.home?
+      == link_to "+ дочерняя", new_admin_content_page_path('content_page[parent_id]' => page.id), :class => "member_link"
+    == link_to I18n.t('active_admin.view'), admin_content_page_path(page), :class => "member_link view_link"
+    == link_to I18n.t('active_admin.edit'), edit_admin_content_page_path(page), :class => "member_link edit_link"
+    - unless page.home? || page.immortal?
+      == link_to I18n.t('active_admin.delete'), admin_content_page_path(page), :class => "member_link delete_link", method: :delete, confirm: I18n.t('active_admin.delete_confirmation')
+  .prior = page.prior
+  .behavior-type class=(page.redirector? ? "redirect" : "page")
+  .base
+    =' link_to page.title, admin_content_page_path(page), :class => "title"
+    - unless page.home?
+      span == "(" + link_to(page.full_slug, page.page_path) + ")"
+- if page.has_children?
+  .children
+    - page.children.by_prior.each do |child|
+      .page-line id="content_page_#{child.id}" style="padding-left:24px"
+        = render partial: "index_line", locals: { page: child }
