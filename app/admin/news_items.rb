@@ -12,9 +12,9 @@ ActiveAdmin.register NewsItem do
     f.inputs "" do       
       f.input :title
       f.input :slug
-      f.input :hided
       f.input :lead, input_html: { :class => 'editor' }
-      f.input :content, input_html: { :class => 'editor' }
+      f.input :body, input_html: { :class => 'editor' }
+      f.input :hided
     end                               
     f.actions                         
   end                                 

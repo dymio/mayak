@@ -1,6 +1,6 @@
 class NewsItem < ActiveRecord::Base
-  attr_accessible :content, :lead, :title, :slug, :hided
-  validates_presence_of :content, :title
+  attr_accessible :body, :lead, :title, :slug, :hided
+  validates_presence_of :body, :title
   validates_uniqueness_of :slug
   before_save :generate_slug
   before_save :generate_lead
@@ -9,9 +9,9 @@ private
 
   def generate_lead
     if self.lead.blank?
-      # there's no lead, so we try to find first paragraph of content 
+      # there's no lead, so we try to find first paragraph of body 
       # http://stackoverflow.com/a/9661504
-      self.lead = content[/#{Regexp.escape('<p>')}(.*?)#{Regexp.escape('</p>')}/m, 1]
+      self.lead = body[/#{Regexp.escape('<p>')}(.*?)#{Regexp.escape('</p>')}/m, 1]
     end
   end
 

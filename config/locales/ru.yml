@@ -95,6 +95,7 @@ ru:
         title: "Заголовок"
         slug: "SLUG"
         lead: "Краткий текст"
-        content: "Текст"
+        body: "Текст"
         created_at: "Создана"
         updated_at: "Обновлена"
+        hided: "Скрыта?"
