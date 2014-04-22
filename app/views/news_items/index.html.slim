@@ -7,5 +7,6 @@
 				.created_at= I18n.l news_item.created_at, format: :short
 				.lead= news_item.lead.html_safe
 				= link_to "Читать дальше", controller: 'news_items', action: 'show', slug: news_item.slug
+    = paginate @news_items
 	- else
-		Nope.
+    Nope.
