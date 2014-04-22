@@ -1,4 +1,4 @@
 .inner
 	h2.news_title= @news_item.title
 	.created_at= I18n.l @news_item.created_at, format: :short
-	.news-content= raw @news_item.content
+	.news-content= html_safe @news_item.content

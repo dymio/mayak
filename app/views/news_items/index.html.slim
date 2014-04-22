@@ -5,7 +5,7 @@
 			li.news-item
 				.title= "#{news_item.title}"
 				.created_at= I18n.l news_item.created_at, format: :short
-				.lead= raw news_item.lead
+				.lead= html_safe news_item.lead
 				= link_to "Читать дальше", controller: 'news_items', action: 'show', slug: news_item.slug
 	- else
 		Nope.
