@@ -14,7 +14,7 @@ ActiveAdmin.register NewsItem do
     f.inputs "" do       
       f.input :title
       f.input :slug
-      f.input :lead
+      f.input :lead, input_html: { :class => 'editor' }
       f.input :content, input_html: { :class => 'editor' }
     end                               
     f.actions                         
