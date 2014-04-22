@@ -1,0 +1,11 @@
+.inner
+	- if @news_items.count > 0
+	  ul.news-list
+		- @news_items.each do |news_item|
+			li.news-item
+				.title= "#{news_item.title}"
+				.created_at= I18n.l news_item.created_at, format: :short
+				.lead= raw news_item.get_lead
+				= link_to "Читать дальше", controller: 'news_items', action: 'show', slug: news_item.slug
+	- else
+		Nope.

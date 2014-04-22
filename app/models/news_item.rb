@@ -4,6 +4,22 @@ class NewsItem < ActiveRecord::Base
   validates_uniqueness_of :slug
   before_save :generate_slug
 
+  def find_by_slug slug
+  	NewsItem.find(:first, :conditions => ['slug = ?', slug])
+  end
+
+  def get_lead
+  	if not lead.nil? and not lead.empty?
+  		return lead
+  	else
+  		# there's no lead, so we try to find first paragraph of content 
+  		# http://stackoverflow.com/a/9661504
+  		return content[/#{Regexp.escape('<p>')}(.*?)#{Regexp.escape('</p>')}/m, 1]
+  	end
+  end
+
+private
+
   def generate_slug
   	slug ||= make_auto_slug
   end
