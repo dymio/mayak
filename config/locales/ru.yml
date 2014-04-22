@@ -99,3 +99,6 @@ ru:
         created_at: "Создана"
         updated_at: "Обновлена"
         hided: "Скрыта?"
+        description: "SEO описание"
+        keywords: "SEO keywords"
+        date: "Опубликована"

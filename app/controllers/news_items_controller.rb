@@ -1,7 +1,7 @@
 class NewsItemsController < FrontendController
 
   def index
-    @news_items = NewsItem.find(:all, conditions: ['hided = ?', false])
+    @news_items = NewsItem.find(:all, conditions: ['hided = ?', false], :order => :date)
     respond_to do |format|
       format.html
     end
