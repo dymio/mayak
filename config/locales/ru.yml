@@ -93,6 +93,7 @@ ru:
         updated_at: "Обновлён"
       news_item:
         title: "Заголовок"
+        slug: "SLUG"
         lead: "Краткий текст"
         content: "Текст"
         created_at: "Создана"
