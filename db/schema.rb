@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(:version => 20140406000000) do
     t.string   "name"
     t.string   "descr"
     t.integer  "val_type"
-    t.string   "set_val"
+    t.text     "set_val"
     t.boolean  "hided",      :default => false, :null => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false

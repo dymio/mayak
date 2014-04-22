@@ -1,0 +1,3 @@
+class NewsItemsController < FrontendController
+  
+end
