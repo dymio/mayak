@@ -9,6 +9,11 @@ class NewsItem < ActiveRecord::Base
 private
 
   def default_values
+
+    if self.date.blank?
+      self.date = self.created_at
+    end
+
     if self.hided.blank?
       self.hided = false
     end
