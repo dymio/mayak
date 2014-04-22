@@ -33,6 +33,11 @@ ru:
         few:    "Пункта главного меню"
         many:   "Пунктов главного меню"
         other:  "Главное меню"
+      news_item:
+        one:    "Новость"
+        few:    "Новости"
+        many:   "Новостей"
+        other:  "Новости"
     attributes:
       admin_user:
         email: "Email"
@@ -86,3 +91,9 @@ ru:
         hided: "Скрыт?"
         created_at: "Создан"
         updated_at: "Обновлён"
+      news_item:
+        title: "Заголовок"
+        lead: "Краткий текст"
+        content: "Текст"
+        created_at: "Создана"
+        updated_at: "Обновлена"

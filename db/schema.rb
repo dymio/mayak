@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140406000000) do
+ActiveRecord::Schema.define(:version => 20140422054828) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -82,6 +82,14 @@ ActiveRecord::Schema.define(:version => 20140406000000) do
   add_index "main_nav_items", ["hided"], :name => "index_main_nav_items_on_hided"
   add_index "main_nav_items", ["prior"], :name => "index_main_nav_items_on_prior"
   add_index "main_nav_items", ["url_page_id"], :name => "index_main_nav_items_on_url_page_id"
+
+  create_table "news_items", :force => true do |t|
+    t.string   "title"
+    t.text     "lead"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "site_settings", :force => true do |t|
     t.string   "ident",                         :null => false
