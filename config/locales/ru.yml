@@ -101,4 +101,4 @@ ru:
         hided: "Скрыта?"
         description: "SEO описание"
         keywords: "SEO keywords"
-        date: "Опубликована"
+        published_at: "Опубликована"

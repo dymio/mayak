@@ -29,7 +29,7 @@ ActiveAdmin.register NewsItem do
       end
       row :created_at
       row :updated_at
-      row :date
+      row :published_at
     end
   end
 
@@ -37,7 +37,7 @@ ActiveAdmin.register NewsItem do
     f.inputs "" do       
       f.input :title
       f.input :slug
-      f.input :date, :as => :datepicker
+      f.input :published_at, :as => :datepicker
       f.input :lead, input_html: { :class => 'editor' }
       f.input :body, input_html: { :class => 'editor' }
       f.input :hided
