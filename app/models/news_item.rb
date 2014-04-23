@@ -1,17 +1,16 @@
 class NewsItem < ActiveRecord::Base
   attr_accessible :body, :lead, :title, :slug, :hided,
-    :description, :keywords, :date
+    :description, :keywords, :published_at
 
   validates_presence_of :body, :title
   validates_uniqueness_of :slug
   before_save :default_values
 
-private
+  private
 
   def default_values
-
-    if self.date.blank?
-      self.date = self.created_at
+    if self.published_at.blank?
+      self.published_at = Date.today
     end
 
     if self.hided.blank?
@@ -22,6 +21,7 @@ private
       # there's no lead, so we try to find first paragraph of body 
       # http://stackoverflow.com/a/9661504
       self.lead = body[/#{Regexp.escape('<p>')}(.*?)#{Regexp.escape('</p>')}/m, 1]
+      self.lead ||= ""
     end
     
     if self.slug.blank?
@@ -32,7 +32,6 @@ private
         gsub(/^[-]+/,'').       # remove all '-' from start of string
         gsub(/[-]+$/, '')       # remove all '-' from end of string
     end
-
   end
 
 end
