@@ -1,12 +1,12 @@
 /** STICKY FOOTER **/
 html, body { height: 100%; }
-
 #wrap {
   min-height: 100%;
   height: auto !important;
   height: 100%;
   margin: 0 auto -72px;
-  padding: 0 0 72px; }
+  padding: 0; }
+  #wrap .dilator { height: 72px; }
 #footer { height: 72px; background: silver; }
 /** END OF STICKY FOOTER FUNCTIONAL **/
 
