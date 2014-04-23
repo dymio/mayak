@@ -4,7 +4,7 @@
 		- @news_items.each do |news_item|
 			li.news-item
 				.title= "#{news_item.title}"
-				.published_at= I18n.l news_item.published_at, format: "%d:%M:%y"
+				.published_at= I18n.l news_item.published_at, format: "%d.%m.%y"
 				.lead= news_item.lead.html_safe
 				= link_to "Читать дальше", controller: 'news_items', action: 'show', slug: news_item.slug
     = paginate @news_items
