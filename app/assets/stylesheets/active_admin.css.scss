@@ -27,6 +27,9 @@
   ul { list-style: disc; }
   ol { list-style: decimal; }
   ul > li, ol > li { padding: 0; } }
+.redactor_toolbar {
+  z-index: 0 !important;
+}
 
 // CSS for IndexAsAncestryRootsBlock
 .page-line {
@@ -52,3 +55,4 @@
     &:hover { text-decoration: underline !important; }
   }
 }
+

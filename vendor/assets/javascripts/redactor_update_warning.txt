@@ -13,3 +13,4 @@ Find changes with diff. Or just follow the list:
 - change 4559 line in 'insertHtml' method: `|| $html.contents().is('p, :header, ul, ol, li, div, table, td, blockquote, pre, address, section, header, footer, aside, article') && false)`
 - comment line 4662 in 'insertText' method: `// else this.document.execCommand('inserthtml', false, html);`
 - new 4663 line in 'insertText' method: `else this.insertHtmlAdvanced(html, false);`
+- comment line 1046 in 'buildStart' method: `this.$box.css('z-index', this.opts.zIndexMax - this.uuid);`
