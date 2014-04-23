@@ -1043,7 +1043,7 @@
 
 			// container
 			this.$box = $('<div class="redactor_box" />');
-			//this.$box.css('z-index', this.opts.zIndexMax - this.uuid);
+			this.$box.css('z-index', this.opts.zIndexMax - this.uuid);
 
 			// textarea test
 			if (this.$source[0].tagName === 'TEXTAREA') this.opts.textareamode = true;

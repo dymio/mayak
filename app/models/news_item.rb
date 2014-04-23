@@ -2,7 +2,7 @@ class NewsItem < ActiveRecord::Base
   attr_accessible :body, :lead, :title, :slug, :hided,
     :description, :keywords, :published_at
 
-  validates_presence_of :body, :title
+  validates_presence_of :body, :title, :published_at
   validates_uniqueness_of :slug
   before_save :default_values
 

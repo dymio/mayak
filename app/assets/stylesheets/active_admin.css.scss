@@ -27,9 +27,8 @@
   ul { list-style: disc; }
   ol { list-style: decimal; }
   ul > li, ol > li { padding: 0; } }
-.redactor_toolbar {
-  z-index: 0 !important;
-}
+
+.ui-datepicker {  z-index: 501 !important; }
 
 // CSS for IndexAsAncestryRootsBlock
 .page-line {

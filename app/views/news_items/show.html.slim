@@ -1,4 +1,4 @@
-.inner
+.holder.content
 	h2.news_title= @news_item.title
 	.created_at= I18n.l @news_item.published_at, format: "%d.%m.%y"
-	.news-content= @news_item.content.html_safe
+	.news-content= @news_item.body.html_safe
