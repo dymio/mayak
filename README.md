@@ -16,9 +16,15 @@ TODO list
 
 - try 'Thin'
 
+- rename default-site-title to site-name
+
 - add seotitle for content pages
 - new SEO lib for new html template
 - hide seo to serialized field maybe?
+
+- вынести всё общее для всех страниц (SEO, например) в отдельную модель и наследовать её
+
+- rework for https://github.com/dymio/codenohito_book/blob/master/checklists/website.md
 
 - add facebook app id to settings (?)
 

@@ -64,7 +64,7 @@ ActiveAdmin.register ContentPage do
         f.input :parent_id,
                 as: :select,
                 collection: content_pages_tree_ordered_collection(true, f.object, true),
-                include_blank: true,
+                include_blank: t('nope'),
                 input_html: { :class => 'chzn-select' }
       end
       f.input :behavior_type,

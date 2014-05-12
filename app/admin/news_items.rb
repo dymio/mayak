@@ -1,12 +1,12 @@
 # -*- encoding : utf-8 -*-
-ActiveAdmin.register NewsItem do     
+ActiveAdmin.register NewsItem do
   menu :priority => 3, :parent => 'Сайт'
 
-  index do                            
-    column :title                     
+  index do
+    column :title
     column :created_at
     default_actions
-  end                                                
+  end
 
   show do |news_item|
     attributes_table do
@@ -33,15 +33,15 @@ ActiveAdmin.register NewsItem do
     end
   end
 
-  form do |f|                         
-    f.inputs "" do       
+  form do |f|
+    f.inputs "" do
       f.input :title
       f.input :slug
       f.input :published_at, :as => :datepicker
       f.input :lead, input_html: { :class => 'editor' }
       f.input :body, input_html: { :class => 'editor' }
       f.input :hided
-    end                               
-    f.actions                         
-  end                                 
-end                                   
+    end
+    f.actions
+  end
+end
