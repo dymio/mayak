@@ -24,14 +24,7 @@ class NewsItem < ActiveRecord::Base
       self.lead ||= ""
     end
     
-    if self.slug.blank?
-      self.slug = Russian::transliterate(self.title).
-        downcase.
-        gsub(/[^a-z0-9]/, '-'). # change all incorrect symbols to '-'
-        gsub(/[-]{2,}/,'-').    # remove all several '-' in line
-        gsub(/^[-]+/,'').       # remove all '-' from start of string
-        gsub(/[-]+$/, '')       # remove all '-' from end of string
-    end
+    self.slug = SlugPreparatorRus.slug self.slug, self.title
   end
 
 end

@@ -52,7 +52,7 @@ class ContentPage < ActiveRecord::Base
   validates :rct_lnk,  presence: true, :if => Proc.new { |a| a.behavior_type == 3 }
   validates_with ContentPageValidator
 
-  before_validation :make_auto_slug
+  before_validation :prepare_slug
   before_destroy    :check_destroying_possibility
 
   scope :by_prior, order("content_pages.prior ASC, content_pages.id ASC")
@@ -144,15 +144,8 @@ class ContentPage < ActiveRecord::Base
 
   private
 
-  def make_auto_slug
-    if self.slug.blank? && !self.home?
-      self.slug = Russian::transliterate(self.title).
-        downcase.
-        gsub(/[^a-z0-9]/, '-'). # change all incorrect symbols to '-'
-        gsub(/[-]{2,}/,'-').    # remove all several '-' in line
-        gsub(/^[-]+/,'').       # remove all '-' from start of string
-        gsub(/[-]+$/, '')       # remove all '-' from end of string
-    end
+  def prepare_slug
+    self.slug = SlugPreparatorRus.slug self.slug, self.title unless self.home?
   end
 
   def check_destroying_possibility

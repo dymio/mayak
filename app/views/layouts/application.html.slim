@@ -3,6 +3,16 @@ html lang=I18n.locale
   head
     meta charset=Rails.application.config.encoding
 
+    // Base SEO
+    title = seo.title
+    meta name="description" content=seo.description
+    meta name="keywords" content=seo.keywords
+    // meta name="author" content="Ivan Dymkov"
+    meta name="copyright" content="(c) #{Date.today.year}"
+    // meta http-equiv="Reply-to" content="mstrdymio@gmail.com"
+
+    link rel="author" type="text/plain" href="#{root_path}humans.txt"
+
     // Hack for old IE browsers but gives wrong validation
     meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
     meta http-equiv="msthemecompatible" content="no"
@@ -14,16 +24,6 @@ html lang=I18n.locale
     // // also uncomment '@-ms-viewport { width: device-width; }' fom helpers.css if you want adaptive
 
     // meta name="asset_host" content=Rails.application.config.action_controller.asset_host
-
-    // Base SEO
-    title = seo.title
-    meta name="description" content=seo.description
-    meta name="keywords" content=seo.keywords
-    // meta name="author" content="Ivan Dymkov"
-    meta name="copyright" content="(c) #{Date.today.year}"
-    // meta http-equiv="Reply-to" content="mstrdymio@gmail.com"
-
-    link rel="author" type="text/plain" href="#{root_path}humans.txt"
 
     // RSS
     // link rel="alternate" type="application/rss+xml" title="Site title" href="http://feeds.feedburner.com/mayak"
