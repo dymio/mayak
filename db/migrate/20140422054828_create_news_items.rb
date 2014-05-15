@@ -6,8 +6,7 @@ class CreateNewsItems < ActiveRecord::Migration
       t.date    :published_at, null: false
       t.text    :lead
       t.text    :body
-      t.string  :description
-      t.string  :keywords
+      t.text    :seodata
       t.boolean :hided,        null: false, default: false
 
       t.timestamps

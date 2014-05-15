@@ -5,22 +5,10 @@ class CreateSiteSettings < ActiveRecord::Migration
     if direction == :up
       SiteSetting.create!([
         {
-          ident: "default_page_title",
-          name: "Заголовок сайта по умолчанию",
-          descr: "Отображается на главной странице и на всех страницах, после указанного заголовка этой страницы",
+          ident: "site_name",
+          name: "Название сайта",
+          descr: "Название сайта используется как заголовок сайта на главной странице и как часть заголовка на всех остальных",
           set_val: "Mayak Rails Website Template"
-        },
-        {
-          ident: "default_page_description",
-          name: "Описание сайта по умолчанию",
-          descr: "Содержание тэга description на главной странице и на всех страницах, где не указано иное",
-          set_val: "The page of Mayak Rails Website Template"
-        },
-        {
-          ident: "default_page_keywords",
-          name: "Ключевые слова сайта по умолчанию",
-          descr: "Содержание тэга keywords на главной странице и на всех страницах, где не указано иное",
-          set_val: "ruby, rails, mayak, html, website, template, html5, css3"
         }
       ])
     end

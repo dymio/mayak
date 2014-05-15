@@ -2,4 +2,7 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  yep: "Yes"
+  nope: "No"
+  defaults:
+    news_page_title: "News"

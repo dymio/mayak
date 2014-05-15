@@ -14,8 +14,7 @@ class CreateContentPages < ActiveRecord::Migration
       t.references :rct_page
       t.string  :rct_lnk
       t.text    :body
-      t.string  :description
-      t.string  :keywords
+      t.text    :seodata
       t.integer :prior,         null: false, default: 10
       t.boolean :hided,         null: false, default: false
 

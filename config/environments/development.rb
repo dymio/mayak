@@ -42,4 +42,7 @@ Mayak::Application.configure do
 
   # Slim markup language setting
   # Slim::Engine.set_default_options pretty: true, sort_attrs: false
+
+  # init Seo module to reload, not only restart
+  ActiveSupport::Dependencies.explicitly_unloadable_constants << 'Seo'
 end

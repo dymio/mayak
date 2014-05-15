@@ -39,10 +39,11 @@ class ContentPage < ActiveRecord::Base
   belongs_to :rct_page, class_name: "ContentPage"
 
   has_ancestry
+  acts_as_seo_carrier
 
   attr_accessible :title, :slug, :immortal, :parent, :parent_id,
                   :behavior_type, :rct_page, :rct_page_id, :rct_lnk,
-                  :body, :description, :keywords, :hided, :prior
+                  :body, :hided, :prior
 
   validates :slug, presence: true, :unless => Proc.new { |a| a.home? }
   validates :prior, numericality: { only_integer: true }
@@ -66,8 +67,10 @@ class ContentPage < ActiveRecord::Base
     end
 
     def behavior_type_variants
-      [['Страница', 0],['Редирект на первую дочернюю страницу', 1],
-       ['Редирект на произвольную страницу', 2], ['Редирект по указанной ссылке', 3]]
+      [ ['Страница', 0],
+        ['Редирект на первую дочернюю страницу', 1],
+        ['Редирект на произвольную страницу', 2],
+        ['Редирект по указанной ссылке', 3] ]
     end
 
     # Try to find the content page by page path

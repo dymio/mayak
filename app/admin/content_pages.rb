@@ -34,14 +34,24 @@ ActiveAdmin.register ContentPage do
         row :body do
           page.body.nil? ? '' : page.body.html_safe
         end
-        row :description do
-          (page.description.nil? || page.description == "") ? '<span style="color:#bbb">Используется значение по умолчанию, заданное в настройках</span>'.html_safe : page.description
-        end
-        row :keywords do
-          (page.keywords.nil? || page.keywords == "") ? '<span style="color:#bbb">Используется значение по умолчанию, заданное в настройках</span>'.html_safe : page.keywords
-        end
       end
     end
+
+    panel "SEO параметры" do
+      attributes_table_for page do
+        unless page.redirector?
+          row :seo_title do
+            page.seo_title.present? ? page.seo_title : '<small style="color:#999">для тега title используется заголовок страницы</small>'.html_safe
+          end
+          row :no_title_postfix do
+            page.no_title_postfix == '1' ? t('yep') : t('nope')
+          end
+        end
+        row :seo_descr
+        row :seo_keywords
+      end
+    end
+
     active_admin_comments
   end
 
@@ -80,8 +90,10 @@ ActiveAdmin.register ContentPage do
       f.input :hided
     end
     f.inputs "SEO параметры" do
-      f.input :description
-      f.input :keywords
+      f.input :seo_title, hint: "по умолчанию используется заголовок страницы"
+      f.input :no_title_postfix, as: :boolean
+      f.input :seo_descr, as: :text, input_html: { rows: 2 }
+      f.input :seo_keywords, as: :text, input_html: { rows: 2 }
     end
     f.actions
   end

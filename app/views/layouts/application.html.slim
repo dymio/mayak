@@ -5,8 +5,10 @@ html lang=I18n.locale
 
     // Base SEO
     title = seo.title
-    meta name="description" content=seo.description
-    meta name="keywords" content=seo.keywords
+    - if seo.description
+      meta name="description" content=seo.description
+    - if seo.keywords
+      meta name="keywords" content=seo.keywords
     // meta name="author" content="Ivan Dymkov"
     meta name="copyright" content="(c) #{Date.today.year}"
     // meta http-equiv="Reply-to" content="mstrdymio@gmail.com"
@@ -23,6 +25,7 @@ html lang=I18n.locale
     // meta name="MobileOptimized" content="320"
     // // also uncomment '@-ms-viewport { width: device-width; }' fom helpers.css if you want adaptive
 
+    // // Rails assets storage host
     // meta name="asset_host" content=Rails.application.config.action_controller.asset_host
 
     // RSS
@@ -32,23 +35,26 @@ html lang=I18n.locale
     meta property="og:type" content="website"
     meta property="og:url" content=request.original_url
     meta property="og:title" content=seo.title
-    meta property="og:description" content=seo.description
-    meta property="og:site_name" content=SiteSetting.value_of('default_page_title')
-    meta property="og:image" content="{root_path}ico/favicon310.png"
+    - if seo.description
+      meta property="og:description" content=seo.description
+    meta property="og:site_name" content=SiteSetting.value_of('site_name')
+    meta property="og:image" content=(seo.image || root_path + "ico/favicon310.png")
     // meta property="fb:app_id" content=SiteSetting.value_of('facebook_app_id')
 
     // Twitter Card
     meta name="twitter:card" content="summary"
     meta name="twitter:url" content=request.original_url
     meta name="twitter:title" content=seo.title
-    meta name="twitter:description" content=seo.description
-    meta name="twitter:image" content="{root_path}ico/favicon310.png"
+    - if seo.description
+      meta name="twitter:description" content=seo.description
+    meta name="twitter:image" content=(seo.image || root_path + "ico/favicon310.png")
     // meta name="twitter:site" content="@github"
     // meta name="twitter:creator" content="@dymio"
 
     // MSApplication
     meta name="application-name" content=seo.title
-    meta name="msapplication-tooltip" content=seo.description
+    - if seo.description
+      meta name="msapplication-tooltip" content=seo.description
     meta name="msapplication-starturl" content=request.original_url
 
     // FAVICONS AND TOUCH ICONS

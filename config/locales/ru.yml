@@ -1,6 +1,8 @@
 ru:
   yep: "Да"
   nope: "Нет"
+  defaults:
+    news_page_title: "Новости"
   activerecord:
     models:
       admin_user:
@@ -68,10 +70,12 @@ ru:
         rct_page_id: "Страница для редиректа"
         rct_lnk: "Ссылка для редиректа"
         body: "Содержание"
-        description: "SEO описание"
-        keywords: "SEO keywords"
         prior: "Порядок"
         hided: "Скрыт?"
+        no_title_postfix: "Убирать постфикс для title?"
+        seo_title: "Значение title"
+        seo_descr: "Meta description"
+        seo_keywords: "Meta keywords"
         created_at: "Создана"
         updated_at: "Обновлена"
       site_setting:
@@ -99,6 +103,8 @@ ru:
         created_at: "Создана"
         updated_at: "Обновлена"
         hided: "Скрыта?"
-        description: "SEO описание"
-        keywords: "SEO keywords"
+        no_title_postfix: "Убирать постфикс для title?"
+        seo_title: "Значение title"
+        seo_descr: "Meta description"
+        seo_keywords: "Meta keywords"
         published_at: "Опубликована"

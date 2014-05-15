@@ -46,7 +46,7 @@ TODO list
 
 - make other TODO's in the code
 
-- News
+- add example model and active_admin model
 - Slider
 
 

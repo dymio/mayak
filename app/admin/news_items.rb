@@ -19,6 +19,20 @@ ActiveAdmin.register NewsItem do
         news_item.body.html_safe
       end
     end
+
+    panel "SEO параметры" do
+      attributes_table_for news_item do
+        row :seo_title do
+          news_item.seo_title.present? ? news_item.seo_title : '<small style="color:#999">для тега title используется заголовок страницы</small>'.html_safe
+        end
+        row :no_title_postfix do
+          news_item.no_title_postfix == '1' ? t('yep') : t('nope')
+        end
+        row :seo_descr
+        row :seo_keywords
+      end
+    end
+
     active_admin_comments
   end
 
@@ -42,6 +56,14 @@ ActiveAdmin.register NewsItem do
       f.input :body, input_html: { :class => 'editor' }
       f.input :hided
     end
+
+    f.inputs "SEO параметры" do
+      f.input :seo_title, hint: "по умолчанию используется заголовок страницы"
+      f.input :no_title_postfix, as: :boolean
+      f.input :seo_descr, as: :text, input_html: { rows: 2 }
+      f.input :seo_keywords, as: :text, input_html: { rows: 2 }
+    end
+    
     f.actions
   end
 end

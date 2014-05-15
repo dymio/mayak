@@ -1,6 +1,7 @@
 class NewsItem < ActiveRecord::Base
-  attr_accessible :body, :lead, :title, :slug, :hided,
-    :description, :keywords, :published_at
+  acts_as_seo_carrier
+  
+  attr_accessible :body, :lead, :title, :slug, :hided, :published_at
 
   validates_presence_of :body, :title, :published_at
   validates_uniqueness_of :slug

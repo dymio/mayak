@@ -55,8 +55,7 @@ ActiveRecord::Schema.define(:version => 20140422054828) do
     t.integer  "rct_page_id"
     t.string   "rct_lnk"
     t.text     "body"
-    t.string   "description"
-    t.string   "keywords"
+    t.text     "seodata"
     t.integer  "prior",         :default => 10,    :null => false
     t.boolean  "hided",         :default => false, :null => false
     t.datetime "created_at",                       :null => false
@@ -89,8 +88,7 @@ ActiveRecord::Schema.define(:version => 20140422054828) do
     t.date     "published_at",                    :null => false
     t.text     "lead"
     t.text     "body"
-    t.string   "description"
-    t.string   "keywords"
+    t.text     "seodata"
     t.boolean  "hided",        :default => false, :null => false
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
