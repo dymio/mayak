@@ -51,8 +51,7 @@ Mayak::Application.routes.draw do
 
 
   # news
-  get 'news' => 'news_items#index'
-  get 'news/:slug' => 'news_items#show'
+  resources :news, only: [:index, :show]
 
   # content pages
   get '*page_path' => 'content_pages#show'

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class NewsItemTest < ActiveSupport::TestCase
+class NewsTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

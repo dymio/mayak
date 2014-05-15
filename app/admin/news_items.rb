@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-ActiveAdmin.register NewsItem do
+ActiveAdmin.register News do
   menu :priority => 3, :parent => 'Сайт'
 
   index do
@@ -8,25 +8,25 @@ ActiveAdmin.register NewsItem do
     default_actions
   end
 
-  show do |news_item|
+  show do |news|
     attributes_table do
       row :title
       row :slug
       row :lead do
-        news_item.lead.html_safe
+        news.lead.html_safe
       end
       row :body do
-        news_item.body.html_safe
+        news.body.html_safe
       end
     end
 
     panel "SEO параметры" do
-      attributes_table_for news_item do
+      attributes_table_for news do
         row :seo_title do
-          news_item.seo_title.present? ? news_item.seo_title : '<small style="color:#999">для тега title используется заголовок страницы</small>'.html_safe
+          news.seo_title.present? ? news.seo_title : '<small style="color:#999">для тега title используется заголовок страницы</small>'.html_safe
         end
         row :no_title_postfix do
-          news_item.no_title_postfix == '1' ? t('yep') : t('nope')
+          news.no_title_postfix == '1' ? t('yep') : t('nope')
         end
         row :seo_descr
         row :seo_keywords

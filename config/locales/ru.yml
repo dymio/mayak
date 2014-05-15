@@ -35,7 +35,7 @@ ru:
         few:    "Пункта главного меню"
         many:   "Пунктов главного меню"
         other:  "Главное меню"
-      news_item:
+      news:
         one:    "Новость"
         few:    "Новости"
         many:   "Новостей"
@@ -95,7 +95,7 @@ ru:
         hided: "Скрыт?"
         created_at: "Создан"
         updated_at: "Обновлён"
-      news_item:
+      news:
         title: "Заголовок"
         slug: "SLUG"
         lead: "Краткий текст"

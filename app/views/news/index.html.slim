@@ -1,0 +1,12 @@
+.holder.content
+  - if @news.count > 0
+    ul.news-list
+    - @news.each do |news|
+      li.news-item
+        .title= "#{news.title}"
+        .published_at= I18n.l news.published_at, format: "%d.%m.%y"
+        .lead= news.lead.html_safe
+        = link_to "Читать дальше", news_path(news.slug)
+    = paginate @news
+  - else
+    Nope.

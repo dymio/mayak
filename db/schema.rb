@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(:version => 20140422054828) do
   add_index "main_nav_items", ["prior"], :name => "index_main_nav_items_on_prior"
   add_index "main_nav_items", ["url_page_id"], :name => "index_main_nav_items_on_url_page_id"
 
-  create_table "news_items", :force => true do |t|
+  create_table "news", :force => true do |t|
     t.string   "title"
     t.string   "slug",                            :null => false
     t.date     "published_at",                    :null => false
@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(:version => 20140422054828) do
     t.datetime "updated_at",                      :null => false
   end
 
-  add_index "news_items", ["published_at"], :name => "index_news_items_on_published_at"
-  add_index "news_items", ["slug"], :name => "index_news_items_on_slug", :unique => true
+  add_index "news", ["published_at"], :name => "index_news_on_published_at"
+  add_index "news", ["slug"], :name => "index_news_on_slug", :unique => true
 
   create_table "site_settings", :force => true do |t|
     t.string   "ident",                         :null => false
