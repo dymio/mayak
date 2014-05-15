@@ -3,7 +3,9 @@ class NewsController < FrontendController
   def index
     @seo_carrier ||= OpenStruct.new(title: I18n.t('defaults.news_page_title'))
     @news = News.visibles.ordered.page params[:page]
-    # render formats: [:html]
+    respond_to do |format|
+      format.html
+    end
   end
 
   def show
