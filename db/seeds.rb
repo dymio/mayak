@@ -35,6 +35,12 @@ content_pages_top_lvl = ContentPage.create([
 EOS
   },
   {
+    title: "News",
+    slug: "news",
+    immortal: true,
+    prior: 4
+  },
+  {
     title: "History",
     slug: "history",
     prior: 2,
@@ -61,15 +67,7 @@ EOS
 <p><a href="http://www.tumblr.com/tagged/russian-animation" target="_blank">Materials</a> about Rissian animation in Tumblr.</p>
 <p><a href="http://www.youtube.com/user/Soyuzmult" target="_blank">Youtube channel</a> with a lot of Russian animation (no subtitles).</p>
 EOS
-  },
-#   {
-#     title: "News",
-#     slug: "news",
-#     prior: 4,
-#     body: <<-EOS
-# <h1>News</h1>
-# EOS
-#   }
+  }
 ])
 
 content_pages_lvl_two = ContentPage.create([
