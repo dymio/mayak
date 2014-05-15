@@ -37,22 +37,24 @@ ActiveAdmin.register ContentPage do
       end
     end
 
-    panel "SEO параметры" do
-      attributes_table_for page do
-        unless page.redirector?
-          row :seo_title do
-            page.seo_title.present? ? page.seo_title : '<small style="color:#999">для тега title используется заголовок страницы</small>'.html_safe
+    unless page.redirector?
+      panel "SEO параметры" do
+        attributes_table_for page do
+          unless page.home?
+            row :seo_title do
+              page.seo_title.present? ? page.seo_title : '<small style="color:#999">для тега title используется заголовок страницы</small>'.html_safe
+            end
+            row :no_title_postfix do
+              page.no_title_postfix == '1' ? t('yep') : t('nope')
+            end
           end
-          row :no_title_postfix do
-            page.no_title_postfix == '1' ? t('yep') : t('nope')
-          end
+          row :seo_descr
+          row :seo_keywords
         end
-        row :seo_descr
-        row :seo_keywords
       end
-    end
 
-    active_admin_comments
+      active_admin_comments
+    end
   end
 
   sidebar 'Дополнительные данные', only: :show do
