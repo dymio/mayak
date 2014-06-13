@@ -6,3 +6,7 @@ en:
   nope: "No"
   defaults:
     news_page_title: "News"
+  seo:
+    seo_parameters: "SEO parameters"
+    empty_seo_title_info: "title tag uses the Title"
+    seo_title_hint: "using the Title by default"

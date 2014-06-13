@@ -3,6 +3,10 @@ ru:
   nope: "Нет"
   defaults:
     news_page_title: "Новости"
+  seo:
+    seo_parameters: "SEO параметры"
+    empty_seo_title_info: "в теге title будет использован Заголовок"
+    seo_title_hint: "по умолчанию используется заголовок страницы"
   activerecord:
     models:
       admin_user:

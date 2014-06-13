@@ -37,24 +37,11 @@ ActiveAdmin.register ContentPage do
       end
     end
 
-    unless page.redirector?
-      panel "SEO параметры" do
-        attributes_table_for page do
-          unless page.home?
-            row :seo_title do
-              page.seo_title.present? ? page.seo_title : '<small style="color:#999">для тега title используется заголовок страницы</small>'.html_safe
-            end
-            row :no_title_postfix do
-              page.no_title_postfix == '1' ? t('yep') : t('nope')
-            end
-          end
-          row :seo_descr
-          row :seo_keywords
-        end
-      end
+    seo_panel_for page, {
+      hide_seo_title: page.home?,
+      hide_no_title_postfix: page.home? } unless page.redirector?
 
-      active_admin_comments
-    end
+    active_admin_comments
   end
 
   sidebar 'Дополнительные данные', only: :show do
@@ -91,12 +78,11 @@ ActiveAdmin.register ContentPage do
       f.input :prior, hint: "Меньше значение => Раньше в списке"
       f.input :hided
     end
-    f.inputs "SEO параметры" do
-      f.input :seo_title, hint: "по умолчанию используется заголовок страницы"
-      f.input :no_title_postfix, as: :boolean
-      f.input :seo_descr, as: :text, input_html: { rows: 2 }
-      f.input :seo_keywords, as: :text, input_html: { rows: 2 }
-    end
+
+    Seo::FormtasticSeoFieldset::build f, {
+      hide_seo_title: f.object.home?,
+      hide_no_title_postfix: f.object.home? }
+
     f.actions
   end
 

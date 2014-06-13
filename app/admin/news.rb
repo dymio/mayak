@@ -20,18 +20,7 @@ ActiveAdmin.register News do
       end
     end
 
-    panel "SEO параметры" do
-      attributes_table_for news do
-        row :seo_title do
-          news.seo_title.present? ? news.seo_title : '<small style="color:#999">для тега title используется заголовок страницы</small>'.html_safe
-        end
-        row :no_title_postfix do
-          news.no_title_postfix == '1' ? t('yep') : t('nope')
-        end
-        row :seo_descr
-        row :seo_keywords
-      end
-    end
+    seo_panel_for news
 
     active_admin_comments
   end
@@ -57,12 +46,7 @@ ActiveAdmin.register News do
       f.input :hided
     end
 
-    f.inputs "SEO параметры" do
-      f.input :seo_title, hint: "по умолчанию используется заголовок страницы"
-      f.input :no_title_postfix, as: :boolean
-      f.input :seo_descr, as: :text, input_html: { rows: 2 }
-      f.input :seo_keywords, as: :text, input_html: { rows: 2 }
-    end
+    Seo::FormtasticSeoFieldset::build f
     
     f.actions
   end

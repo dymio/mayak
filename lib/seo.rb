@@ -54,9 +54,11 @@ module Seo
     # twitter:title
     # twitter:description
     # twitter:image
-
   end
 
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # Module for including in ActiveRecord model with acts_as_seo_carrier
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   module Carrier
     def self.included(base)
       base.store :seodata, accessors: [ :no_title_postfix,
@@ -70,10 +72,78 @@ module Seo
                            :seo_keywords
     end
   end
+
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # Formtastic inputs for seo_carrier object (for Active Admin)
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  module FormtasticSeoFieldset
+
+    # params:
+    #   f is Formtastic object with object of model which acts_as_seo_carrier
+    #   attributes: hash
+    #     hide_seo_title - boolean - true if you need to remove seo_title input
+    #     hide_no_title_postfix - boolean - same for no_title_postfix input
+    def self.build(f, attributes = {})
+      f.inputs I18n.t('seo.seo_parameters') do
+        unless attributes[:hide_seo_title]
+          f.input :seo_title, hint: I18n.t('seo.seo_title_hint')
+        end
+        unless attributes[:hide_no_title_postfix]
+          f.input :no_title_postfix, as: :boolean
+        end
+        f.input :seo_descr, as: :text, input_html: { rows: 2 }
+        f.input :seo_keywords, as: :text, input_html: { rows: 2 }
+      end
+    end
+
+  end
+
 end
 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# ActiveRecord model function for including Seo::Carrier module
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 class << ActiveRecord::Base
   def acts_as_seo_carrier
     include Seo::Carrier
+  end
+end
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# ActiveAdmin component for show page, showing seo parameters
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+module ActiveAdmin
+  module Views
+
+    class SeoPanel < Panel
+      builder_method :seo_panel_for
+
+      # params:
+      #   seo_carrier is object of model which acts_as_seo_carrier
+      #   attributes: hash
+      #     hide_seo_title - boolean - true if you need to remove seo_title row
+      #     hide_no_title_postfix - boolean - same for no_title_postfix row
+      def build(seo_carrier, attributes = {})
+        super t('seo.seo_parameters'), {}
+        
+        attributes_table_for seo_carrier do
+          unless attributes[:hide_seo_title]
+            row :seo_title do
+              seo_carrier.seo_title.present? ? seo_carrier.seo_title :  "<small style=\"color:#999\">#{t('seo.empty_seo_title_info')}</small>".html_safe
+            end
+          end
+          unless attributes[:hide_no_title_postfix]
+            row :no_title_postfix do
+              seo_carrier.no_title_postfix == '1' ? t('yep') : t('nope')
+            end
+          end
+          row :seo_descr
+          row :seo_keywords
+        end
+
+      end
+
+    end
+
   end
 end

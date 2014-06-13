@@ -77,9 +77,14 @@ end
 gem 'jquery-rails', '~>2.3'
 
 group :development do
+  # When mail is sent from your application, Letter Opener will open a preview
   gem 'letter_opener', '~>1.2'
+  
   # Fix some bugs on Linux of Rails work (make rails console works as example)
   # gem 'rb-readline'
+
+  # Quiet assets turn off rails assets log
+  gem 'quiet_assets'
 end
 
 # Deploy with Capistrano
