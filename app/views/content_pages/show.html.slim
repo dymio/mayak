@@ -2,7 +2,7 @@
 - if have_sidenav
   .breadcrumbs.holder
     = render_breadcrumbs separator: ' / '
-section.holder.clearfix class="#{have_sidenav ? 'with-sidenav' : 'without-sidenav'}"
+section.holder.clearfix class=class_string(['with-sidenav', 'without-sidenav'] => have_sidenav)
   - if have_sidenav
     aside
       nav.sidenav

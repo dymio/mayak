@@ -14,8 +14,6 @@ Mayak - is simple Rails application made for fast start of a common web-project.
 TODO list
 ---------
 
-- try 'Thin'
-
 - comment most of favicons (and in html-css-template too)(and correct codenohito book)
 
 - add facebook app id to settings (?)

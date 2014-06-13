@@ -114,8 +114,7 @@ html lang=I18n.locale
         nav.main-nav
           ul
             - @main_nav_items.each do |mni|
-              - item_css_class = (mni == @active_main_nav_item) ? "active" : ""
-              li class="#{item_css_class}" = link_to mni.title, mni.url
+              li class=class_string(active: (mni == @active_main_nav_item)) = link_to mni.title, mni.url
 
       = yield
       .dilator

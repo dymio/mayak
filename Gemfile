@@ -6,6 +6,9 @@ gem 'rails', '3.2.17'
 # Pg is the Ruby interface to the PostgreSQL RDBMS
 gem 'pg', '~> 0.17.0'
 
+# A thin and fast web server
+gem 'thin', '~> 1.6.2'
+
 # Template language, replacing html/erb
 gem 'slim', '~> 2.0.2' # 1.3.9
 
@@ -42,6 +45,12 @@ gem 'ancestry', '~> 2.1.0'
 # Flexible authentication solution for Rails with Warden
 # gem 'devise', '~> 3.2.4'
 
+# Helper for building html class attribute
+gem 'css-class-string'
+
+# Email validator
+# gem 'email_validator'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -49,7 +58,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.2'
 
   # Parse css (sass too) and vendor prefixes to css rules
-  gem 'autoprefixer-rails', '~> 1.1'
+  gem 'autoprefixer-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
