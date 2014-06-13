@@ -39,6 +39,12 @@ gem 'breadcrumbs_on_rails', '~> 2.3.0'
 # Organise ActiveRecord model into a tree structure
 gem 'ancestry', '~> 2.1.0'
 
+# XML Sitemap generator
+gem 'sitemap_generator', '~> 5.0.4'
+
+# Clean ruby syntax for writing and deploying cron jobs
+# gem 'whenever', '~> 0.9.2'
+
 # Forms builder
 # gem 'simple_form', '~> 3.0.2'
 

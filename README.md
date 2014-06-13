@@ -107,6 +107,8 @@ In the file `config/initializers/active_admin.rb` replace `config.site_title` wi
 
 In the file `config/initializers/devise.rb` replace value of `config.mailer_sender`.
 
+Change `default-host` setting in the file `config/sitemap.rb` (and do not forget about sitemap during development).
+
 You also need create file `config/database.yml` for database connection. I made file `config/database-example.yml` for example.
 
 In the first migration file (`db/migrate/20140401000000_devise_create_admin_users.rb`) you can change email and password of admin user. By default it admin@mayak.com with password 'master'.
