@@ -25,8 +25,6 @@ TODO list
 
 - группы для настроек сайта
 
-- взять SiteMap из grandzagran
-
 - оптимизировать картинки для demo (задать им верные размеры)
 - указать источник информации на страницах
 - diverse style file for default styles and styles for demo
