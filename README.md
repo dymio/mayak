@@ -16,7 +16,11 @@ TODO list
 
 - try 'Thin'
 
+- comment most of favicons (and in html-css-template too)(and correct codenohito book)
+
 - add facebook app id to settings (?)
+
+- add bodyend_codes to settings
 
 - приделать иконки файлов (основные: изображения, документы, видео и т.п.)
 - переделать статичные файлы в систему обычной загрузки в папку, без хранения в БД
@@ -99,7 +103,7 @@ Replace all includes of string 'Mayak' in project with name of your project. Fil
   - config/initializers/secret_token.rb
   - config/initializers/session_store.rb
 
-Next you need to replace secret key in file `config/initializers/secret_token.rb`. You can use [some generators](http://www.andrewscompanies.com/tools/wep.asp) for it. In the file `config/initializers/session_store.rb` replace session key `_mayak_session` with your project prefix.
+Next you need to replace secret key in file `config/initializers/secret_token.rb`. You can use `bundle exec rake secret` or [some generators](http://www.andrewscompanies.com/tools/wep.asp) for generate it. In the file `config/initializers/session_store.rb` replace session key `_mayak_session` with your project prefix.
 
 In the file `config/initializers/active_admin.rb` replace `config.site_title` with your site title.
 
