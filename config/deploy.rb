@@ -46,7 +46,7 @@ end
 
 # after "deploy", "refresh_sitemap"
 # task :refresh_sitemap do
-#   run "cd #{release_path} && RAILS_ENV=#{rails_env} bundle exec rake sitemap:refresh"
+#   run "cd #{release_path} && RAILS_ENV=#{rails_env} bundle exec rake sitemap:refresh:no_ping"
 # end
 
 # If you are using Passenger mod_rails uncomment this:

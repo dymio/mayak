@@ -38,7 +38,7 @@ html lang=I18n.locale
     - if seo.description
       meta property="og:description" content=seo.description
     meta property="og:site_name" content=SiteSetting.value_of('site_name')
-    meta property="og:image" content=(seo.image ||  "#{root_path}ico/favicon310.png")
+    meta property="og:image" content=(seo.image ||  "#{root_path}ico/favicon152.png")
     // meta property="fb:app_id" content=SiteSetting.value_of('facebook_app_id')
 
     // Twitter Card
@@ -47,7 +47,7 @@ html lang=I18n.locale
     meta name="twitter:title" content=seo.title
     - if seo.description
       meta name="twitter:description" content=seo.description
-    meta name="twitter:image" content=(seo.image || "#{root_path}ico/favicon310.png")
+    meta name="twitter:image" content=(seo.image || "#{root_path}ico/favicon152.png")
     // meta name="twitter:site" content="@github"
     // meta name="twitter:creator" content="@dymio"
 
@@ -63,7 +63,7 @@ html lang=I18n.locale
       link rel="shortcut icon" href="#{root_path}favicon.ico"
 
     // Apple Touch Icons
-    link rel="apple-touch-icon" href="path/to/favicon-152.png"
+    link rel="apple-touch-icon" href="#{root_path}ico/favicon152.png"
     // if you want to remove gloss use 'apple-touch-icon-precomposed' instead 'apple-touch-icon'
 
     // // or you can use full stack if you need it

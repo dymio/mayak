@@ -39,6 +39,14 @@ TODO list
 - add example model and active_admin model files
 - Slider
 
+- Ruby racer to production in Gemfile
+
+- Thin in development in Gemfile
+
+- Try to use Nested Set instead Ancestry
+
+- Store default SiteSettings in yaml and add they to db when load automatically
+
 
 Demo
 ----

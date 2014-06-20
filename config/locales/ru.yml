@@ -10,10 +10,10 @@ ru:
   activerecord:
     models:
       admin_user:
-        one:   "Оператор"
-        few:   "Оператора"
-        many:  "Операторов"
-        other: "Операторы"
+        one:   "Оператор" # 1
+        few:   "Оператора" # 2
+        many:  "Операторов" # 5
+        other: "Операторы" # all
       comment:
         one:   "Админ-коммент"
         few:   "Админ-коммента"
