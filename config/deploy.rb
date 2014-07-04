@@ -8,6 +8,10 @@ ENV['LC_ALL']=  'ru_RU.UTF-8'
 require 'bundler/capistrano'
 require 'capistrano_colors'
 
+## Uncomment this if you use whenever gem and have config/schedule.rb file
+# set :whenever_command, "bundle exec whenever"
+# require "whenever/capistrano"
+
 set :application,       'mayak'
 
 set :ip_address,        '195.208.47.203'
@@ -44,6 +48,7 @@ after 'deploy:update_code', :roles => [:web, :db, :app] do
   run "touch #{release_path}/tmp/restart.txt"
 end
 
+## Uncomment this if you use sitemap_generator gem
 # after "deploy", "refresh_sitemap"
 # task :refresh_sitemap do
 #   run "cd #{release_path} && RAILS_ENV=#{rails_env} bundle exec rake sitemap:refresh:no_ping"
