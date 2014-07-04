@@ -4,7 +4,7 @@ class StaticFile < ActiveRecord::Base
 
   attr_accessible :file
 
-  validate :file, :presence
+  validates :file, presence: true
 
   # For ActiveAdmin interface
   def name
