@@ -1,4 +1,4 @@
 .holder.content
 	h1 = @news.title
-	.publised_at: b = I18n.l @news.published_at, format: "%d.%m.%y"
+	.published_at: b = I18n.l @news.published_at, format: "%d.%m.%y"
 	== @news.body

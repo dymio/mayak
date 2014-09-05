@@ -22,17 +22,20 @@
 #
 #! User-agent: Yandex
 #! Disallow: /assets/
+#! Disallow: /humans.txt
 #! Disallow: /*.xls$
 #! Allow: /
 #! Host: example.com
 #! 
 #! User-agent: Googlebot
 #! Disallow: /assets/
+#! Disallow: /humans.txt
 #! Disallow: /*.xls$
 #! Allow: /
 #! 
 #! User-agent: *
 #! Disallow: /assets/
+#! Disallow: /humans.txt
 #! Disallow: /temp/privatedata.xls
 #! Disallow:
 #! 

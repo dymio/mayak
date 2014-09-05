@@ -20,6 +20,8 @@ TODO list
 
 - add bodyend_codes to settings
 
+- логирование изменений материалов пользователями
+
 - приделать иконки файлов (основные: изображения, документы, видео и т.п.)
 - переделать статичные файлы в систему обычной загрузки в папку, без хранения в БД
 
@@ -46,6 +48,10 @@ TODO list
 - Try to use Nested Set instead Ancestry
 
 - Store default SiteSettings in yaml and add they to db when load automatically
+
+- сохранить три вида оформления ссылок в комментариях файла basis.css
+
+- переименовать "Контентные страницы" в "Страницы", из за immortal функции
 
 
 Demo
