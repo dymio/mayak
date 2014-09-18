@@ -16,42 +16,9 @@
 //
 //   .status_tag { background: #6090DB; }
 
-.image-guard {
-  position: relative;
-  img { max-width: 100%; }
-}
 
-// Redactor fixes
-.redactor_box { display: inline-block; width: 78%; }
-.redactor_editor {
-  ul { list-style: disc; }
-  ol { list-style: decimal; }
-  ul > li, ol > li { padding: 0; } }
-
-.ui-datepicker {  z-index: 501 !important; }
-
-// CSS for IndexAsAncestryRootsBlock
-.page-line {
-  margin-bottom: 6px !important;
-  line-height: 26px;
-
-  .inner { overflow: hidden; padding: 2px 8px; height: 26px; background: #eee; }
-  .children { padding-top: 6px; }
-  .controls { float: right; margin-left: 12px; }
-  .prior { float: right; margin-left: 12px; font-weight: bold; }
-  .behavior-type {
-    float: left;
-    margin-right: 12px;
-    width: 26px;
-    height: 26px;
-    background: url('admin/content_page_types.png') no-repeat left top;
-    &.redirect { background-position: left -26px; }
-  }
-  .base a {
-    color: #000 !important;
-    text-decoration: none !important;
-    &.title { font-size: 16px; }
-    &:hover { text-decoration: underline !important; }
-  }
-}
-
+// TODO make analogue of [lower] but without class
+// .image-guard {
+//   position: relative;
+//   img { max-width: 100%; }
+// }

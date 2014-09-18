@@ -1,24 +1,127 @@
 Mayak Rails Website Template
 ============================
 
-Mayak - is simple Rails application made for fast start of a common web-project. I call it 'site template' because rails [application templates](http://guides.rubyonrails.org/rails_application_templates.html) already exists. Website template gives you major parts of (almost) any website:
+Mayak - is simple Rails application made for fast start of a common web-project. I call it 'site template' because rails [application templates](http://guides.rubyonrails.org/rails_application_templates.html) already exists. Website template gives you major components of (almost) any website:
 
-- admin panel;
-- content pages;
-- navigation items;
-- settings;
-- static files upload;
-- news;
+Attention! Right now application is broken. Please use [previous stable version](https://github.com/dymio/mayak/tree/version_zero_dot_six).
+
+* admin panel;
+* pages managment;
+* navigation items;
+* settings;
+* static files upload;
+* news;
+
+TODO update this list (by SEO at least)
+
+
+Software and coventions
+-----------------------
+
+Template based on Ruby 2.1.2 and use many brilliant ruby gems (check all list and versions in Gemfile):
+
+* Ruby on Rails;
+* ActiveAdmin for admin panel;
+* Kaminari for pagination;
+
+TODO upgrade this list
+
+Also we use:
+
+* [normalize.css](http://necolas.github.io/normalize.css/)
+* [Redactor](http://imperavi.com/redactor/)
+* [Chosen](http://harvesthq.github.io/chosen/)
+* [Dymio's HTML CSS template](https://github.com/dymio/html-css-template)
+
+TODO update list (maybe remove popapilus with colorbox)
+
+And we threat with respect of [humans.txt](http://humanstxt.org/) idea.
+
+
+Installation
+------------
+
+Clone code of this project.
+
+Make sure that you have Ruby version, writed in `.ruby-version` file.
+
+If you use RVM, add [.ruby-gemset file](http://stackoverflow.com/questions/15708916/use-rvmrc-or-ruby-version-file-to-set-a-project-gemset-with-rvm) to the root of application.
+
+Replace module name in `config/application.rb` file from 'Mayak' to your project name.
+
+Set your timezone and default_locale in `config/application.rb` file.
+
+In the file `config/initializers/session_store.rb` replace session key `_mayak_session` with your project key.
+
+Replace all secret keys in file `config/secrets.rb`. You can use `bundle exec rake secret` or [some generators](http://www.andrewscompanies.com/tools/wep.asp) for generate it. You can use `secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>` for production if you need to hide production key from repo, but do not forget setup this ENV variable on server.
+
+Create file `config/database.yml` for database connection. There is `config/database_example.yml` for example.
+
+Check file `config/autoprefixer.yml` and set [settings](github.com/postcss/autoprefixer#browsers) you need.
+
+Setting up the mailer in `config/environments/production.rb` file, if you need to sending emails from site.
+
+Replace or remove LICENSE.txt file.
+
+In the file `config/initializers/devise.rb` replace value of `config.mailer_sender`.
+
+In the first migration file (`db/migrate/[TODO]devise_create_admin_users.rb`) you can change email and password of admin user. By default it admin@example.com with password 'password'.
+
+In the file `config/initializers/active_admin.rb` replace `config.site_title` with title of your site.
+
+Change `default-host` setting in the file `config/sitemap.rb` (and do not forget about sitemap during development).
+
+TODO : In the migration file of site settings (`db/migrate/20140405000000_create_site_settings.rb`) you can change default settings values and add new settings.
+
+When done, run:
+
+  - `bundle install`
+  - `bundle exec rake db:create db:migrate`
+
+Demo data you can install wit command:
+
+  - `bundle exec rake db:seed`
+
+Your app ready for use, you can launch webserver with command `bundle exec rails server` and see home page at [localhost:3000](http://localhost:3000/) url.
+
+And, when you finish installation, pleace replace this file content with description of your project.
+
+Do not forget change `public/favicon.ico` and all icons in directory `public/ico/`, fill `public/humans.txt` with correct data and uncomment correct lines in `public/robots.txt` before publish.
+
+
+License
+-------
+Mayak Rails Website Template is released under the [MIT License](LICENSE.txt).
+
+
+Contributing
+------------
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
+
+Feel free to use code of the project as you want, [create issues](https://github.com/dymio/mayak/issues) or make a pull requests.
+
+
 
 
 TODO list
 ---------
+
+- change immortal to fixed
+
+- rename ContentPage to Page and SiteSetting to Setting (check naming conflicts)
 
 - comment most of favicons (and in html-css-template too)(and correct codenohito book)
 
 - add facebook app id to settings (?)
 
 - add bodyend_codes to settings
+
+- Contacts page with feedback
 
 - логирование изменений материалов пользователями
 
@@ -38,104 +141,47 @@ TODO list
 
 - make other TODO's in the code
 
-- add example model and active_admin model files
 - Slider
-
-- Ruby racer to production in Gemfile
-
-- Thin in development in Gemfile
 
 - Try to use Nested Set instead Ancestry
 
 - Store default SiteSettings in yaml and add they to db when load automatically
 
-- сохранить три вида оформления ссылок в комментариях файла basis.css
-
 - переименовать "Контентные страницы" в "Страницы", из за immortal функции
 
+- ссылку на файл добавить из боковой колонки на основную часть в view static_files
 
-Demo
-----
-As demo we made website of russian animation.
-История русской анимации ( Инфа из http://en.wikipedia.org/wiki/History_of_Russian_animation )
-  Разбивка по периодам
-    подразделы об отдельных мультфильмах, желательно с youtube видео
-Ресурсы
-  http://www.pinterest.com/hashinotamoto/russian-animation/
-  http://www.hoodedutilitarian.com/2013/08/russian-animation/
-  http://editthis.info/animatsiya/List_of_Russian_animation_subtitled_in_English
-  http://animationstories.wordpress.com/
-  https://www.facebook.com/russiananimationpage
-  http://en.wikipedia.org/wiki/Masters_of_Russian_Animation
-  http://www.tumblr.com/tagged/russian-animation
-  http://www.youtube.com/user/Soyuzmult
-Новости
-  http://www.kinopoisk.ru/top/navigator/m_act%5Bcountry%5D/2,2/m_act%5Bnum_vote%5D/100/m_act%5Brating%5D/1:/m_act%5Bcountry_and%5D/on/m_act%5Brestriction%5D/0+/m_act%5Bis_mult%5D/on/order/premiere_ru/#results
-Контакты
+- add [cancan to activeadmin](https://github.com/activeadmin/activeadmin/blob/master/docs/13-authorization-adapter.md) by default
 
 
-Used software
--------------
-Many brilliant ruby gems (check versions in Gemfile):
 
-- Ruby on Rails;
-- ActiveAdmin for admin panel;
-- Kaminari for pagination;
-- etc.;
+  deleted:    Capfile
+  deleted:    config/deploy.rb
 
-Also we use:
+  deleted:    db/migrate/20140403000000_create_static_files.rb
+  deleted:    db/migrate/20140404000000_create_content_pages.rb
+  deleted:    db/migrate/20140405000000_create_site_settings.rb
+  deleted:    db/migrate/20140406000000_create_main_nav_items.rb
+  deleted:    db/migrate/20140422054828_create_news.rb
 
-- [normalize.css](http://necolas.github.io/normalize.css/) v2.1.3
-- [Redactor](http://imperavi.com/redactor/) v9.1.4
-- [Chosen](http://harvesthq.github.io/chosen/) v1.0.0
-- [Dymio's HTML CSS template](https://github.com/dymio/html-css-template) v0.9
-- [Popapilus jQuery plugin](https://github.com/dymio/popapilus) v 0.9
+  deleted:    app/admin/content_pages.rb
+  deleted:    app/assets/images/admin/content_page_types.png
+  deleted:    app/controllers/content_pages_controller.rb
+  deleted:    app/helpers/content_pages_helper.rb
+  deleted:    app/models/active_admin/views/index_as_ancestry_roots_block.rb
+  deleted:    app/models/content_page.rb
+  deleted:    app/views/admin/content_pages/_index_line.html.slim
+  deleted:    app/views/content_pages/_sidenav_level.html.slim
+  deleted:    app/views/content_pages/show.html.slim
 
+  deleted:    app/admin/main_mav_items.rb
+  deleted:    app/models/main_nav_item.rb
 
-Installation
-------------
-Clone code of this project.
+  deleted:    app/admin/site_settings.rb
+  deleted:    app/models/site_setting.rb
 
-Make sure that you have Ruby version, writed in `.ruby-version` file.
+  deleted:    app/admin/static_files.rb
+  deleted:    app/models/static_file.rb
+  deleted:    app/uploaders/static_file_uploader.rb
 
-If you use RVM add .ruby-gemset file ([read about it](http://stackoverflow.com/questions/15708916/use-rvmrc-or-ruby-version-file-to-set-a-project-gemset-with-rvm)).
-
-Replace all includes of string 'Mayak' in project with name of your project. Files wit this string in:
-
-  - config.ru
-  - Rakefile
-  - config/application.rb
-  - config/environment.rb
-  - config/routes.rb
-  - config/environments/development.rb
-  - config/environments/production.rb
-  - config/environments/test.rb
-  - config/initializers/secret_token.rb
-  - config/initializers/session_store.rb
-
-Next you need to replace secret key in file `config/initializers/secret_token.rb`. You can use `bundle exec rake secret` or [some generators](http://www.andrewscompanies.com/tools/wep.asp) for generate it. In the file `config/initializers/session_store.rb` replace session key `_mayak_session` with your project prefix.
-
-In the file `config/initializers/active_admin.rb` replace `config.site_title` with your site title.
-
-In the file `config/initializers/devise.rb` replace value of `config.mailer_sender`.
-
-Change `default-host` setting in the file `config/sitemap.rb` (and do not forget about sitemap during development).
-
-You also need create file `config/database.yml` for database connection. I made file `config/database-example.yml` for example.
-
-In the first migration file (`db/migrate/20140401000000_devise_create_admin_users.rb`) you can change email and password of admin user. By default it admin@mayak.com with password 'master'.
-
-In the migration file of site settings (`db/migrate/20140405000000_create_site_settings.rb`) you can change default settings values and add new settings.
-
-Right now you can remove components you do not need...
-
-When done, run:
-
-  - `bundle install`
-  - `bundle exec rake db:create db:migrate`
-
-Demo data you can install wit command:
-
-  - `bundle exec rake db:seed`
-
-And when you finish installation pleace replace this file content with description of your project.
+  modified:   config/locales/ru.yml

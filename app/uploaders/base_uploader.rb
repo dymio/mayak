@@ -1,14 +1,8 @@
-# -*- encoding : utf-8 -*-
 class BaseUploader < CarrierWave::Uploader::Base
 
-  # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
-  # include Sprockets::Helpers::RailsHelper
-  # include Sprockets::Helpers::IsolatedHelper
-
   # Choose what kind of storage to use for this uploader:
-  # storage :file
+  storage :file
   # storage :fog
-  # Setted up in the config file at config/initializers/carrierwave.rb
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -23,19 +17,8 @@ class BaseUploader < CarrierWave::Uploader::Base
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
-
-  # Process files as they are uploaded:
-  # process :scale => [200, 300]
   #
-  # def scale(width, height)
-  #   # do something
-  # end
-
-  # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :scale => [50, 50]
+  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -46,9 +29,23 @@ class BaseUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
+  # def filename
+  #   "something.jpg" if original_filename
+  # end
+
+  # Override the filename of the uploaded files:
+  # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
     # Translit russian file names
     Russian::translit(original_filename) if original_filename
   end
+
+  # By default, CarrierWave copies an uploaded file twice,
+  # first copying the file into the cache, then copying the file into the store.
+  # For large files, this can be prohibitively time consuming.
+  # This has only been tested with the local filesystem store.
+  #
+  # def move_to_cache; false end
+  # def move_to_store; false end
 
 end

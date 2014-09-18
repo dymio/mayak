@@ -1,12 +1,22 @@
 ru:
   yep: "Да"
   nope: "Нет"
-  defaults:
-    news_page_title: "Новости"
+  default:
+    page_title:
+      news: "Новости"
+    empty_collection:
+      news: "Нет новостей"
   seo:
     seo_parameters: "SEO параметры"
     empty_seo_title_info: "в теге title будет использован Заголовок"
     seo_title_hint: "по умолчанию используется заголовок страницы"
+  active_admin:
+    batch_actions:
+      labels:
+        hide: "Скрыть"
+        show: "Не скрывать"
+    hints:
+      slug: 'Уникальная завершающая часть URL адреса, которая обозначает эту страницу. Например, для адреса `example.com/pages/foton.html` часть `foton` - slug страницы. <a href="http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug" target="_blank">Подробнее</a>.<br>Если оставить поле пустым, то slug будет сгенерирован на основе заголовка.'
   activerecord:
     models:
       admin_user:
@@ -14,11 +24,6 @@ ru:
         few:   "Оператора" # 2
         many:  "Операторов" # 5
         other: "Операторы" # all
-      comment:
-        one:   "Админ-коммент"
-        few:   "Админ-коммента"
-        many:  "Админ-комментов"
-        other: "Админ-комменты"
       static_file:
         one:   "Загруженный файл"
         few:   "Загруженных файла"
@@ -46,69 +51,29 @@ ru:
         other:  "Новости"
     attributes:
       admin_user:
-        email: "Email"
-        encrypted_password: "Шифр. пароль"
-        password: "Пароль"
-        password_confirmation: "Подтверждение пароля"
-        sign_in_count: "Кол-во входов"
-        current_sign_in_at: "Текущая сессия с"
-        last_sign_in_at: "Дата последней сессии"
-        current_sign_in_ip: "Текущий IP оператора"
-        last_sign_in_ip: "Последний IP оператора"
-        created_at: "Создан"
-        updated_at: "Обновлен"
-      static_file:
-        file: "Файл"
-        url: "Ссылка"
-        size: "Размер"
-        created_at: "Создан"
-        updated_at: "Обновлен"
-      content_page:
-        title: "Заголовок"
-        slug: "SLUG"
-        page_path: "Адрес страницы"
-        parent: "Родительская страница"
-        parent_id: "Родительская страница"
-        behavior_type: "Тип страницы"
-        rct_page: "Страница для редиректа"
-        rct_page_id: "Страница для редиректа"
-        rct_lnk: "Ссылка для редиректа"
-        body: "Содержание"
-        prior: "Порядок"
-        hided: "Скрыт?"
-        no_title_postfix: "Убирать постфикс для title?"
-        seo_title: "Значение title"
-        seo_descr: "Meta description"
-        seo_keywords: "Meta keywords"
-        created_at: "Создана"
-        updated_at: "Обновлена"
-      site_setting:
-        name: "Название"
-        descr: "Описание"
-        val_type: "Тип значения"
-        value: "Значение"
-        created_at: "Создана"
-        updated_at: "Обновлена"
-      main_nav_item:
-        title: "Заголовок"
-        url_type: "Тип ссылки"
-        url_page: "Страница, на которую ссылаемся"
-        url_text: "Текст ссылки"
-        url: "Ссылка"
-        prior: "Порядок"
-        hided: "Скрыт?"
-        created_at: "Создан"
-        updated_at: "Обновлён"
+        email:                  "Электронная почта"
+        encrypted_password:     "Шифр. пароль"
+        reset_password_token:   "Токен сброса пароля"
+        reset_password_sent_at: "Отправлен на сброс"
+        remember_created_at:    "Попросил запомнить"
+        sign_in_count:          "Кол-во входов"
+        current_sign_in_at:     "Текущая сессия с"
+        last_sign_in_at:        "Дата последней сессии"
+        current_sign_in_ip:     "Текущий IP оператора"
+        last_sign_in_ip:        "Последний IP оператора"
+        created_at:             "Создан"
+        updated_at:             "Обновлен"
       news:
-        title: "Заголовок"
-        slug: "SLUG"
-        lead: "Краткий текст"
-        body: "Текст"
-        created_at: "Создана"
-        updated_at: "Обновлена"
-        hided: "Скрыта?"
+        title:            "Заголовок"
+        slug:             "slug"
+        published_at:     "Опубликована"
+        preview:          "Превью"
+        intro:            "Вступление"
+        body:             "Содержание"
+        hided:            "Скрыта?"
         no_title_postfix: "Убирать постфикс для title?"
-        seo_title: "Значение title"
-        seo_descr: "Meta description"
-        seo_keywords: "Meta keywords"
-        published_at: "Опубликована"
+        seo_title:        "Значение title"
+        seo_descr:        "Meta description"
+        seo_keywords:     "Meta keywords"
+        created_at:       "Создана"
+        updated_at:       "Обновлена"

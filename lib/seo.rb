@@ -24,9 +24,13 @@ module Seo
       answ = nil
       if @_title.present?
         answ = @_title
-        answ += " : " + SiteSetting.value_of('site_name') unless @_no_postfix
+        # TODO SiteSetting
+        # answ += " : " + SiteSetting.value_of('site_name') unless @_no_postfix
+        answ += " : " + "Mayak" unless @_no_postfix
       else
-        answ = SiteSetting.value_of('site_name')
+        # TODO SiteSetting
+        # answ = SiteSetting.value_of('site_name')
+        answ = "Mayak"
       end
       answ
     end
@@ -65,11 +69,6 @@ module Seo
                                         :seo_title,
                                         :seo_descr,
                                         :seo_keywords ], coder: JSON
-
-      base.attr_accessible :no_title_postfix,
-                           :seo_title,
-                           :seo_descr,
-                           :seo_keywords
     end
   end
 

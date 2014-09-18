@@ -1,105 +1,88 @@
 source 'https://rubygems.org'
-ruby '1.9.3' # Heroku specifying version
+ruby '2.1.2' # Heroku specifying version
 
-gem 'rails', '3.2.17'
 
-# Pg is the Ruby interface to the PostgreSQL RDBMS
-gem 'pg', '~> 0.17.0'
-
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.1.6'
+# Use postgresql as the database for Active Record
+gem 'pg'
 # A thin and fast web server
-gem 'thin', '~> 1.6.2'
+gem 'thin'
 
 # Template language, replacing html/erb
-gem 'slim', '~> 2.0.2' # 1.3.9
-
-# The administration framework for Ruby on Rails
-gem 'activeadmin', '~> 0.6.3'
-
-# Allows simple search forms to be created against an AR3
-gem 'meta_search', '~> 1.1.3'
-
-# Files uploader
-gem 'carrierwave', '~> 0.10.0'
-
-# Manipulate images with minimal use of memory via ImageMagick
-gem 'mini_magick', '~> 3.7.0'
-
-# The Ruby cloud services library
-# gem 'fog', '~> 1.22.0'
-
-# Russian language support for Ruby and Rails
-gem 'russian', '~> 0.6.0'
-
-# Paginator
-gem 'kaminari', '~> 0.15.1'
-
-# Breadcrumbs
-gem 'breadcrumbs_on_rails', '~> 2.3.0'
-
-# Organise ActiveRecord model into a tree structure
-gem 'ancestry', '~> 2.1.0'
-
-# XML Sitemap generator
-gem 'sitemap_generator', '~> 5.0.4'
-
-# Clean ruby syntax for writing and deploying cron jobs
-# gem 'whenever', '~> 0.9.2'
-
-# Forms builder
-# gem 'simple_form', '~> 3.0.2'
+gem 'slim', '2.0.3'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.3'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 4.0.0'
+# Autoprefixer is a tool to parse CSS and add vendor prefixes to CSS rules.
+gem 'autoprefixer-rails'
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'therubyracer',  platforms: :ruby
 
 # Flexible authentication solution for Rails with Warden
-# gem 'devise', '~> 3.2.4'
+gem 'devise', '3.3.0'
+# The administration framework for Ruby on Rails applications.
+gem 'activeadmin', github: 'activeadmin', ref: '6472173b22621c4f838c70c1b9a47dc22b8f3fa3'
 
-# Helper for building html class attribute
-gem 'css-class-string'
+# Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
+gem 'carrierwave', '0.10.0'
+# A ruby wrapper for ImageMagick or GraphicsMagick command line.
+gem "mini_magick", '3.8.1'
 
-# Email validator
-# gem 'email_validator'
+# Russian language support for Ruby and Rails
+gem 'russian', '0.6.0'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.6'
-  gem 'coffee-rails', '~> 3.2.2'
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Rails
+gem 'kaminari', '0.16.1'
 
-  # Parse css (sass too) and vendor prefixes to css rules
-  gem 'autoprefixer-rails'
+# A simple Ruby on Rails plugin for creating and managing a breadcrumb navigation
+# gem 'breadcrumbs_on_rails'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :ruby
+# Organise ActiveRecord model into a tree structure
+# gem 'ancestry', '2.1.0'
 
-  gem 'uglifier', '>= 1.0.3'
-end
+# SitemapGenerator is a framework-agnostic XML Sitemap generator written in Ruby with automatic Rails integration. It supports Video, News, Image, Geo, Mobile, PageMap and Alternate Links sitemap extensions and includes Rake tasks for managing your sitemaps, as well as many other great features.
+gem 'sitemap_generator', '5.0.5'
 
-# using old version of jquery-rails for Active Admin correct work
-# TODO update when update from active_admin 0.6.3
-gem 'jquery-rails', '~>2.3'
+# Whenever is a Ruby gem that provides a clear syntax for writing and deploying cron jobs.
+gem 'whenever', '0.9.2'
 
-group :development do
-  # When mail is sent from your application, Letter Opener will open a preview
-  gem 'letter_opener', '~>1.2'
-  
-  # Fix some bugs on Linux of Rails work (make rails console works as example)
-  # gem 'rb-readline'
+# Rails forms made easy.
+# gem 'simple_form', '3.0.2'
 
-  # Quiet assets turn off rails assets log
-  gem 'quiet_assets'
-end
+# Helper for creating css class strings inspired by ReactJS classSet
+gem 'css-class-string', '~> 0.1.1'
 
-# Deploy with Capistrano
-gem 'capistrano', '~>2.15'
-gem 'capistrano-ext'
-gem 'capistrano_colors'
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 2.0'
+# bundle exec rake doc:rails generates the API under doc/api.
+gem 'sdoc', '~> 0.4.0',          group: :doc
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby'
+# Preview mail in the browser instead of sending.
+gem 'letter_opener', '1.2.0', group: :development
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+# Mutes assets pipeline log messages.
+gem 'quiet_assets', group: :development
+
+# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+gem 'spring',        group: :development
+
+# Use ActiveModel has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# To use debugger
-# gem 'debugger'
+# Use Capistrano for deployment # TODO
+# gem 'capistrano-rails', group: :development
+
+# Use debugger
+# gem 'debugger', group: [:development, :test]
+

@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 class BaseImageUploader < BaseUploader
 
   # Include RMagick or MiniMagick support:
@@ -6,7 +5,7 @@ class BaseImageUploader < BaseUploader
   include CarrierWave::MiniMagick
 
   # Process files as they are uploaded:
-  # process :scale => [200, 300]
+  # process scale: [200, 300]
   #
   # def scale(width, height)
   #   # do something
@@ -14,7 +13,10 @@ class BaseImageUploader < BaseUploader
 
   # Create different versions of your uploaded files:
   # version :thumb do
-  #   process :scale => [50, 50]
+  #   process resize_to_fit: [50, 50]
+  #   # process resize_to_fill: [100,100]
+  #   # process resize_to_limit: [200,200]
+  #   # process :grayscale
   # end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -23,21 +25,26 @@ class BaseImageUploader < BaseUploader
     %w(jpg jpeg gif png)
   end
 
-  protected
+  # Returns string like "#{width}x#{height}" or nil
+  # def geom_sizes_string
+  #   unless self.blank?
+  #     image = MiniMagick::Image::open self.current_path
+  #     "#{image[:width]}x#{image[:height]}"
+  #   end
+  # end
 
-  # def resize_if_bigger(of_width, of_height)
+  # protected
+
+  # def grayscale()
   #   manipulate! do |img|
-  #     resize_string = ""
-  #     if img[:width] > of_width
-  #       resize_string += of_width.to_s
-  #     end
-  #     resize_string += "x"
-  #     if img[:height] > of_height
-  #       resize_string += of_height.to_s
-  #     end
-  #     img.resize(resize_string) unless resize_string == "x"
+  #     img.combine_options { |c| c.colorspace "Gray" }
   #     img
   #   end
+  # end
+
+  # def is_landscape? picture
+  #   image = MiniMagick::Image.open(picture.path)
+  #   image[:width] > image[:height]
   # end
 
 end

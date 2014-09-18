@@ -1,47 +1,68 @@
-# -*- encoding : utf-8 -*-
 ActiveAdmin.register_page "Dashboard" do
 
-  menu :priority => 1, :label => proc{ I18n.t("active_admin.dashboard") }
+  menu priority: 1, label: proc{ I18n.t("active_admin.dashboard") }
 
-  content :title => proc{ I18n.t("active_admin.dashboard") } do
-    # div :class => "blank_slate_container", :id => "dashboard_default_message" do
-    #   span :class => "blank_slate" do
-    #     span I18n.t("active_admin.dashboard_welcome.welcome")
-    #     small I18n.t("active_admin.dashboard_welcome.call_to_action")
+  content title: proc{ I18n.t("active_admin.dashboard") } do
+
+    # Here is an example of a simple dashboard with columns and panels.
+    #
+    # columns do
+    #   column do
+    #     panel "Recent Posts" do
+    #       ul do
+    #         Post.recent(5).map do |post|
+    #           li link_to(post.title, admin_post_path(post))
+    #         end
+    #       end
+    #     end
+    #   end
+
+    #   column do
+    #     panel "Info" do
+    #       para "Welcome to ActiveAdmin."
+    #     end
     #   end
     # end
-    
+
     columns do
       column do
-        panel "Последние редактированные страницы" do
-          table_for ContentPage.visibles.order('updated_at desc').limit(10) do
-            column(I18n.t('activerecord.attributes.content_page.title')) do |cp|
-              link_to cp.title_with_parents, admin_content_page_path(cp)
+        panel "Последние Добавленные Новости" do
+          if News.any?
+            table_for News.order(created_at: :desc).limit(10) do
+              column :title do |news|
+                link_to news.title, admin_news_path(news)
+              end
+              column :published_at do |news|
+                I18n.l news.published_at, format: '%d %b %Y %H:%M'
+              end
+              column :hided
             end
-            column(I18n.t('activerecord.attributes.content_page.slug')) do |cp|
-              cp.full_slug
-            end
-            column(I18n.t('activerecord.attributes.content_page.behavior_type')) do |cp|
-              cp.behavior_type_humanized
+          else
+            para style: "margin-top:1.5em;text-align:center;font-weight:bold" do
+              "На данный момент не добавлено ни одной новости."
             end
           end
         end
       end
 
       column do
-        panel "Информация" do
+        panel "О Системе" do
           para "Добро пожаловать в панель управления сайтом, построенном на основе Mayak Rails Website Template. Надеюсь вам понравиться пользоваться моей разработкой и она вам поможет в вашей работе."
           para do
-            ("Если у вас будут ко мне вопросы или предложения по улучшению Mayak, смело пишите по адресу " +
-             mail_to("mstrdymio@gmail.com")).html_safe
+            [ "Если у вас будут вопросы или предложения по улучшению Mayak, смело пишите ",
+              link_to('issue на GitHub', 'https://github.com/dymio/mayak/issues'),
+              " или просто мне на почту ",
+              mail_to("mstrdymio@gmail.com") ].join.html_safe
           end
           para do
-            ("Исходный код проекта Mayak Rails Site Template выложен на Гитхабе - " +
-             link_to("dymio/mayak", "http://github.com/dymio/mayak")).html_safe
+            [ "Исходный код проекта Mayak Rails Site Template выложен на GitHub - ",
+             link_to("dymio/mayak", "http://github.com/dymio/mayak"),
+             ". Приглашаю всех желающих присоединиться к разработке проекта, инструкция по тому как это cделать находится ",
+             link_to("в описании проекта на GitHub'е", 'https://github.com/dymio/mayak#contributing'),
+             "." ].join.html_safe
           end
         end
       end
     end # columns
-
   end # content
 end

@@ -1,18 +1,18 @@
 /*!
  * Screen base styles
- *  taken from Bootstrap v3.1.1
+ *  taken from Bootstrap v3.2.0 | MIT License | getbootstrap.com
  */
 
 html {
-  font-size: 62.5%;
+  font-size: 10px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  line-height: 1.428571429;
-  color: #333;
+  line-height: 1.42857143;
+  color: #000;
   background-color: #fff;
 }
 
@@ -20,15 +20,25 @@ a {
   color: #428bca;
   text-decoration: none;
 }
-a:hover, a:focus {
+a:hover,
+a:focus {
   color: #2a6496;
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted #333;
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
+/* anchor underline variants */
+/* - single line only variant -
+  display: inline-block;
+  border-bottom: 1px solid;
+  line-height: 90%;
+*/
+/* - good variant for single color inline link (can be multiline) -
+  background: url('one_px_428bca.png') repeat-x left 1.26em;
+*/
 
 figure {
   margin: 0;
@@ -36,3 +46,5 @@ figure {
 img {
   vertical-align: middle;
 }
+
+@-ms-viewport { width: device-width; }

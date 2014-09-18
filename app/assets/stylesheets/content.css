@@ -1,18 +1,19 @@
 /*!
- * Content part base styles
- *  taken from Bootstrap v3.1.1
+ * Content styles
+ *  taken from Bootstrap v3.2.0 | MIT License | getbootstrap.com
  */
 
 .content hr {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
-  border-top: 1px solid #eee; }
+  border-top: 1px solid #eee;
+}
+.content img { max-width: 100%; }
 
 .content h1, .content h2, .content h3,
 .content h4, .content h5, .content h6,
-.content .h1, .content .h2, .content .h3,
-.content .h4, .content .h5, .content .h6 {
+.h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: inherit;
   font-weight: 500;
   line-height: 1.1;
@@ -20,41 +21,45 @@
 
 .content h1 small, .content h2 small, .content h3 small,
 .content h4 small, .content h5 small, .content h6 small,
-.content .h1 small, .content .h2 small, .content .h3 small,
-.content .h4 small, .content .h5 small, .content .h6 small {
+.h1 small, .h2 small, .h3 small,
+.h4 small, .h5 small, .h6 small {
   font-weight: normal;
   line-height: 1;
-  color: #999; }
+  color: #777; }
 
-.content h1, .content .h1,
-.content h2, .content .h2,
-.content h3, .content .h3 {
+.content h1, .h1,
+.content h2, .h2,
+.content h3, .h3 {
   margin-top: 20px;
   margin-bottom: 10px; }
-.content h1 small, .content .h1 small,
-.content h2 small, .content .h2 small,
-.content h3 small, .content .h3 small { font-size: 65%; }
+.content h1 small, .h1 small,
+.content h2 small, .h2 small,
+.content h3 small, .h3 small { font-size: 65%; }
 
-.content h4, .content .h4,
-.content h5, .content .h5,
-.content h6, .content .h6 {
+.content h4, .h4,
+.content h5, .h5,
+.content h6, .h6 {
   margin-top: 10px;
   margin-bottom: 10px; }
-.content h4 small, .content .h4 small,
-.content h5 small, .content .h5 small,
-.content h6 small, .content .h6 small { font-size: 75%; }
+.content h4 small, .h4 small,
+.content h5 small, .h5 small,
+.content h6 small, .h6 small { font-size: 75%; }
 
-.content h1, .content .h1 { font-size: 36px; }
-.content h2, .content .h2 { font-size: 30px; }
-.content h3, .content .h3 { font-size: 24px; }
-.content h4, .content .h4 { font-size: 18px; }
-.content h5, .content .h5 { font-size: 14px; }
-.content h6, .content .h6 { font-size: 12px; }
+.content h1, .h1 { font-size: 36px; }
+.content h2, .h2 { font-size: 30px; }
+.content h3, .h3 { font-size: 24px; }
+.content h4, .h4 { font-size: 18px; }
+.content h5, .h5 { font-size: 14px; }
+.content h6, .h6 { font-size: 12px; }
 
 .content p { margin: 0 0 10px; }
 
-.content small { font-size: 85%; }
+.content small, .small { font-size: 85%; }
 .content cite { font-style: normal; }
+.content mark, .mark {
+  padding: .2em;
+  background-color: #fcf8e3;
+}
 
 .content ul, .content ol {
   margin-top: 0;
@@ -72,7 +77,7 @@
 .content abbr[title],
 .content abbr[data-original-title] {
   cursor: help;
-  border-bottom: 1px dotted #999; }
+  border-bottom: 1px dotted #777; }
 
 .content blockquote {
   padding: 10px 20px;
@@ -83,13 +88,15 @@
 .content blockquote ul:last-child,
 .content blockquote ol:last-child { margin-bottom: 0; }
 .content blockquote footer,
-.content blockquote small {
+.content blockquote small,
+.content blockquote .small {
   display: block;
   font-size: 80%;
   line-height: 1.42857143;
-  color: #999; }
+  color: #777; }
 .content blockquote footer:before,
-.content blockquote small:before {
+.content blockquote small:before,
+.content blockquote .small:before {
   content: '\2014 \00A0'; }
 .content blockquote.pull-right {
   padding-right: 15px;
@@ -98,10 +105,12 @@
   border-right: 5px solid #eee;
   border-left: 0; }
 .content blockquote.pull-right footer:before,
-.content blockquote.pull-right small:before {
+.content blockquote.pull-right small:before,
+.content blockquote.pull-right .small:before {
   content: ''; }
 .content blockquote.pull-right footer:after,
-.content blockquote.pull-right small:after {
+.content blockquote.pull-right small:after,
+.content blockquote.pull-right .small:after {
   content: '\00A0 \2014'; }
 .content blockquote:before,
 .content blockquote:after {
@@ -117,7 +126,6 @@
   padding: 2px 4px;
   font-size: 90%;
   color: #c7254e;
-  white-space: nowrap;
   background-color: #f9f2f4;
   border-radius: 4px; }
 .content kbd {
@@ -126,7 +134,14 @@
   color: #fff;
   background-color: #333;
   border-radius: 3px;
-  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25); }
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25);
+          box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25); }
+.content kbd kbd {
+  padding: 0;
+  font-size: 100%;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
 .content pre {
   display: block;
   padding: 9.5px;
@@ -149,10 +164,9 @@
 
 /* TABLE */
 .content table {
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
   width: 100%;
   max-width: 100%;
+  margin-bottom: 20px;
   background-color: transparent; }
 
 .content th { text-align: left; }

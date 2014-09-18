@@ -10,13 +10,16 @@
   From: Krasnoyarsk, Russia
 
 /* THANKS */
-  @o_mafka
+  Lovely wife: Maria Dymkova
+  Twitter: @o_mafka
+  From: Krasnoyarsk, Russia
 
 /* SITE */
-  Last update: 2014/04/21
+  Last update: 2014/09/05
   Language: English / Russian
   Standarts: HTML5, CSS3
-  Components: jQuery, Ruby on Rails
+  Components: Ruby on Rails, jQuery, Normalize, Chosen
+  Software: Sublime Text 2, iTerm2, Photoshop, Mac OS X
 
 
                      __....+-488888"`488888888oo...___

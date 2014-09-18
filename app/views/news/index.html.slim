@@ -1,12 +1,17 @@
 .holder.content
-  h1 = t('defaults.news_page_title')
-  - if @news.any?
-    - @news.each do |news|
-      .news-item
-        .h3.title = "#{news.title}"
-        .published_at = I18n.l news.published_at, format: "%d.%m.%y"
-        .lead = news.lead.html_safe
-        p = link_to "Читать дальше", news_path(news.slug)
-    = paginate @news
+
+  h1 = t 'default.page_title.news'
+
+  - if @news_list.any?
+    ul
+      - @news_list.each do |news|
+        li
+          .h3 = link_to news.title, news_path(news.slug)
+          .published_at = I18n.l news.published_at, format: :long
+          p
+            - unless news.preview.blank?
+              = image_tag news.preview.url, class: 'pull-left', style: 'margin: 0 1em 1em 0'
+            = news.intro
+    = paginate @news_list
   - else
-    | Nope.
+    p = t 'default.empty_collection.news'

@@ -1,0 +1,127 @@
+class Post < ActiveRecord::Base
+
+  # stored fields: :title, :slug, :published_at, :author_id,
+  #                :image, :intro, :body, :seodata, :prior, :hided
+
+## ASSOCIATIONS
+
+  belongs_to :author, inverse_of: :posts
+  # `has_many :posts, inverse_of: :author, dependent: :destroy` in the Author model
+
+  has_many :tags, inverse_of: :post, dependent: :destroy
+  accepts_nested_attributes_for :tags,
+                                allow_destroy: true,
+                                reject_if: :all_blank
+  # `belongs_to :post, inverse_of: :tags` in the Tag model  
+
+  has_many :visits, as: :material, dependent: :destroy
+  has_many :visitors, through: :visits
+  # `belongs_to :material, polymorphic: true` and
+  # `belongs_to :visitor` in the Visit model
+  #
+  # `has_many :visits, dependent: :destroy` in the Visitor model
+
+## DATA MOUNTINGS, BINDINGS
+
+  # Implements SEO objectives fields into the model
+  #   needs 'seodata' text attribute
+  acts_as_seo_carrier
+
+  mount_uploader :image, PostImageUploader
+
+  # You can `store` for storing several serialized attributes in the one text field
+  # read more at http://api.rubyonrails.org/classes/ActiveRecord/Store.html
+
+  attr_accessor :temper
+  # will create getter and setter methods with names 'temper'
+  # don't store in db, just for instance life period
+
+## VALIDATIONS
+
+  validates :title, :author, :published_at, presence: true
+  validates_associated :tags
+
+## CALLBACKS
+
+  after_initialize :set_defaults
+  before_validation :prepare_slug
+  # after_save :send_email_to_author, on: :update, if: :author_wants_emails?
+  # http://guides.rubyonrails.org/active_record_validations_callbacks.html#available-callbacks
+
+## SCOPES
+
+  scope :visibles, -> { where("posts.published_at < TIMESTAMP 'tomorrow'").
+                        where(hided: false) }
+  scope :ordered, -> { order(published_at: :desc, id: :desc) }
+
+## METHODS
+
+  def self.top_viewed
+    # this is the class method, you can call it like this: Post.top_viewed
+  end
+
+  # AtiveAdmin displayed name
+  def display_name; title end
+
+  private
+
+    def set_defaults
+      self.published_at = Time.now if self.published_at.nil?
+    end
+
+    def prepare_slug
+      self.slug = SlugPreparatorRus.slug self.slug, self.title
+    end
+
+end
+
+# SCHEMA (only for example):
+
+#   create_table "authors", force: true do |t|
+#     t.string   "name"
+#     t.string   "email"
+#     t.datetime "created_at"
+#     t.datetime "updated_at"
+#   end
+
+#   create_table "posts", force: true do |t|
+#     t.string   "title",                        null: false
+#     t.string   "slug",                         null: false
+#     t.datetime "published_at",                 null: false
+#     t.integer  "author_id",                    null: false
+#     t.string   "image"
+#     t.text     "intro"
+#     t.text     "body"
+#     t.text     "seodata"
+#     t.integer  "prior",        default: 9,     null: false
+#     t.boolean  "hided",        default: false, null: false
+#     t.datetime "created_at"
+#     t.datetime "updated_at"
+#   end
+#   add_index "posts", ["author_id"], name: "index_posts_on_author_id", using: :btree
+#   add_index "posts", ["hided"], name: "index_posts_on_hided", using: :btree
+#   add_index "posts", ["prior"], name: "index_posts_on_prior", using: :btree
+#   add_index "posts", ["published_at"], name: "index_posts_on_published_at", using: :btree
+#   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
+
+#   create_table "tags", force: true do |t|
+#     t.string   "name"
+#     t.integer  "post_id"
+#     t.datetime "created_at"
+#     t.datetime "updated_at"
+#   end
+#   add_index "tags", ["post_id"], name: "index_tags_on_post_id", using: :btree
+
+#   create_table "visitors", force: true do |t|
+#     t.string   "name"
+#     t.datetime "created_at"
+#     t.datetime "updated_at"
+#   end
+
+#   create_table "visits", force: true do |t|
+#     t.integer "visitor_id"
+#     t.integer "material_id"
+#     t.string  "material_type"
+#   end
+#   add_index "visits", ["material_id", "material_type"], name: "index_visits_on_material_id_and_material_type", using: :btree
+#   add_index "visits", ["visitor_id"], name: "index_visits_on_visitor_id", using: :btree

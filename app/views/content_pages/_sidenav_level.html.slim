@@ -1,6 +1,0 @@
-ul
-  - items.each do |itm|
-    li class=class_string(active: itm == @page)
-      = link_to itm.title, itm.page_path
-      - if itm.has_children?
-        = render partial: "sidenav_level", locals: { items: itm.children.by_prior }

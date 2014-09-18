@@ -1,0 +1,243 @@
+ActiveAdmin.register Post do
+  permit_params :title, :slug, :published_at, :author_id,
+                :image, :image_cache, :remove_image,
+                :intro, :body, :prior, :hided,
+                
+                # TODO find the way to move seo params permition to lib/seo.rb
+                :no_title_postfix, :seo_title, :seo_descr, :seo_keywords,
+
+                # permit nested attributes
+                tags_attributes: [:id, :name, :_destroy]
+                # model Post must have line
+                # `accepts_nested_attributes_for :tags, allow_destroy: true`
+
+  ### Disable some actions
+  # actions :all, except: [:destroy]
+
+  ### Setting up the menu element of this page
+  # menu false
+  menu priority: 3
+  #      label: proc { I18n.t("mypost") },
+  #      if: proc { current_admin_user.can_edit_posts? },
+  #      parent: "Blog"
+
+  ### Custom Controller Actions
+  # collection_action :import_csv, method: :post do
+  #   # Do some CSV importing work here...
+  #   redirect_to collection_path, notice: "CSV imported successfully!"
+  #   # or
+  #   # @page_title = "#{resource.title}: Import CSV" # Sets the page title
+  #   # This will render app/views/admin/posts/import_csv.html.erb
+  # end
+  # member_action :hide, method: [:get, :post] do
+  #   resource.update hided: true
+  #   redirect_to resource_path, notice: "Hided!"
+  # end
+
+  ### Action items (buttons on the top right of the page)
+  # action_item only: :show do
+  #   link_to 'Hide', hide_admin_post_path(post) unless post.hided?
+  # end
+
+## INDEX
+
+  ### Index page Configuration
+  # config.filters = false
+  # config.batch_actions = false
+  # config.paginate = false
+  # config.per_page = 10
+  config.sort_order = 'prior_asc'
+
+  ### Override `scoped_collection` for another or extended index collection
+  # controller do
+  #   def scoped_collection
+  #     super.includes :author, :tags
+  #   end
+  # end
+
+  ### Index page scopes
+  scope "Все", :all, default: true
+  # scope :active # assumes the model has a scope called ':active'
+  scope "Видимые на сайте", :visibles # renames model scope ':visibles'
+  # scope ->{ Date.today.strftime '%A' }, :published_today # Dynamic scope name
+  # scope("Visibles") { |scope| scope.where(hided: false) } # custom scope
+
+  ### Index page filters
+  filter :title
+  filter :author, as: :check_boxes, collection: proc { Author.all }
+  filter :intro_or_body_cont, as: :string, label: 'В тексте (интро или содержании)'
+
+  ### Index page batch actions
+  # batch_action :show, confirm: "Уверены?" do |ids|
+  #   Post.find(ids).each do |post|
+  #     post.update hided: false
+  #   end
+  #   redirect_to collection_path, alert: "У указанных записей убран флаг скрытия."
+  # end
+  # batch_action :hide, confirm: "Уверены?" do |ids|
+  #   Post.find(ids).each do |post|
+  #     post.update hided: true
+  #   end
+  #   redirect_to collection_path, alert: "Указанные записей были скрыты."
+  # end
+  #
+  # github.com/activeadmin/activeadmin/blob/master/docs/9-batch-actions.md
+
+  ### Index as table
+  index download_links: false do
+    # selectable_column
+    # id_column
+    column :title
+    column "slug", :slug, sortable: :slug do |post|
+      link_to post.slug, post_path(post.slug), target: '_blank'
+    end
+    column :published_at, sortable: :published_at do |post|
+      I18n.l post.published_at, format: '%d %b %Y %H:%M'
+    end
+    column :prior
+    column :hided
+    # column :secret_data if can? :manage, Post
+    actions
+    # # replace default actions or add new links (`defaults: true`)
+    # actions defaults: false do |post|
+    #   link_to "View", admin_post_path(post)
+    # end
+  end
+
+  ### Index as blog
+  # index as: :blog do
+  #   title do |post|
+  #     span post.title,        class: 'title'
+  #     span post.published_at, class: 'published_at'
+  #   end
+  #   body :intro  # Calls #intro on each resource
+  # end
+
+  ### Custom index page
+  # index as: ActiveAdmin::Views::IndexAsTable
+  # # github.com/activeadmin/activeadmin/blob/master/docs/3-index-pages/create-an-index.md
+
+  ### CSV download
+  # csv force_quotes: true, col_sep: ';' do
+  #   column :title
+  #   column :published_at
+  #   column(:author) { |post| post.author.full_name }
+  # end
+
+## SHOW
+
+  show do
+  # show title: :full_name do # set title under breadcrumbs
+
+    attributes_table do
+      row :title
+      row(:slug) { link_to post.slug, post_path(post.slug), target: '_blank' }
+      row(:tags) { post.tags.pluck(:name).join(', ') }
+      row :published_at
+      row :image do
+        image_tag(post.image.url) unless post.image.blank?
+      end
+      row :intro
+      row(:body) { raw post.body }
+    end
+
+    # # renders app/views/admin/posts/_some_partial.html.erb :
+    # render 'some_partial'
+
+    # post belongs_to author (short attributes_table_for construction)
+    panel Author.model_name.human do
+      attributes_table_for post.author, :name, :email, :created_at
+    end
+
+    # Show SEO fileds (lib/seo.rb)
+    seo_panel_for post
+
+    # post has_many visitors
+    panel "Visitors" do
+      table_for post.visitors do
+        column :name
+        column :created_at
+      end
+    end
+
+    # # post has_many visitors styled variant
+    # if post.visitors.any?
+    #   div(style: "overflow: hidden; margin-bottom: 14px;") do
+    #     h3 Visitor.model_name.human(count: 1.2)
+    #     post.visitors.each do |visitor|
+    #       div(style: "float: left; margin: 0 14px 14px 0; border: 1px dashed #666; padding: 0 6px;") do
+    #         attributes_table_for visitor do
+    #           row :name
+    #           row :created_at
+    #         end
+    #       end
+    #     end
+    #   end
+    # end
+  end
+
+## SIDEBARS
+
+  sidebar 'Дополнительные данные', only: :show do
+    attributes_table_for post do
+      row(:hided) { post.hided? ? t('yep') : t('nope') }
+      row :prior
+      row :created_at
+      row :updated_at
+    end
+  end
+  # sidebar :help, partial: 'custom'
+  # sidebar :help, class: 'custom_class'
+  # sidebar :help, priority: 0
+
+## FORM
+
+  form do |f|
+    f.inputs '' do
+      f.input :title
+      f.input :slug, hint: I18n.t('active_admin.hints.slug').html_safe
+      f.input :published_at
+      f.input :author, collection: Author.all.collect { |a| [ a.name, a.id ] },
+                       include_blank: false,
+                       input_html: { class: 'chzn-select' }
+
+      f.input :image, hint:
+        [ "Изображение будет уменьшено до размеров 280 на 150 пикселей, если оно большего размера.",
+          f.object.image? ?
+            "<br>Текущее изображение:<br>#{image_tag(f.object.image.thumb.url)}" : ""
+        ].join.html_safe
+      # f.input :remote_image_url
+      f.input :image_cache, as: :hidden
+      f.input :remove_image, as: :boolean
+
+      f.input :intro, input_html: { rows: 4  }
+      f.input :body, input_html: { class: 'editor' }
+
+      f.input :prior, hint: "Меньше значение => раньше в списке"
+      f.input :hided
+    end
+
+    Seo::FormtasticSeoFieldset::build f
+
+    f.inputs do
+      f.has_many :tags, { heading: 'Post tags',
+                          allow_destroy: true,
+                          new_record: 'Add Tag',
+                          sortable: :created_at } do |a|
+        a.input :name
+      end
+    end
+    f.actions
+  end
+
+  # form partial: 'form'
+  # # app/views/admin/posts/_form.html.erb example:
+  # # <%= semantic_form_for [:admin, @post] do |f| %>
+  # #   <%= f.inputs :title, :body %>
+  # #   <%= f.actions do %>
+  # #     <%= f.action :submit %>
+  # #     <li class="cancel"><%= link_to 'Cancel', collection_path %></li>
+  # #   <% end %>
+  # # <% end %>
+
+end

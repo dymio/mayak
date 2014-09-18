@@ -1,8 +1,7 @@
-# -*- encoding : utf-8 -*-
 class NewsController < FrontendController
   def index
-    @seo_carrier ||= OpenStruct.new(title: I18n.t('defaults.news_page_title'))
-    @news = News.visibles.ordered.page params[:page]
+    @seo_carrier ||= OpenStruct.new(title: I18n.t('default.page_title.news'))
+    @news_list = News.visibles.ordered.page params[:page]
     respond_to do |format|
       format.html
     end
@@ -15,5 +14,4 @@ class NewsController < FrontendController
       format.html
     end
   end
-
 end

@@ -1,7 +1,29 @@
 /*!
  * Some helpers
- *  taken from Bootstrap v3.1.1
+ *  taken from Bootstrap v3.2.0 | MIT License | getbootstrap.com
  */
+
+/* Text modifications */
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+.text-justify { text-align: justify; }
+.text-nowrap { white-space: nowrap; }
+.text-lowercase { text-transform: lowercase; }
+.text-uppercase { text-transform: uppercase; }
+.text-capitalize { text-transform: capitalize; }
+
+/* Animations */
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+       -o-transition: opacity .15s linear;
+          transition: opacity .15s linear; }
+.fade.in { opacity: 1; }
+.collapse { display: none; }
+.collapse.in { display: block; }
+tr.collapse.in { display: table-row; }
+tbody.collapse.in { display: table-row-group; }
 
 /**
  * ====================================================================
@@ -13,53 +35,37 @@
 .clearfix:before, .clearfix:after { display: table; content: " "; }
 .clearfix:after { clear: both; }
 
+/* Positioning */
+.center-block { display: block; margin-right: auto; margin-left: auto; }
 .pull-right { float: right !important; }
 .pull-left { float: left !important; }
+.affix {
+  position: fixed;
+  -webkit-transform: translate3d(0, 0, 0);
+       -o-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
 
+/* Visibility */
 .hide { display: none !important; }
 .show { display: block !important; }
 .invisible { visibility: hidden; }
-.hidden {
-  display: none !important;
-  visibility: hidden !important; }
-
-.text-left { text-align: left; }
-.text-right { text-align: right; }
-.text-center { text-align: center; }
-.text-justify { text-align: justify; }
 .text-hide {
   font: 0/0 a;
   color: transparent;
   text-shadow: none;
   background-color: transparent;
-  border: 0;
-}
-
-.affix { position: fixed; }
-
-/* Adaptive instruction for IE */
-/*@-ms-viewport { width: device-width; }*/
-
-.visible-print {
+  border: 0; }
+.hidden {
   display: none !important;
-}
+  visibility: hidden !important; }
+
+.visible-print { display: none !important; }
 @media print {
-  .visible-print {
-    display: block !important;
-  }
-  table.visible-print {
-    display: table;
-  }
-  tr.visible-print {
-    display: table-row !important;
-  }
+  .visible-print { display: block !important; }
+  table.visible-print { display: table; }
+  tr.visible-print { display: table-row !important; }
   th.visible-print,
-  td.visible-print {
-    display: table-cell !important;
-  }
-}
-@media print {
-  .hidden-print {
-    display: none !important;
-  }
+  td.visible-print { display: table-cell !important; }
+  .hidden-print { display: none !important; }
 }
