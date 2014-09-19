@@ -75,9 +75,11 @@ Installation
   - `bundle install`
   - `bundle exec rake db:create db:migrate`
 
-Demo data you can install wit command:
+Demo data you can install with command:
 
   - `bundle exec rake db:seed`
+
+Else you want to remove demo data you need to: TODO.
 
 Your app ready for use. You can launch webserver with command `bundle exec rails server` and see home page at [localhost:3000](http://localhost:3000/) url.
 
@@ -100,7 +102,8 @@ Contributing
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-Feel free to use code of the project as you want, [create issues](https://github.com/dymio/mayak/issues) or make a pull requests.
+
+Feel free to use code of the project as you want, [create issues](https://github.com/dymio/mayak/issues) or make pull requests.
 
 
 
