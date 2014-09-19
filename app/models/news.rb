@@ -23,12 +23,12 @@ class News < ActiveRecord::Base
 
   private
 
-    def set_defaults
-      self.published_at = Time.now if self.published_at.nil?
-    end
+  def set_defaults
+    self.published_at = Time.now if self.published_at.nil?
+  end
 
-    def prepare_slug
-      self.slug = SlugPreparatorRus.slug self.slug, self.title
-    end
+  def prepare_slug
+    self.slug = SlugPreparatorRus.slug self.slug, self.title
+  end
 
 end
