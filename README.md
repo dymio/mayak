@@ -23,6 +23,7 @@ Template based on Ruby 2.1.2 and use many brilliant ruby gems (check all list an
 * Ruby on Rails;
 * ActiveAdmin for admin panel;
 * Kaminari for pagination;
+* Mina for deploy;
 
 TODO upgrade this list
 
@@ -111,77 +112,47 @@ Feel free to use code of the project as you want, [create issues](https://github
 TODO list
 ---------
 
-- change immortal to fixed
-
-- rename ContentPage to Page and SiteSetting to Setting (check naming conflicts)
-
-- comment most of favicons (and in html-css-template too)(and correct codenohito book)
-
-- add facebook app id to settings (?)
-
+- rename SiteSetting to Setting
 - add bodyend_codes to settings
-
-- Contacts page with feedback
-
-- логирование изменений материалов пользователями
+- группы для настроек сайта
+- Store default SiteSettings in yaml and add they to db when load automatically
+- deleted:    app/admin/site_settings.rb
+- deleted:    app/models/site_setting.rb
 
 - приделать иконки файлов (основные: изображения, документы, видео и т.п.)
 - переделать статичные файлы в систему обычной загрузки в папку, без хранения в БД
+- ссылку на файл добавить из боковой колонки на основную часть в view static_files
+- deleted:    app/admin/static_files.rb
+- deleted:    app/models/static_file.rb
+- deleted:    app/uploaders/static_file_uploader.rb
 
-- группы для настроек сайта
+- change immortal to fixed
+- rename ContentPage to Page
+- Try to use Nested Set instead Ancestry
+- переименовать "Контентные страницы" в "Страницы", из за immortal функции
+- deleted:    app/admin/content_pages.rb
+- deleted:    app/assets/images/admin/content_page_types.png
+- deleted:    app/controllers/content_pages_controller.rb
+- deleted:    app/helpers/content_pages_helper.rb
+- deleted:    app/models/active_admin/views/index_as_ancestry_roots_block.rb
+- deleted:    app/models/content_page.rb
+- deleted:    app/views/admin/content_pages/_index_line.html.slim
+- deleted:    app/views/content_pages/_sidenav_level.html.slim
+- deleted:    app/views/content_pages/show.html.slim
 
-- оптимизировать картинки для demo (задать им верные размеры)
-- указать источник информации на страницах
-- diverse style file for default styles and styles for demo
-- make demo data
+- deleted:    app/admin/main_mav_items.rb
+- deleted:    app/models/main_nav_item.rb
 
-- create tests
+- Contacts page with feedback
 
+- add [cancan to activeadmin](https://github.com/activeadmin/activeadmin/blob/master/docs/13-authorization-adapter.md) by default
+- логирование изменений материалов пользователями
+
+- modified:   config/locales/ru.yml
 - put all russian text to I18n locale files
+
+- make demo
 
 - make other TODO's in the code
 
-- Slider
-
-- Try to use Nested Set instead Ancestry
-
-- Store default SiteSettings in yaml and add they to db when load automatically
-
-- переименовать "Контентные страницы" в "Страницы", из за immortal функции
-
-- ссылку на файл добавить из боковой колонки на основную часть в view static_files
-
-- add [cancan to activeadmin](https://github.com/activeadmin/activeadmin/blob/master/docs/13-authorization-adapter.md) by default
-
-
-
-  deleted:    Capfile
-  deleted:    config/deploy.rb
-
-  deleted:    db/migrate/20140403000000_create_static_files.rb
-  deleted:    db/migrate/20140404000000_create_content_pages.rb
-  deleted:    db/migrate/20140405000000_create_site_settings.rb
-  deleted:    db/migrate/20140406000000_create_main_nav_items.rb
-  deleted:    db/migrate/20140422054828_create_news.rb
-
-  deleted:    app/admin/content_pages.rb
-  deleted:    app/assets/images/admin/content_page_types.png
-  deleted:    app/controllers/content_pages_controller.rb
-  deleted:    app/helpers/content_pages_helper.rb
-  deleted:    app/models/active_admin/views/index_as_ancestry_roots_block.rb
-  deleted:    app/models/content_page.rb
-  deleted:    app/views/admin/content_pages/_index_line.html.slim
-  deleted:    app/views/content_pages/_sidenav_level.html.slim
-  deleted:    app/views/content_pages/show.html.slim
-
-  deleted:    app/admin/main_mav_items.rb
-  deleted:    app/models/main_nav_item.rb
-
-  deleted:    app/admin/site_settings.rb
-  deleted:    app/models/site_setting.rb
-
-  deleted:    app/admin/static_files.rb
-  deleted:    app/models/static_file.rb
-  deleted:    app/uploaders/static_file_uploader.rb
-
-  modified:   config/locales/ru.yml
+- create tests
