@@ -80,7 +80,10 @@ gem 'spring',        group: :development
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment # TODO
+# Use Mina for deployment
+gem 'mina', group: :development
+
+# Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
