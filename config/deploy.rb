@@ -1,6 +1,7 @@
 require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
+require 'mina/whenever'
 # require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 # require 'mina/rvm'    # for rvm support. (http://rvm.io)
 
@@ -76,6 +77,7 @@ task deploy: :environment do
     to :launch do
       # queue "touch #{deploy_to}/tmp/restart.txt"
       invoke :'passenger:restart'
+      invoke :'whenever:update'
     end
   end
 end
