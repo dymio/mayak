@@ -74,10 +74,17 @@ task deploy: :environment do
     invoke :'rails:assets_precompile'
 
     to :launch do
-      queue "touch #{deploy_to}/current/tmp/restart.txt"
+      # queue "touch #{deploy_to}/tmp/restart.txt"
+      invoke :'passenger:restart'
     end
   end
 end
+
+namespace :passenger do  
+  task :restart do
+    queue "mkdir #{deploy_to}/current/tmp; touch #{deploy_to}/current/tmp/restart.txt"
+  end
+end  
 
 # For help in making your deploy script, see the Mina documentation:
 #
