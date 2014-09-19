@@ -11,11 +11,7 @@ Rails.application.config.assets.precompile += %w(
     chosen.jquery.js
   )
 
-# TODO check this assets includion needness aaa!
-# active_admin.css
-# active_admin/print.css
-# active_admin.js
+# TODO choose html redactor for admin and add assets to precompile
 # redactor.css
-#
 # redactor.js
 # redactor_lang_ru.js

@@ -13,12 +13,17 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# Load libraries from 'lib' folder
+require File.expand_path('../../lib/seo.rb', __FILE__)
+require File.expand_path('../../lib/slug_preparator_rus.rb', __FILE__)
+
 module Mayak
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    config.autoload_paths << Rails.root.join('lib')
+
+    # config.autoload_paths << Rails.root.join('lib')
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
