@@ -34,7 +34,7 @@ ru:
         few:   "Контентные страницы"
         many:  "Контентных страниц"
         other: "Контентные страницы"
-      site_setting:
+      setting:
         one:   "Настройка"
         few:   "Настройки"
         many:  "Настроек"
@@ -63,6 +63,9 @@ ru:
         last_sign_in_ip:        "Последний IP оператора"
         created_at:             "Создан"
         updated_at:             "Обновлен"
+      setting:
+        name: "Название"
+        value: "Значение"
       news:
         title:            "Заголовок"
         slug:             "slug"

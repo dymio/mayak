@@ -51,4 +51,21 @@ ActiveRecord::Schema.define(version: 20140916000000) do
   add_index "news", ["published_at"], name: "index_news_on_published_at", using: :btree
   add_index "news", ["slug"], name: "index_news_on_slug", unique: true, using: :btree
 
+  create_table "settings", force: true do |t|
+    t.string   "ident",                      null: false
+    t.string   "name"
+    t.text     "descr"
+    t.integer  "vtype"
+    t.text     "val"
+    t.string   "group"
+    t.boolean  "often"
+    t.boolean  "hidden",     default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "settings", ["hidden"], name: "index_settings_on_hidden", using: :btree
+  add_index "settings", ["ident"], name: "index_settings_on_ident", using: :btree
+  add_index "settings", ["often"], name: "index_settings_on_often", using: :btree
+
 end

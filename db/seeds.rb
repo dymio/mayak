@@ -13,3 +13,13 @@
 # sig = StaticImage.new
 # sig.image = seedfile "example_pic.jpg"
 # sig.save
+
+# TeST
+Setting.create([
+  { ident: "site_name", name: "Имя сайта", descr: "Сайта имя", val: "Mayak", often: true },
+  { ident: "sealed", vtype: Setting::VTYPE_BOOLEAN, name: "Запечатан" },
+  { ident: "rating", vtype: Setting::VTYPE_NUMBER, name: "Рейтинг", val: 78.4 },
+  { ident: "beginned_at", vtype: Setting::VTYPE_DATETIME, name: "Дата запуска" },
+  { ident: "bodyend_codes", vtype: Setting::VTYPE_TEXT, name: "Код перед закрывающим body", often: true },
+  { ident: "contacts_point", vtype: Setting::VTYPE_MAP_POINT, name: "Точка на карте" }
+])

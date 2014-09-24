@@ -4,6 +4,10 @@ class FrontendController < ApplicationController
 
   protected
 
+  def setting_value(setting_name)
+    SettingProvider.instance.value_of setting_name
+  end
+
   def determine_page
     @page = nil
     # TODO
@@ -15,10 +19,10 @@ class FrontendController < ApplicationController
   end
 
   def seo
-    @seo ||= Seo::Basic.new @seo_carrier, false
+    @seo ||= Seo::Basic.new @seo_carrier, false, setting_value('site_name')
   end
 
-  helper_method :seo
+  helper_method :setting_value, :seo
 
   private
 

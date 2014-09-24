@@ -1,7 +1,8 @@
 module Seo
   class Basic
-    def initialize(seo_obj, no_postfix)
+    def initialize(seo_obj, no_postfix, site_name = nil)
       @_no_postfix = no_postfix
+      @_site_name = site_name
       if seo_obj
         @_title = seo_obj.title if seo_obj.respond_to? :title
         if seo_obj.respond_to?(:seo_title) && seo_obj.seo_title.present?
@@ -24,13 +25,9 @@ module Seo
       answ = nil
       if @_title.present?
         answ = @_title
-        # TODO SiteSetting
-        # answ += " : " + SiteSetting.value_of('site_name') unless @_no_postfix
-        answ += " : " + "Mayak" unless @_no_postfix
+        answ += " : " + @_site_name if @_site_name && !@_no_postfix
       else
-        # TODO SiteSetting
-        # answ = SiteSetting.value_of('site_name')
-        answ = "Mayak"
+        answ = @_site_name.to_s
       end
       answ
     end
