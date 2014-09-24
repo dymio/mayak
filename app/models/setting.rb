@@ -112,7 +112,8 @@ class Setting < ActiveRecord::Base
 end
 
 
-# Settings provider allows you get and set settings
+# SettingsProvider allows you get and set settings
+# SettingsProvider stores often settings values for db queries economy
 class SettingProvider
   include Singleton
 
