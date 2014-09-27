@@ -27,6 +27,8 @@ end
 set :repository, 'git@github.com:dymio/mayak.git'
 set :branch, 'master'
 set :forward_agent, true
+# ! probably you will need add RSA key of repository server manually once before deploy
+# ! just enter your server with `ssh user@server -A` and clone your repo to any folder
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
@@ -87,6 +89,17 @@ namespace :passenger do
     queue "mkdir #{deploy_to}/current/tmp; touch #{deploy_to}/current/tmp/restart.txt"
   end
 end  
+
+namespace :rails do
+  desc "Seed database"
+  task :db_seed do
+    queue %{
+      echo "-----> Seed database for #{domain}_#{rails_env}"
+      #{echo_cmd %[cd #{deploy_to!}/#{current_path!} ; RAILS_ENV="#{rails_env}" #{bundle_bin} exec rake db:seed]}
+      echo "-----> Done."
+    }
+  end
+end
 
 # For help in making your deploy script, see the Mina documentation:
 #
