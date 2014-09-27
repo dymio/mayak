@@ -111,12 +111,8 @@ Feel free to use code of the project as you want, [create issues](https://github
 TODO list
 ---------
 
-- rename SiteSetting to Setting
-- add bodyend_codes to settings
-- группы для настроек сайта
 - Store default SiteSettings in yaml and add they to db when load automatically
-- deleted:    app/admin/site_settings.rb
-- deleted:    app/models/site_setting.rb
+- группы для настроек сайта
 
 - приделать иконки файлов (основные: изображения, документы, видео и т.п.)
 - переделать статичные файлы в систему обычной загрузки в папку, без хранения в БД

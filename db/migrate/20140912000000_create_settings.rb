@@ -1,4 +1,23 @@
 class CreateSettings < ActiveRecord::Migration
+  def migrate(direction)
+    super
+    # Create a default settings
+    if direction == :up
+      Setting.create([
+        { ident: "site_name",
+          name: "Название сайта",
+          descr: "Название сайта отображается в заголовке страниц сайта",
+          val: "Mayak",
+          often: true },
+        { ident: "bodyend_codes",
+          name: "HTML перед закрывающим тегом body",
+          descr: "Используется для размещения кодов счётчиков и других технических задач",
+          vtype: Setting::VTYPE_TEXT,
+          often: true }
+      ])
+    end
+  end
+
   def change
     create_table :settings do |t|
       t.string  :ident,                  null: false
