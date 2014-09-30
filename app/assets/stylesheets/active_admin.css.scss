@@ -22,3 +22,19 @@
 //   position: relative;
 //   img { max-width: 100%; }
 // }
+
+.file-icon {
+  display: inline-block;
+  width: 32px; height: 32px;
+  background: image-url('admin/static_files_icons.png') no-repeat left top;
+  // &.non { background-position: left top; } // by default
+  &.dir { background-position: left -36px; }
+  &.pdf { background-position: left -72px; }
+  &.doc { background-position: left -108px; }
+  &.xls { background-position: left -144px; }
+  &.ppt { background-position: left -180px; }
+  &.odt { background-position: left -216px; }
+  &.zip { background-position: left -252px; }
+  &.xml { background-position: left -288px; }
+  &.css { background-position: left -324px; }
+}

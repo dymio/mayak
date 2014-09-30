@@ -3,6 +3,8 @@ class News < ActiveRecord::Base
   # stored fields: :title, :slug, :published_at, :preview,
   #                :intro, :body, :seodata, :hided
 
+  has_many :static_files, as: :holder, dependent: :destroy
+
   acts_as_seo_carrier
 
   mount_uploader :preview, NewsPreviewUploader

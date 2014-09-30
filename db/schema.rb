@@ -68,4 +68,16 @@ ActiveRecord::Schema.define(version: 20140916000000) do
   add_index "settings", ["ident"], name: "index_settings_on_ident", using: :btree
   add_index "settings", ["often"], name: "index_settings_on_often", using: :btree
 
+  create_table "static_files", force: true do |t|
+    t.integer  "holder_id"
+    t.string   "holder_type"
+    t.string   "file",        null: false
+    t.string   "filetype"
+    t.float    "filesize"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "static_files", ["holder_id", "holder_type"], name: "index_static_files_on_holder_id_and_holder_type", using: :btree
+
 end
