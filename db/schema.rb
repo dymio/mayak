@@ -73,7 +73,8 @@ ActiveRecord::Schema.define(version: 20140916000000) do
     t.string   "holder_type"
     t.string   "file",        null: false
     t.string   "filetype"
-    t.float    "filesize"
+    t.string   "name"
+    t.float    "size"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

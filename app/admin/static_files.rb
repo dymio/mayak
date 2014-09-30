@@ -1,8 +1,10 @@
 ActiveAdmin.register StaticFile do
   permit_params :file, :holder_type, :holder_id
 
+  ### Disable some actions
   # actions :all, except: [:new]
 
+  ### Setting up the menu element of this page
   menu false
 
   ### Custom Controller Actions
@@ -16,14 +18,20 @@ ActiveAdmin.register StaticFile do
 
 ## INDEX
 
-  config.filters = false
+  ### Index page filters
+  filter :name
+  filter :size
+  filter :created_at
+  filter :updated_at
 
+  ### Index as table
   index download_links: false do
     selectable_column
-    column :display_name, sortable: false do |sf|
-      link_to sf.display_name, admin_static_file_path(sf)
+    column :name, sortable: :name do |sf|
+      link_to sf.name, admin_static_file_path(sf)
     end
-    column :filetype, sortable: false
+    column :filetype
+    column :size
     column :holder_type, sortable: false do |sf|
       I18n.t("activerecord.models.#{sf.holder_type.underscore}", count: 1)
     end
@@ -37,7 +45,7 @@ ActiveAdmin.register StaticFile do
     attributes_table do
       row(:url) { static_file.file.url }
       row :filetype
-      row :filesize
+      row :size
       row :holder_type do
         I18n.t "activerecord.models.#{static_file.holder_type.underscore}",
                count: 1
@@ -45,9 +53,12 @@ ActiveAdmin.register StaticFile do
       row :holder
       row :file do
         if static_file.filetype == "img"
-          div image_tag(static_file.file.url)
+          image_tag(static_file.file.url)
         else
-          "<p style='margin-top:28px;font-size:38px;font-weight:bold;'>#{static_file.file_name}</p>".html_safe
+          a href: static_file.file.url, target: "_blank" do
+            span(class: "file-icon #{static_file.filetype}")
+            span static_file.name
+          end
         end
       end
       row :created_at
@@ -59,9 +70,9 @@ ActiveAdmin.register StaticFile do
 
   form do |f|
     f.inputs "" do
-      f.input :holder_type, as: :hidden
-      f.input :holder_id,   as: :hidden
-      f.input :file, hint: f.object.file? ? "Загружен файл #{f.object.display_name}" : nil
+      f.input :holder_type#, as: :hidden
+      f.input :holder_id#,   as: :hidden
+      f.input :file, hint: f.object.file? ? "Загружен файл #{f.object.name}" : nil
       f.input :file_cache, as: :hidden
     end
     f.actions

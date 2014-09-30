@@ -4,7 +4,8 @@ class CreateStaticFiles < ActiveRecord::Migration
       t.references :holder,    polymorphic: true, index: true
       t.string     :file,      null: false
       t.string     :filetype
-      t.float      :filesize
+      t.string     :name
+      t.float      :size
 
       t.timestamps
     end

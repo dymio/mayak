@@ -66,6 +66,46 @@ ActiveAdmin.register News do
     end
 
     seo_panel_for news
+
+    panel I18n.t("activerecord.models.static_file", count: 1.2) do
+      if news.static_files.any?
+        table_for news.static_files do
+          column I18n.t('activerecord.attributes.static_file.filetype'), :filetype do |sf|
+            if sf.filetype == "img"
+              image_tag sf.file.url, size: "32x32"
+            else
+              span(class: "file-icon #{sf.filetype}")
+            end
+          end
+          column I18n.t('activerecord.attributes.static_file.url'), :url do |sf|
+            [ "#{sf.file.url.split('/')[0..-2].join('/')}/",
+              "<b>#{sf.file.url.split("/").last}</b>" ].join.html_safe
+          end
+          column I18n.t('activerecord.attributes.static_file.size'), :size
+          column nil do |sf|
+            link_to I18n.t('active_admin.delete'),
+                    admin_static_file_path(sf),
+                    method: :delete,
+                    data: { confirm: I18n.t('active_admin.delete_confirmation') },
+                    remote: true
+            # TODO make line removal when remote deletion is over
+          end
+        end
+      end
+      div do
+        semantic_form_for(StaticFile.new(holder: news), url: admin_static_files_path ) do |f|
+          [ f.inputs(name: "Загрузить ещё один файл") do
+              [
+                f.input(:holder_type, as: :hidden),
+                f.input(:holder_id, as: :hidden),
+                f.input(:file)
+              ].join.html_safe
+            end,
+            f.actions { f.action(:submit, label: "Загрузить") }
+            ].join.html_safe
+        end
+      end
+    end
   end
 
   sidebar 'Дополнительные данные', only: :show do

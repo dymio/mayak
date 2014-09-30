@@ -16,17 +16,12 @@
 //
 //   .status_tag { background: #6090DB; }
 
-
-// TODO make analogue of [lower] but without class
-// .image-guard {
-//   position: relative;
-//   img { max-width: 100%; }
-// }
+#main_content img { max-width: 100%; }
 
 .file-icon {
   display: inline-block;
   width: 32px; height: 32px;
-  background: image-url('admin/static_files_icons.png') no-repeat left top;
+  background: url('admin/static_files_icons.png') no-repeat left top;
   // &.non { background-position: left top; } // by default
   &.dir { background-position: left -36px; }
   &.pdf { background-position: left -72px; }

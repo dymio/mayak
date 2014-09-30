@@ -1,6 +1,6 @@
 class StaticFile < ActiveRecord::Base
 
-  # stored fields: :holder_id, :holder_type, :file, :filetype, :filesize
+  # stored fields: :holder_id, :holder_type, :file, :filetype, :name, :size
 
   belongs_to :holder, polymorphic: true
 
@@ -10,17 +10,11 @@ class StaticFile < ActiveRecord::Base
 
   before_save :determine_file_params
 
-  # AtiveAdmin displayed name
-  def display_name; file.file.identifier end
-
-  def size
-    self.file.file.size / 1024
-  end
-
   private
 
   def determine_file_params
-    self.filesize = file.file.size / 1024
+    self.name = file.file.identifier
+    self.size = file.file.size / 1024
 
     # OPTIMIZE type determination, use ruby-filemagic as example
     extname = File.extname file.path
