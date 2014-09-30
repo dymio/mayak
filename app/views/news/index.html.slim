@@ -1,6 +1,6 @@
 .holder.content
 
-  h1 = t 'default.page_title.news'
+  h1 = t 'defaults.page_titles.news'
 
   - if @news_list.any?
     ul
@@ -14,4 +14,4 @@
             = news.intro
     = paginate @news_list
   - else
-    p = t 'default.empty_collection.news'
+    p = t 'defaults.empty_collections.news'

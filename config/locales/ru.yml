@@ -1,10 +1,10 @@
 ru:
   yep: "Да"
   nope: "Нет"
-  default:
-    page_title:
+  defaults:
+    page_titles:
       news: "Новости"
-    empty_collection:
+    empty_collections:
       news: "Нет новостей"
   seo:
     seo_parameters: "SEO параметры"
