@@ -34,6 +34,20 @@ ActiveRecord::Schema.define(version: 20140916000000) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "nav_items", force: true do |t|
+    t.string   "title"
+    t.integer  "url_type",    default: 0,     null: false
+    t.integer  "url_page_id"
+    t.string   "url_text"
+    t.integer  "prior",       default: 9,     null: false
+    t.boolean  "hided",       default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "nav_items", ["hided"], name: "index_nav_items_on_hided", using: :btree
+  add_index "nav_items", ["prior"], name: "index_nav_items_on_prior", using: :btree
+
   create_table "news", force: true do |t|
     t.string   "title",                        null: false
     t.string   "slug",                         null: false

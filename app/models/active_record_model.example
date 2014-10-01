@@ -63,7 +63,7 @@ class Post < ActiveRecord::Base
     # this is the class method, you can call it like this: Post.top_viewed
   end
 
-  # AtiveAdmin displayed name
+  # ActiveAdmin displayed name
   def display_name; title end
 
   private

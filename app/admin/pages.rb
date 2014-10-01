@@ -36,6 +36,7 @@ ActiveAdmin.register Page do
 
   show do
     attributes_table do
+      # TODO elements visibles for home and fixed
       row :title
       row :slug do
         link_to page.slug, page_path(page.slug), target: '_blank'

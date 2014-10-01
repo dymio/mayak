@@ -5,7 +5,7 @@ class PagesController < FrontendController
     else
       respond_to do |format|
         format.html
-        # format.json  { render :json => @page }
+        # format.json  { render json: @page }
       end
     end
   end

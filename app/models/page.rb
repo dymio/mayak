@@ -15,7 +15,7 @@ class Page < ActiveRecord::Base
   scope :ordered, -> { order(prior: :asc, id: :asc) }
   scope :without_ids, ->(idsarr) { where.not(id: idsarr) }
 
-  # AtiveAdmin displayed name
+  # ActiveAdmin displayed name
   def display_name; title end
 
   def home?

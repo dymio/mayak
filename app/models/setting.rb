@@ -21,7 +21,7 @@ class Setting < ActiveRecord::Base
   scope :visibles, -> { where(hidden: false) }
   scope :ordered, -> { order(id: :asc) }
 
-  # AtiveAdmin displayed name
+  # ActiveAdmin displayed name
   def display_name; name end
 
   def value

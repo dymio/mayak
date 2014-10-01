@@ -1,6 +1,6 @@
 class FrontendController < ApplicationController
 
-  before_filter :determine_page #, :collect_main_nav_items
+  before_filter :determine_page, :collect_nav_items
 
   protected
 
@@ -25,21 +25,17 @@ class FrontendController < ApplicationController
 
   private
 
-  # TODO collect_main_nav_items
-  # def collect_main_nav_items
-  #   @main_nav_items = MainNavItem.visibles
-    
-  #   @active_main_nav_item = nil
-  #   @main_nav_items.each do |mni|
-  #     if /^#{mni.url}/.match request.path
-  #       if @active_main_nav_item
-  #         if mni.url.length > @active_main_nav_item.url.length
-  #           @active_main_nav_item = mni
-  #         end
-  #       else
-  #         @active_main_nav_item = mni
-  #       end
-  #     end
-  #   end
-  # end
+  def collect_nav_items
+    @nav_items = NavItem.visibles
+    @active_nav_item = nil
+    @nav_items.each do |ni|
+      if /^#{ni.url}/.match request.path
+        if @active_nav_item
+          @active_nav_item = ni if ni.url.length > @active_nav_item.url.length
+        else
+          @active_nav_item = ni
+        end
+      end
+    end
+  end
 end

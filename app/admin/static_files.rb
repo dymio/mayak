@@ -8,7 +8,7 @@ ActiveAdmin.register StaticFile do
   menu false
 
   ### Custom Controller Actions
-  collection_action :upload, :method => :post do
+  collection_action :upload, method: :post do
     sf = StaticFile.new
     sf.file = params[:file]
     if params[:holder_id].present?

@@ -110,6 +110,7 @@ html lang=I18n.locale
     = csrf_meta_tags
 
   body
+    //// Flash notices
     // - if flash[:notice]
     //   p.notice = flash[:notice]
     // - if flash[:alert]
@@ -117,10 +118,10 @@ html lang=I18n.locale
 
     #wrap
       header#header
-        / nav.main-nav
-        /   ul
-        /     - @main_nav_items.each do |mni|
-        /       li class=class_string(active: (mni == @active_main_nav_item)) = link_to mni.title, mni.url
+        nav.main-nav
+          ul
+            - @nav_items.each do |ni|
+              li class=class_string(active: (ni == @active_nav_item)) = link_to ni.title, ni.url
 
       = yield
 
