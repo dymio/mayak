@@ -82,13 +82,22 @@ module Seo
     def self.build(f, attributes = {})
       f.inputs I18n.t('seo.seo_parameters') do
         unless attributes[:hide_seo_title]
-          f.input :seo_title, hint: I18n.t('seo.seo_title_hint')
+          f.input :seo_title, label: I18n.t('seo.carrier_attributes.seo_title'),
+                              hint: I18n.t('seo.seo_title_hint')
         end
         unless attributes[:hide_no_title_postfix]
-          f.input :no_title_postfix, as: :boolean
+          f.input :no_title_postfix,
+                    as: :boolean,
+                    label: I18n.t('seo.carrier_attributes.no_title_postfix')
         end
-        f.input :seo_descr, as: :text, input_html: { rows: 2 }
-        f.input :seo_keywords, as: :text, input_html: { rows: 2 }
+        f.input :seo_descr,
+                  as: :text,
+                  label: I18n.t('seo.carrier_attributes.seo_descr'),
+                  input_html: { rows: 2 }
+        f.input :seo_keywords,
+                  as: :text,
+                  label: I18n.t('seo.carrier_attributes.seo_keywords'),
+                  input_html: { rows: 2 }
       end
     end
 
@@ -124,17 +133,21 @@ module ActiveAdmin
         
         attributes_table_for seo_carrier do
           unless attributes[:hide_seo_title]
-            row :seo_title do
+            row I18n.t('seo.carrier_attributes.seo_title') do
               seo_carrier.seo_title.present? ? seo_carrier.seo_title :  "<small style=\"color:#999\">#{t('seo.empty_seo_title_info')}</small>".html_safe
             end
           end
           unless attributes[:hide_no_title_postfix]
-            row :no_title_postfix do
+            row I18n.t('seo.carrier_attributes.no_title_postfix') do
               seo_carrier.no_title_postfix == '1' ? t('yep') : t('nope')
             end
           end
-          row :seo_descr
-          row :seo_keywords
+          row I18n.t('seo.carrier_attributes.seo_descr') do
+            seo_carrier.seo_descr
+          end
+          row I18n.t('seo.carrier_attributes.seo_keywords') do
+            seo_carrier.seo_keywords
+          end
         end
 
       end
