@@ -51,6 +51,22 @@ ActiveRecord::Schema.define(version: 20140916000000) do
   add_index "news", ["published_at"], name: "index_news_on_published_at", using: :btree
   add_index "news", ["slug"], name: "index_news_on_slug", unique: true, using: :btree
 
+  create_table "pages", force: true do |t|
+    t.string   "title"
+    t.string   "slug",                       null: false
+    t.boolean  "fixed"
+    t.text     "body"
+    t.text     "seodata"
+    t.integer  "prior",      default: 9,     null: false
+    t.boolean  "hided",      default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pages", ["hided"], name: "index_pages_on_hided", using: :btree
+  add_index "pages", ["prior"], name: "index_pages_on_prior", using: :btree
+  add_index "pages", ["slug"], name: "index_pages_on_slug", using: :btree
+
   create_table "settings", force: true do |t|
     t.string   "ident",                      null: false
     t.string   "name"

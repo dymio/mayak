@@ -152,6 +152,9 @@ ActiveAdmin.register Post do
     # Show SEO fileds (lib/seo.rb)
     seo_panel_for post
 
+    # Show static files of object (lib/static_files_holding.rb)
+    static_files_for news
+
     # post has_many visitors
     panel "Visitors" do
       table_for post.visitors do
@@ -211,7 +214,10 @@ ActiveAdmin.register Post do
       f.input :remove_image, as: :boolean
 
       f.input :intro, input_html: { rows: 4  }
-      f.input :body, input_html: { class: 'editor' }
+      f.input :body, input_html: { class: 'editor',
+                                   'data-type' => f.object.class.name,
+                                   'data-id' => f.object.id } }
+                                   # TODO add data-type and data-id automatically
 
       f.input :prior, hint: "Меньше значение => раньше в списке"
       f.input :hided

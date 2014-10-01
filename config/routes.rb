@@ -14,9 +14,8 @@ Rails.application.routes.draw do
   # news
   resources :news, only: [:index, :show]
 
-  # TODO open when pages subsystem ready
-  # content pages
-  # get '*page_path' => 'content_pages#show'
+  # pages
+  get '*page_path' => 'pages#show', as: :page
 
   root 'home#index'
 

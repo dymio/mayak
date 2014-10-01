@@ -25,20 +25,18 @@ SitemapGenerator::Sitemap.create do
   #     add article_path(article), :lastmod => article.updated_at
   #   end
 
-  # TODO open lines for content pages when pages subsystem ready
-  # exclude_from_content_pages = ["/"]
+  exclude_from_pages = ["/"]
 
   add news_index_path
-  #exclude_from_content_pages << news_index_path
+  exclude_from_pages << news_index_path
 
   News.visibles.ordered.each do |news|
     add news_path(news.slug), changefreq: 'yearly', lastmod: news.updated_at
   end
 
-  # ContentPage.visibles.each do |content_page|
-  #   unless exclude_from_content_pages.include? content_page.page_path
-  #     add content_page.page_path, { lastmod: content_page.updated_at,
-  #                                   changefreq: 'monthly' }
-  #   end
-  # end
+  Page.visibles.ordered.each do |page|
+    unless exclude_from_pages.include? page_path(page.slug)
+      add page_path(page.slug), lastmod: page.updated_at, changefreq: 'monthly'
+    end
+  end
 end

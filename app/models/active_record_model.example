@@ -27,6 +27,9 @@ class Post < ActiveRecord::Base
   #   needs 'seodata' text attribute
   acts_as_seo_carrier
 
+  # Implements static files holding ability
+  acts_as_static_files_holder
+
   mount_uploader :image, PostImageUploader
 
   # You can `store` for storing several serialized attributes in the one text field

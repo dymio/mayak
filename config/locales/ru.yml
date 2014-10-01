@@ -76,6 +76,18 @@ ru:
         holder_type: "Тип владельца"
         created_at:  "Создан"
         updated_at:  "Обновлён"
+      page:
+        title: "Заголовок"
+        slug: "slug"
+        body: "Содержание"
+        prior: "Порядок"
+        hided: "Скрыта?"
+        no_title_postfix: "Убирать постфикс для title?"
+        seo_title: "Значение title"
+        seo_descr: "Meta description"
+        seo_keywords: "Meta keywords"
+        created_at: "Создана"
+        updated_at: "Обновлена"
       news:
         title:            "Заголовок"
         slug:             "slug"
