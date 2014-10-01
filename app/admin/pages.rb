@@ -36,7 +36,6 @@ ActiveAdmin.register Page do
 
   show do
     attributes_table do
-      # TODO elements visibles for home and fixed
       unless page.home?
         row :title
         row :slug do

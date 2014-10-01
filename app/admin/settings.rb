@@ -57,7 +57,7 @@ ActiveAdmin.register Setting do
                         hint: ( f.object.static_file.present? ?
                                 "Загружен файл #{f.object.static_file.name}" :
                                 nil )
-      # when Setting::VTYPE_MAP_POINT # TODO
+      # when Setting::VTYPE_MAP_POINT
       #   f.input :value
       when Setting::VTYPE_PAGE
         f.input :value,

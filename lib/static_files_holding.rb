@@ -11,9 +11,9 @@ module StaticFilesHolding
     private
 
     def set_static_files_holder
-      # TODO use this not only for body (collection of html text fields)
+      # REFACTOR use this not only for body (collection of html text fields)
       if self.body.present?
-        # TODO get store_dir from StaticFileUploader
+        # REFACTOR get store_dir from StaticFileUploader
         sf_ids = self.body.scan(/\/uploads\/static_file\/file\/([0-9]+)/)
                           .collect { |ida| ida[0].to_i }
         sfs = StaticFile.holderless.where id: sf_ids

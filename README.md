@@ -138,7 +138,7 @@ TODO list
 
 - make other TODO's in the code
 
-- check `rake notes`
+- check `rake notes` (or search 'REFACTOR' and 'OPTIMIZE')
 
 - create tests
 

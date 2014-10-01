@@ -76,7 +76,7 @@ class Setting < ActiveRecord::Base
     when VTYPE_FILE
       current_value.present? ? current_value.file.url : nil
     # when VTYPE_MAP_POINT
-    #   # TODO show image_tag with static map picture in html_safe
+    #   # show image_tag with static map picture in html_safe
     when VTYPE_PAGE
       current_value ? current_value.title : ""
     else
