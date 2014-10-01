@@ -34,8 +34,8 @@ class Setting < ActiveRecord::Base
       self.val.present? ? Time.at(self.val.to_i) : nil
     when VTYPE_FILE
       self.static_file
-    # when VTYPE_PAGE # TODO
-    #   Page.find_by_id self.val.to_i
+    when VTYPE_PAGE
+      Page.find_by_id self.val.to_i
     else
       self.val # string, text and map point
     end
@@ -54,10 +54,10 @@ class Setting < ActiveRecord::Base
                    typed_value && typed_value != "0" ? 'y' : 'n'
                  when VTYPE_DATETIME
                    typed_value.to_i.to_s
-                 # when VTYPE_PAGE # TODO
-                 #   typed_value && typed_value.is_a?(Page) ?
-                 #     typed_value.id.to_s :
-                 #     typed_value.to_s
+                 when VTYPE_PAGE
+                   typed_value && typed_value.is_a?(Page) ?
+                     typed_value.id.to_s :
+                     typed_value.to_s
                  else
                    typed_value.to_s # string, number, text and map point
                  end
@@ -77,8 +77,8 @@ class Setting < ActiveRecord::Base
       current_value.present? ? current_value.file.url : nil
     # when VTYPE_MAP_POINT
     #   # TODO show image_tag with static map picture in html_safe
-    # when VTYPE_PAGE # TODO
-    #   current_value ? current_value.title_with_parents : ""
+    when VTYPE_PAGE
+      current_value ? current_value.title : ""
     else
       current_value.to_s # string and text and file
     end
