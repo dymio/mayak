@@ -8,10 +8,11 @@ class Setting < ActiveRecord::Base
   VTYPE_NUMBER    = 2
   VTYPE_DATETIME  = 3
   VTYPE_TEXT      = 4
-  VTYPE_MAP_POINT = 5
-  VTYPE_PAGE      = 6
-  # TODO add file to settings types
+  VTYPE_FILE      = 5
+  VTYPE_MAP_POINT = 6
+  VTYPE_PAGE      = 7
 
+  has_one :static_file, as: :holder, dependent: :destroy, autosave: true
 
   validates :ident, presence: true
 
@@ -31,6 +32,8 @@ class Setting < ActiveRecord::Base
       self.val.to_f
     when VTYPE_DATETIME
       self.val.present? ? Time.at(self.val.to_i) : nil
+    when VTYPE_FILE
+      self.static_file
     # when VTYPE_PAGE # TODO
     #   Page.find_by_id self.val.to_i
     else
@@ -39,18 +42,26 @@ class Setting < ActiveRecord::Base
   end
 
   def value=(typed_value)
-    self.val = case self.vtype
-               when VTYPE_BOOLEAN
-                 typed_value && typed_value != "0" ? 'y' : 'n'
-               when VTYPE_DATETIME
-                 typed_value.to_i.to_s
-               # when VTYPE_PAGE # TODO
-               #   typed_value && typed_value.is_a?(Page) ?
-               #     typed_value.id.to_s :
-               #     typed_value.to_s
-               else
-                 typed_value.to_s # string, number, text and map point
-               end
+    if self.vtype == VTYPE_FILE
+      if self.static_file.present?
+        self.static_file.file = typed_value
+      else
+        self.build_static_file file: typed_value
+      end
+    else
+      self.val = case self.vtype
+                 when VTYPE_BOOLEAN
+                   typed_value && typed_value != "0" ? 'y' : 'n'
+                 when VTYPE_DATETIME
+                   typed_value.to_i.to_s
+                 # when VTYPE_PAGE # TODO
+                 #   typed_value && typed_value.is_a?(Page) ?
+                 #     typed_value.id.to_s :
+                 #     typed_value.to_s
+                 else
+                   typed_value.to_s # string, number, text and map point
+                 end
+    end
   end
 
   def humanized_value
@@ -62,12 +73,14 @@ class Setting < ActiveRecord::Base
       current_value.to_s
     when VTYPE_DATETIME
       current_value ? I18n.l(current_value, format: :long) : ""
+    when VTYPE_FILE
+      current_value.present? ? current_value.file.url : nil
     # when VTYPE_MAP_POINT
     #   # TODO show image_tag with static map picture in html_safe
     # when VTYPE_PAGE # TODO
     #   current_value ? current_value.title_with_parents : ""
     else
-      current_value.to_s # string and text
+      current_value.to_s # string and text and file
     end
   end
 

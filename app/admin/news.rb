@@ -67,15 +67,13 @@ ActiveAdmin.register News do
 
     seo_panel_for news
 
+    # static_files_for news
+
     panel I18n.t("activerecord.models.static_file", count: 1.2) do
       if news.static_files.any?
         table_for news.static_files do
           column I18n.t('activerecord.attributes.static_file.filetype'), :filetype do |sf|
-            if sf.filetype == "img"
-              image_tag sf.file.url, size: "32x32"
-            else
-              span(class: "file-icon #{sf.filetype}")
-            end
+            static_file_image sf
           end
           column I18n.t('activerecord.attributes.static_file.url'), :url do |sf|
             [ "#{sf.file.url.split('/')[0..-2].join('/')}/",

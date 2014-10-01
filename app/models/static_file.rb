@@ -19,7 +19,7 @@ class StaticFile < ActiveRecord::Base
     self.size = file.file.size / 1024
 
     # OPTIMIZE type determination, use ruby-filemagic as example
-    extname = File.extname file.path
+    extname = File.extname(file.path).downcase
     self.filetype = case extname
                     when '.pdf'
                      'pdf'

@@ -31,7 +31,15 @@ ActiveAdmin.register Setting do
         sset.descr.to_s,
         "</small>" ].join.html_safe
     end
-    column(:value) { |sset| sset.humanized_value }
+    column(:value) do |sset|
+      if sset.vtype == Setting::VTYPE_FILE && sset.static_file.present?
+        link_to static_file_image(sset.static_file, true, "80x80"),
+                sset.static_file.file.url,
+                target: "_blank"
+      else
+        sset.humanized_value
+      end
+    end
     actions
   end
 
@@ -44,6 +52,11 @@ ActiveAdmin.register Setting do
         f.input :value, as: :boolean, label: "#{f.object.name}?"
       when Setting::VTYPE_TEXT
         f.input :value, as: :text
+      when Setting::VTYPE_FILE
+        f.input :value, as: :file,
+                        hint: ( f.object.static_file.present? ?
+                                "Загружен файл #{f.object.static_file.name}" :
+                                nil )
       # when Setting::VTYPE_MAP_POINT # TODO
       #   f.input :value
       # when Setting::VTYPE_PAGE # TODO

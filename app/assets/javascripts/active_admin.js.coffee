@@ -22,6 +22,6 @@ $(document).ready ->
       fileUpload: file_upload_url
       uploadFileFields: uploadsFields
 
-  # Remote deletion of the Static File
+  ## Remote deletion of the Static File
   $(".delete-static-file").on 'ajax:success', (data, status, xhr) ->
     $(this).closest('tr').remove()
