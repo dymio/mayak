@@ -88,8 +88,7 @@ class Setting < ActiveRecord::Base
   def column_for_attribute(method)
     if method.to_s == "value" && [VTYPE_BOOLEAN,
                                   VTYPE_NUMBER,
-                                  VTYPE_DATETIME,
-                                  VTYPE_PAGE].include?(self.vtype)
+                                  VTYPE_DATETIME].include?(self.vtype)
       dressed_like_column = OpenStruct.new(
         name: "value", type: nil, sql_type: nil, klass: nil,
         coder: nil, default: false, null: true, primary: false,
@@ -108,10 +107,6 @@ class Setting < ActiveRecord::Base
         dressed_like_column.type = :datetime
         dressed_like_column.sql_type = "timestamp without time zone"
         dressed_like_column.klass = Time
-      # when VTYPE_PAGE # TODO
-      #   dressed_like_column.type = :page
-      #   dressed_like_column.sql_type = "page"
-      #   dressed_like_column.klass = Page
       end
       dressed_like_column
     else

@@ -59,10 +59,10 @@ ActiveAdmin.register Setting do
                                 nil )
       # when Setting::VTYPE_MAP_POINT # TODO
       #   f.input :value
-      # when Setting::VTYPE_PAGE # TODO
-      #   f.input :value,
-      #           as: :select,
-      #           collection: options_for_select(Page.all, (f.object.value ? f.object.value.id : nil) )
+      when Setting::VTYPE_PAGE
+        f.input :value,
+                  as: :select,
+                  collection: Page.all.collect { |p| [ p.title, p.id ] }
       else
         f.input :value
       end

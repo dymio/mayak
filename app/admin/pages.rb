@@ -37,9 +37,11 @@ ActiveAdmin.register Page do
   show do
     attributes_table do
       # TODO elements visibles for home and fixed
-      row :title
-      row :slug do
-        link_to page.slug, page_path(page.slug), target: '_blank'
+      unless page.home?
+        row :title
+        row :slug do
+          link_to page.slug, page_path(page.slug), target: '_blank'
+        end
       end
       row(:body) { raw page.body }
     end
@@ -66,13 +68,15 @@ ActiveAdmin.register Page do
 
   form do |f|
     f.inputs '' do
-      f.input :title
-      f.input :slug, hint: I18n.t('active_admin.hints.slug').html_safe
+      f.input :title unless page.home?
+      unless page.home? || page.fixed?
+        f.input :slug, hint: I18n.t('active_admin.hints.slug').html_safe
+      end
       f.input :body, input_html: { class: 'editor',
                                    'data-type' => f.object.class.name,
                                    'data-id' => f.object.id }
       f.input :prior, hint: "Меньше значение => раньше в списке"
-      f.input :hided
+      f.input :hided unless page.home? || page.fixed?
     end
 
     Seo::FormtasticSeoFieldset::build f, hide_seo_title: f.object.home?,
