@@ -84,8 +84,9 @@ ActiveAdmin.register News do
           column I18n.t('activerecord.attributes.static_file.size'), :size
           column nil do |sf|
             link_to I18n.t('active_admin.delete'),
-                    admin_static_file_path(sf),
+                    admin_static_file_path(sf, format: "json"),
                     method: :delete,
+                    class: 'delete-static-file',
                     data: { confirm: I18n.t('active_admin.delete_confirmation') },
                     remote: true
             # TODO make line removal when remote deletion is over
@@ -93,8 +94,8 @@ ActiveAdmin.register News do
         end
       end
       div do
-        semantic_form_for(StaticFile.new(holder: news), url: admin_static_files_path ) do |f|
-          [ f.inputs(name: "Загрузить ещё один файл") do
+        semantic_form_for(StaticFile.new(holder: news), url: admin_static_files_path) do |f|
+          [ f.inputs(name: "Загрузить новый файл") do
               [
                 f.input(:holder_type, as: :hidden),
                 f.input(:holder_id, as: :hidden),
@@ -133,7 +134,9 @@ ActiveAdmin.register News do
       f.input :remove_preview, as: :boolean
 
       f.input :intro, input_html: { rows: 4  }
-      f.input :body, input_html: { class: 'editor' }
+      f.input :body, input_html: { class: 'editor',
+                                   'data-type' => 'News',
+                                   'data-id' => f.object.id }
       f.input :hided
     end
 

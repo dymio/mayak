@@ -6,9 +6,11 @@ class StaticFile < ActiveRecord::Base
 
   mount_uploader :file, StaticFileUploader
 
-  validates :holder, :file, presence: true
+  validates :file, presence: true
 
   before_save :determine_file_params
+
+  scope :holderless, -> { where(holder: nil) }
 
   private
 

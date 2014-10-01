@@ -9,9 +9,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w(
     chosen.css
     chosen.jquery.js
+    redactor.css
+    redactor.js
+    redactor_lang_ru.js
   )
-
-# TODO choose html redactor for admin and add assets to precompile
-# redactor.css
-# redactor.js
-# redactor_lang_ru.js

@@ -150,4 +150,9 @@ TODO list
 
 - make other TODO's in the code
 
+- check `rake notes`
+
 - create tests
+
+- replace Redactor
+

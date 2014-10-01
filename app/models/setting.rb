@@ -10,6 +10,8 @@ class Setting < ActiveRecord::Base
   VTYPE_TEXT      = 4
   VTYPE_MAP_POINT = 5
   VTYPE_PAGE      = 6
+  # TODO add file to settings types
+
 
   validates :ident, presence: true
 
