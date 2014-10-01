@@ -68,7 +68,7 @@ ActiveAdmin.register StaticFile do
         end
       end
       row :file do
-        if static_file.filetype == "img"
+        if static_file.image?
           image_tag(static_file.file.url)
         else
           a href: static_file.file.url, target: "_blank" do

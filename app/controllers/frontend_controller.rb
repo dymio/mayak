@@ -10,7 +10,7 @@ class FrontendController < ApplicationController
 
   def determine_page
     @page = nil
-    # TODO
+    # TODO open when pages system will work correctly
     # # try to find page for current url
     # if path_match = request.fullpath.match(/\/?([^\?]*)\??/)
     #   @page = ContentPage.find_by_path path_match[1]

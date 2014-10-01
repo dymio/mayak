@@ -73,7 +73,7 @@ ActiveAdmin.register News do
       if news.static_files.any?
         table_for news.static_files do
           column I18n.t('activerecord.attributes.static_file.filetype'), :filetype do |sf|
-            static_file_image sf
+            static_file_image sf, false, :thumb
           end
           column I18n.t('activerecord.attributes.static_file.url'), :url do |sf|
             [ "#{sf.file.url.split('/')[0..-2].join('/')}/",
@@ -87,7 +87,6 @@ ActiveAdmin.register News do
                     class: 'delete-static-file',
                     data: { confirm: I18n.t('active_admin.delete_confirmation') },
                     remote: true
-            # TODO make line removal when remote deletion is over
           end
         end
       end

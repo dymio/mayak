@@ -114,13 +114,6 @@ TODO list
 - Store default SiteSettings in yaml and add they to db when load automatically
 - группы для настроек сайта
 
-- приделать иконки файлов (основные: изображения, документы, видео и т.п.)
-- переделать статичные файлы в систему обычной загрузки в папку, без хранения в БД
-- ссылку на файл добавить из боковой колонки на основную часть в view static_files
-- deleted:    app/admin/static_files.rb
-- deleted:    app/models/static_file.rb
-- deleted:    app/uploaders/static_file_uploader.rb
-
 - change immortal to fixed
 - rename ContentPage to Page
 - Try to use Nested Set instead Ancestry
@@ -141,7 +134,7 @@ TODO list
 - Contacts page with feedback
 
 - add [cancan to activeadmin](https://github.com/activeadmin/activeadmin/blob/master/docs/13-authorization-adapter.md) by default
-- логирование изменений материалов пользователями
+- логирование изменений материалов пользователями ?
 
 - modified:   config/locales/ru.yml
 - put all russian text to I18n locale files

@@ -48,4 +48,8 @@ class BaseUploader < CarrierWave::Uploader::Base
   # def move_to_cache; false end
   # def move_to_store; false end
 
+  def image?(_ = nil)
+    self.file.content_type.include? 'image'
+  end
+
 end

@@ -33,7 +33,7 @@ ActiveAdmin.register Setting do
     end
     column(:value) do |sset|
       if sset.vtype == Setting::VTYPE_FILE && sset.static_file.present?
-        link_to static_file_image(sset.static_file, true, "80x80"),
+        link_to static_file_image(sset.static_file, true, :big_thumb),
                 sset.static_file.file.url,
                 target: "_blank"
       else
