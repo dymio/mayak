@@ -15,6 +15,7 @@ Bundler.require(*Rails.groups)
 
 # Load libraries from 'lib' folder
 require File.expand_path('../../lib/seo.rb', __FILE__)
+require File.expand_path('../../lib/static_files_holding.rb', __FILE__)
 require File.expand_path('../../lib/slug_preparator_rus.rb', __FILE__)
 
 module Mayak

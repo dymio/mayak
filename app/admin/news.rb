@@ -67,43 +67,7 @@ ActiveAdmin.register News do
 
     seo_panel_for news
 
-    # static_files_for news
-
-    panel I18n.t("activerecord.models.static_file", count: 1.2) do
-      if news.static_files.any?
-        table_for news.static_files do
-          column I18n.t('activerecord.attributes.static_file.filetype'), :filetype do |sf|
-            static_file_image sf, false, :thumb
-          end
-          column I18n.t('activerecord.attributes.static_file.url'), :url do |sf|
-            [ "#{sf.file.url.split('/')[0..-2].join('/')}/",
-              "<b>#{sf.file.url.split("/").last}</b>" ].join.html_safe
-          end
-          column I18n.t('activerecord.attributes.static_file.size'), :size
-          column nil do |sf|
-            link_to I18n.t('active_admin.delete'),
-                    admin_static_file_path(sf, format: "json"),
-                    method: :delete,
-                    class: 'delete-static-file',
-                    data: { confirm: I18n.t('active_admin.delete_confirmation') },
-                    remote: true
-          end
-        end
-      end
-      div do
-        semantic_form_for(StaticFile.new(holder: news), url: admin_static_files_path) do |f|
-          [ f.inputs(name: "Загрузить новый файл") do
-              [
-                f.input(:holder_type, as: :hidden),
-                f.input(:holder_id, as: :hidden),
-                f.input(:file)
-              ].join.html_safe
-            end,
-            f.actions { f.action(:submit, label: "Загрузить") }
-            ].join.html_safe
-        end
-      end
-    end
+    static_files_for news
   end
 
   sidebar 'Дополнительные данные', only: :show do
