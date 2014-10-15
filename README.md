@@ -111,6 +111,9 @@ Feel free to use code of the project as you want, [create issues](https://github
 TODO list
 ---------
 
+- update Ruby
+- update thin
+
 - Try to use Nested Set instead Ancestry for Pages
 - modified:   db/migrate/20140404000000_create_content_pages.rb
 - modified:   app/models/content_page.rb
@@ -123,12 +126,12 @@ TODO list
 - deleted:    app/views/admin/content_pages/_index_line.html.slim
 - deleted:    app/views/content_pages/_sidenav_level.html.slim
 
+- put all russian text to I18n locale files
+
 - Contacts page with feedback
 
 - add [cancan to activeadmin](https://github.com/activeadmin/activeadmin/blob/master/docs/13-authorization-adapter.md) by default
 - логирование изменений материалов пользователями ?
-
-- put all russian text to I18n locale files
 
 - make demo
 
