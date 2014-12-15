@@ -68,7 +68,7 @@ Installation
 
 15. In the first migration file (`db/migrate/20140911000000_devise_create_admin_users.rb`) you can change email and password of admin user. By default it admin@example.com with password 'password'.
 
-16. Replace or remove LICENSE.txt file.
+16. Replace or remove LICENSE.txt and UPDATE.md files.
 
 17. When done, run:
 

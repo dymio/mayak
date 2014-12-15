@@ -55,4 +55,4 @@ Updating process
 
 * Run `bin/rails server` and check result manually
 
-* `git commit -m "Update to Ruby 2.1.5 and Rails 4.1.8" && git push` - Le Roi est mort, vive le Roi!
+* `git add . && git commit -m "Update to Ruby 2.1.5 and Rails 4.1.8" && git push` - Le Roi est mort, vive le Roi!
