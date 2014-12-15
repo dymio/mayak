@@ -1,16 +1,16 @@
 source 'https://rubygems.org'
-ruby '2.1.2' # Heroku specifying version
+ruby '2.1.5' # Heroku specifying version
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.6'
+gem 'rails', '4.1.8'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # A thin and fast web server
 gem 'thin'
 
 # Template language, replacing html/erb
-gem 'slim', '2.0.3'
+gem 'slim', '3.0.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -20,17 +20,17 @@ gem 'coffee-rails', '~> 4.0.0'
 # Autoprefixer is a tool to parse CSS and add vendor prefixes to CSS rules.
 gem 'autoprefixer-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer',  platforms: :ruby
+gem 'therubyracer',  platforms: :ruby,  group: [:production, :assets]
 
 # Flexible authentication solution for Rails with Warden
-gem 'devise', '3.3.0'
+gem 'devise', '3.4.1'
 # The administration framework for Ruby on Rails applications.
-gem 'activeadmin', github: 'activeadmin', ref: '6472173b22621c4f838c70c1b9a47dc22b8f3fa3'
+gem 'activeadmin', github: 'activeadmin', ref: '85c26616468266fda0c3762a507a7ea68b9b2fec'
 
 # Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
 gem 'carrierwave', '0.10.0'
 # A ruby wrapper for ImageMagick or GraphicsMagick command line.
-gem "mini_magick", '3.8.1'
+gem "mini_magick", '4.0.1'
 
 # Russian language support for Ruby and Rails
 gem 'russian', '0.6.0'
@@ -42,13 +42,13 @@ gem 'kaminari', '0.16.1'
 # gem 'breadcrumbs_on_rails'
 
 # Organise ActiveRecord model into a tree structure
-# gem 'ancestry', '2.1.0'
+# gem 'ancestry'
 
 # SitemapGenerator is a framework-agnostic XML Sitemap generator written in Ruby with automatic Rails integration. It supports Video, News, Image, Geo, Mobile, PageMap and Alternate Links sitemap extensions and includes Rake tasks for managing your sitemaps, as well as many other great features.
 gem 'sitemap_generator', '5.0.5'
 
 # Whenever is a Ruby gem that provides a clear syntax for writing and deploying cron jobs.
-gem 'whenever', '0.9.2'
+gem 'whenever', '0.9.4'
 
 # Rails forms made easy.
 # gem 'simple_form', '3.0.2'
@@ -66,13 +66,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Preview mail in the browser instead of sending.
-gem 'letter_opener', '1.2.0', group: :development
+gem 'letter_opener', '1.3.0', group: :development
 
 # Mutes assets pipeline log messages.
 gem 'quiet_assets', group: :development
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+gem 'spring', group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

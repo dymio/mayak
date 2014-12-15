@@ -14,7 +14,7 @@ require 'mina/whenever'
 # Multistaging deploy ( `mina deploy to=production` ):
 case ENV['to']
 when 'production'
-  set :domain, 'mayak.com'
+  set :domain, 'demo.mayak.io'
   set :user, 'dymio'
   set :deploy_to, '/var/www/mayak'
 else
@@ -30,6 +30,9 @@ set :forward_agent, true
 # ! probably you will need add RSA key of repository server manually once before deploy
 # ! just enter your server with `ssh user@server -A` and clone your repo to any folder
 
+# For system-wide RVM install.
+#   set :rvm_path, '/usr/local/rvm/bin/rvm'
+
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
 set :shared_paths, ['config/database.yml', 'log', 'public/assets', 'public/uploads']
@@ -42,7 +45,7 @@ task :environment do
   # invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
-  # invoke :'rvm:use[ruby-2.1.2@mayak]'
+  # invoke :'rvm:use[ruby-2.1.5@mayak]'
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.
@@ -75,20 +78,15 @@ task deploy: :environment do
     invoke :'bundle:install'
     invoke :'rails:db_migrate'
     invoke :'rails:assets_precompile'
+    invoke :'deploy:cleanup'
 
     to :launch do
-      # queue "touch #{deploy_to}/tmp/restart.txt"
-      invoke :'passenger:restart'
+      queue "mkdir -p #{deploy_to}/#{current_path}/tmp/"
+      queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
       invoke :'whenever:update'
     end
   end
 end
-
-namespace :passenger do  
-  task :restart do
-    queue "mkdir #{deploy_to}/current/tmp; touch #{deploy_to}/current/tmp/restart.txt"
-  end
-end  
 
 namespace :rails do
   desc "Seed database"

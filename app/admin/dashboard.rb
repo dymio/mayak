@@ -47,11 +47,16 @@ ActiveAdmin.register_page "Dashboard" do
 
       column do
         panel "О Системе" do
-          para "Добро пожаловать в панель управления сайтом, построенном на основе Mayak Rails Website Template. Надеюсь вам понравиться пользоваться моей разработкой и она вам поможет в вашей работе."
+          para do
+            [ "Добро пожаловать в панель управления сайтом, построенном на основе Mayak Rails Website Template.  ",
+              "Больше информации можно найти на сайте ",
+              link_to("mayak.io", "http://mayak.io"),
+              ". Надеюсь вам понравится пользоваться моей разработкой и она вам поможет в вашей работе." ].join.html_safe
+          end
           para do
             [ "Если у вас будут вопросы или предложения по улучшению Mayak, смело пишите ",
               link_to('issue на GitHub', 'https://github.com/dymio/mayak/issues'),
-              " или просто мне на почту ",
+              " или лично мне на почту ",
               mail_to("mstrdymio@gmail.com") ].join.html_safe
           end
           para do

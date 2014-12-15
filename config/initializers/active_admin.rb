@@ -1,5 +1,4 @@
 ActiveAdmin.setup do |config|
-
   # == Site Title
   #
   # Set the title that is displayed on the main layout
@@ -65,6 +64,11 @@ ActiveAdmin.setup do |config|
   # CanCanAdapter or make your own. Please refer to documentation.
   # config.authorization_adapter = ActiveAdmin::CanCanAdapter
 
+  # In case you prefer Pundit over other solutions you can here pass
+  # the name of default policy class. This policy will be used in every
+  # case when Pundit is unable to find suitable policy.
+  # config.pundit_default_policy = "MyDefaultPunditPolicy"
+
   # You can customize your CanCan Ability class name here.
   # config.cancan_ability_class = "Ability"
 
@@ -84,7 +88,6 @@ ActiveAdmin.setup do |config|
   # (within the application controller) to return the currently logged in user.
   config.current_user_method = :current_admin_user
 
-
   # == Logging Out
   #
   # Active Admin displays a logout link on each screen. These
@@ -103,7 +106,6 @@ ActiveAdmin.setup do |config|
   # Default:
   # config.logout_link_method = :get
 
-
   # == Root
   #
   # Set the action to call for the root path. You can set different
@@ -111,7 +113,6 @@ ActiveAdmin.setup do |config|
   #
   # Default:
   # config.root_to = 'dashboard#index'
-
 
   # == Admin Comments
   #
@@ -126,13 +127,11 @@ ActiveAdmin.setup do |config|
   # You can change the name under which comments are registered:
   # config.comments_registration_name = 'AdminComment'
 
-
   # == Batch Actions
   #
   # Enable and disable Batch Actions
   #
   config.batch_actions = true
-
 
   # == Controller Filters
   #
@@ -141,11 +140,9 @@ ActiveAdmin.setup do |config|
   #
   # config.before_filter :do_something_awesome
 
-
   # == Setting a Favicon
   #
   # config.favicon = '/assets/favicon.ico'
-
 
   # == Removing Breadcrumbs
   #
@@ -153,7 +150,6 @@ ActiveAdmin.setup do |config|
   # resources or you can disable them globally from here.
   #
   # config.breadcrumb = false
-
 
   # == Register Stylesheets & Javascripts
   #
@@ -165,7 +161,7 @@ ActiveAdmin.setup do |config|
   #   config.register_stylesheet 'my_stylesheet.css'
   #
   # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
-  #   config.register_stylesheet 'my_print_stylesheet.css', :media => :print
+  #   config.register_stylesheet 'my_print_stylesheet.css', media: :print
   #
   config.register_stylesheet 'chosen.css'
   config.register_stylesheet 'redactor.css'
@@ -177,15 +173,13 @@ ActiveAdmin.setup do |config|
   config.register_javascript 'redactor.js'
   config.register_javascript 'redactor_lang_ru.js'
 
-
   # == CSV options
   #
   # Set the CSV builder separator
-  # config.csv_options = { :col_sep => ';' }
+  # config.csv_options = { col_sep: ';' }
   #
   # Force the use of quotes
-  # config.csv_options = { :force_quotes => true }
-
+  # config.csv_options = { force_quotes: true }
 
   # == Menu System
   #
@@ -208,7 +202,6 @@ ActiveAdmin.setup do |config|
   #     end
   #   end
 
-
   # == Download Links
   #
   # You can disable download links on resource listing pages,
@@ -230,7 +223,6 @@ ActiveAdmin.setup do |config|
   #
   #   end
 
-
   # == Pagination
   #
   # Pagination is enabled by default for all resources.
@@ -238,13 +230,11 @@ ActiveAdmin.setup do |config|
   #
   # config.default_per_page = 30
 
-
   # == Filters
   #
-  # By default the index screen includes a “Filters” sidebar on the right
+  # By default the index screen includes a "Filters" sidebar on the right
   # hand side with a filter for each attribute of the registered model.
   # You can enable or disable them for all resources here.
   #
   # config.filters = true
-
 end
