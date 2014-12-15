@@ -29,6 +29,7 @@
 .sass-cache
 
 # Other
+/public/assets
 /public/cache/*
 /public/content/*
 /public/uploads/*

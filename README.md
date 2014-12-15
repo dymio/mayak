@@ -113,6 +113,10 @@ TODO list
 
 - update Ruby
 - update thin
+- update slim
+- update ActiveAdmin (1.0)
+
+- move to Unicorn
 
 - Try to use Nested Set instead Ancestry for Pages
 - modified:   db/migrate/20140404000000_create_content_pages.rb

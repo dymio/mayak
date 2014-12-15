@@ -42,6 +42,7 @@ class Post < ActiveRecord::Base
 ## VALIDATIONS
 
   validates :title, :author, :published_at, presence: true
+  validates :slug, uniqueness: true
   validates_associated :tags
 
 ## CALLBACKS

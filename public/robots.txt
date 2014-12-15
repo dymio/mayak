@@ -23,6 +23,7 @@
 #
 #! User-agent: Yandex
 #! Disallow: /assets/
+#! Disallow: /admin/
 #! Disallow: /humans.txt
 #! Disallow: /*.xls$
 #! Allow: /
@@ -30,12 +31,14 @@
 #! 
 #! User-agent: Googlebot
 #! Disallow: /assets/
+#! Disallow: /admin/
 #! Disallow: /humans.txt
 #! Disallow: /*.xls$
 #! Allow: /
 #! 
 #! User-agent: *
 #! Disallow: /assets/
+#! Disallow: /admin/
 #! Disallow: /humans.txt
 #! Disallow: /temp/privatedata.xls
 #! Disallow:
