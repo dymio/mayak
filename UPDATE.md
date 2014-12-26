@@ -4,15 +4,16 @@ Updating process
 * In the outer directory install latest rails, using latest ruby:
 
     ```
-    $ rvm use ruby-2.1.2
+    $ rvm get stable
+    $ rvm use ruby-prev.version
     $ rvm gemset delete mayak
-    $ rvm install ruby-2.1.5
-    $ rvm --default use ruby-2.1.5
+    $ rvm install ruby-new.version
+    $ rvm --default use ruby-new.version
     $ rvm gemset create mayak
     $ rvm gemset use mayak
-    $ gem install --no-rdoc --no-ri rails -v 4.1.8
+    $ gem install --no-rdoc --no-ri rails -v rails.new.version
     $ rails new mayak --skip-bundle --skip-test-unit --database=postgresql
-    $ mv mayak rails_4.1.8
+    $ mv mayak rails_new.version
     ```
 
 * Save this directory until next update unchanged - any chages do with a copy
@@ -22,7 +23,7 @@ Updating process
     ```
     $ bin/bundle install
     $ bin/rails generate scaffold Article author:references{polymorphic} title:string slug:string:index published_at:datetime:index image:string intro:text body:text seodata:text hided:boolean:index
-    $ bin/rake db:migrate
+    $ bin/rake db:drop db:create db:migrate
     ```
 
 * Save scaffolded version for future
@@ -51,8 +52,8 @@ Updating process
 
 * Run `bin/rake db:drop db:create db:migrate db:seed`
 
-* Check all changes using `git diff` : we need to be sure that we didn't lost anything
+* Check all changes using `git diff` : we need to be sure that we didn't lost anything important
 
 * Run `bin/rails server` and check result manually
 
-* `git add . && git commit -m "Update to Ruby 2.1.5 and Rails 4.1.8" && git push` - Le Roi est mort, vive le Roi!
+* `git add . && git commit -m "Update to Ruby new.version and Rails new.version" && git push` - Le Roi est mort, vive le Roi!

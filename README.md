@@ -72,16 +72,16 @@ Installation
 
 17. When done, run:
 
-  - `bundle install`
-  - `bundle exec rake db:create db:migrate`
+    ```
+    $ bundle install
+    $ bin/rake db:create db:migrate
+    ```
 
-Demo data you can install with command:
-
-  - `bundle exec rake db:seed`
+Demo data you can install with command: `bin/rake db:seed`
 
 Else you want to remove demo data you need to: TODO.
 
-Your app ready for use. You can launch webserver with command `bundle exec rails server` and see home page at [localhost:3000](http://localhost:3000/) url.
+Your app ready for use. You can launch webserver with command `bin/rails server` and see home page at [localhost:3000](http://localhost:3000/) url.
 
 And, when you finish installation, pleace replace this file content with description of your project.
 
