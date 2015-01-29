@@ -40,7 +40,7 @@ Installation
 
 1. Clone code of this project.
 
-2. Make sure that you have Ruby version installed, specified in `.ruby-version` file.
+2. Make sure that you have Ruby version installed, specified in `.ruby-version` and `Gemfile` files.
 
 3. If you use RVM, add [.ruby-gemset file](http://stackoverflow.com/questions/15708916/use-rvmrc-or-ruby-version-file-to-set-a-project-gemset-with-rvm) to the root of the application.
 
@@ -73,7 +73,7 @@ Installation
 17. When done, run:
 
     ```
-    $ bundle install
+    $ bundle install --without production
     $ bin/rake db:create db:migrate
     ```
 

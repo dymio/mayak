@@ -100,7 +100,7 @@ ActiveAdmin.register Post do
     actions
     # # replace default actions or add new links (`defaults: true`)
     # actions defaults: false do |post|
-    #   link_to "View", admin_post_path(post)
+    #   link_to t('active_admin.delete'), admin_post_path(post), method: :delete, class: "delete_link member_link", data: { confirm: t('active_admin.delete_confirmation') }
     # end
   end
 

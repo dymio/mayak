@@ -30,10 +30,11 @@ html lang=I18n.locale
     // =# auto_discovery_link_tag(:rss, "http://feeds.feedburner.com/mayak", { title: setting_value(:site_name) })
 
     //// Schema.org markup for Google+
-    meta itemprop="name" content=seo.title
-    - if seo.description
-      meta itemprop="description" content=seo.description
-    meta itemprop="image" content=(seo.image || "#{root_url}ico/favicon310.png")
+    // use with `<html itemscope itemtype="http://schema.org/Product">` as example
+    / meta itemprop="name" content=seo.title
+    / - if seo.description
+    /   meta itemprop="description" content=seo.description
+    / meta itemprop="image" content=(seo.image || "#{root_url}ico/favicon310.png")
 
     //// Twitter Card
     meta name="twitter:card" content="summary"
@@ -118,7 +119,7 @@ html lang=I18n.locale
 
     #wrap
       header#header
-        nav.main-nav
+        nav.main-nav.clearfix
           ul
             - @nav_items.each do |ni|
               li class=class_string(active: (ni == @active_nav_item)) = link_to ni.title, ni.url
