@@ -48,7 +48,7 @@ Installation
 
 5. Set your timezone and default_locale in `config/application.rb` file.
 
-6. Replace all secret keys in file `config/secrets.rb`. You can use `bundle exec rake secret` or [some generators](http://www.andrewscompanies.com/tools/wep.asp) for generate it. You can use `secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>` for production if you need to hide production key from repo, but do not forget setup this ENV variable on server.
+6. Replace all secret keys in file `config/secrets.rb`. You can use `bin/rake secret` or [some generators](http://www.andrewscompanies.com/tools/wep.asp) for generate it. You can use `secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>` for production if you need to hide production key from repo, but do not forget setup this ENV variable on server.
 
 7. Create file `config/database.yml` for database connection. There is `config/database_example.yml` for example.
 
