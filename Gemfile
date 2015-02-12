@@ -18,7 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # Autoprefixer is a tool to parse CSS and add vendor prefixes to CSS rules.
-gem 'autoprefixer-rails'
+gem 'autoprefixer-rails', '>= 5.1.5'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby, group: [:production, :assets]
 
