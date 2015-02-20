@@ -67,10 +67,6 @@ module Seo
                                         :seo_descr,
                                         :seo_keywords ], coder: JSON
 
-
-      def title
-        raise NotImplementedError, "SEO carrier must have 'title' attribute ot method"
-      end
     end
   end
 
