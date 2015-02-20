@@ -195,7 +195,7 @@ ActiveAdmin.register Post do
 
 ## FORM
 
-  form do |f|
+  form html: { multipart: true } do |f|
     f.inputs '' do
       f.input :title
       f.input :slug, hint: I18n.t('active_admin.hints.slug').html_safe

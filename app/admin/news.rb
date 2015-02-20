@@ -80,7 +80,7 @@ ActiveAdmin.register News do
 
 ## FORM
 
-  form do |f|
+  form html: { multipart: true } do |f|
     f.inputs "" do
 
       f.input :title

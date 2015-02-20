@@ -45,7 +45,7 @@ ActiveAdmin.register Setting do
 
 ## FORM
 
-  form do |f|
+  form html: { multipart: true } do |f|
     f.inputs f.object.name do
       case f.object.vtype
       when Setting::VTYPE_BOOLEAN

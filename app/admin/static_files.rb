@@ -84,7 +84,7 @@ ActiveAdmin.register StaticFile do
 
 ## FORM
 
-  form do |f|
+  form html: { multipart: true } do |f|
     f.inputs "" do
       f.input :file, hint: f.object.file? ? "Загружен файл #{f.object.name}" : nil
       f.input :file_cache, as: :hidden
