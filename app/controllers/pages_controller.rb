@@ -1,7 +1,7 @@
 class PagesController < FrontendController
   def show
     if @page.nil?
-      not_found
+      raise ActiveRecord::RecordNotFound, "Record not found"
     else
       respond_to do |format|
         format.html
