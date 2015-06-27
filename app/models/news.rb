@@ -11,7 +11,7 @@ class News < ActiveRecord::Base
   after_initialize :set_defaults
   before_validation :prepare_slug
 
-  scope :visibles, -> { where("news.published_at < ?", Date.tomorrow.to_time).
+  scope :visibles, -> { where("news.published_at < ?", Time.now).
                         where(hided: false) }
   scope :ordered, -> { order(published_at: :desc, id: :desc) }
 
