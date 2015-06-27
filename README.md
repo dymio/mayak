@@ -109,36 +109,33 @@ Feel free to use code of the project as you want, [create issues](https://github
 TODO list
 ---------
 
-- move to Unicorn
-
 - Try to use Nested Set instead Ancestry for Pages
-- modified:   db/migrate/20140404000000_create_content_pages.rb
-- modified:   app/models/content_page.rb
-- modified:   app/controllers/content_pages_controller.rb
-- modified:   app/admin/content_pages.rb
-- modified:   app/views/content_pages/show.html.slim
-- deleted:    app/assets/images/admin/content_page_types.png
-- deleted:    app/helpers/content_pages_helper.rb
-- deleted:    app/models/active_admin/views/index_as_ancestry_roots_block.rb
-- deleted:    app/views/admin/content_pages/_index_line.html.slim
-- deleted:    app/views/content_pages/_sidenav_level.html.slim
+
+- differences from prev almost-major version
+  - modified:   db/migrate/20140404000000_create_content_pages.rb
+  - modified:   app/models/content_page.rb
+  - modified:   app/controllers/content_pages_controller.rb
+  - modified:   app/admin/content_pages.rb
+  - modified:   app/views/content_pages/show.html.slim
+  - deleted:    app/assets/images/admin/content_page_types.png
+  - deleted:    app/helpers/content_pages_helper.rb
+  - deleted:    app/models/active_admin/views/index_as_ancestry_roots_block.rb
+  - deleted:    app/views/admin/content_pages/_index_line.html.slim
+  - deleted:    app/views/content_pages/_sidenav_level.html.slim
 
 - put all russian text to I18n locale files
 
 - Contacts page with feedback
 
-- add [cancan to activeadmin](https://github.com/activeadmin/activeadmin/blob/master/docs/13-authorization-adapter.md) by default
 - логирование изменений материалов пользователями ?
 
 - make demo
 
 - Store default SiteSettings in yaml and add they to db when load automatically
+
 - группы для настроек сайта
+
 - Store default Pages in yaml and add they to db when load automatically
-
-- make other TODO's in the code
-
-- check `rake notes` (or search 'REFACTOR' and 'OPTIMIZE')
 
 - create tests
 
