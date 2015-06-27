@@ -1,42 +1,41 @@
 source 'https://rubygems.org'
-ruby '2.1.5' # Heroku specifying version
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.8'
+gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # A thin and fast web server
 gem 'thin'
 
 # Template language, replacing html/erb
-gem 'slim', '3.0.0'
+gem 'slim', '3.0.6'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+# Use CoffeeScript for .coffee assets and views
+gem 'coffee-rails', '~> 4.1.0'
 # Autoprefixer is a tool to parse CSS and add vendor prefixes to CSS rules.
-gem 'autoprefixer-rails', '>= 5.1.5'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby, group: [:production, :assets]
+gem 'autoprefixer-rails', '>= 5.2.1'
+# See https://github.com/rails/execjs#readme for more supported runtimes
+gem 'therubyracer', platforms: :ruby, group: [:production]
 
 # Flexible authentication solution for Rails with Warden
-gem 'devise', '3.4.1'
+gem 'devise', '3.5.1'
 # The administration framework for Ruby on Rails applications.
-gem 'activeadmin', github: 'activeadmin', ref: '85c26616468266fda0c3762a507a7ea68b9b2fec'
+gem 'activeadmin', '1.0.0.pre1'
 
 # Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
 gem 'carrierwave', '0.10.0'
 # A ruby wrapper for ImageMagick or GraphicsMagick command line.
-gem "mini_magick", '4.0.1'
+gem "mini_magick", '4.2.7'
 
 # Russian language support for Ruby and Rails
 gem 'russian', '0.6.0'
 
-# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Rails
-gem 'kaminari', '0.16.1'
+# # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Rails
+gem 'kaminari', '0.16.3'
 
 # A simple Ruby on Rails plugin for creating and managing a breadcrumb navigation
 # gem 'breadcrumbs_on_rails'
@@ -51,7 +50,7 @@ gem 'sitemap_generator', '5.0.5'
 gem 'whenever', '0.9.4'
 
 # Rails forms made easy.
-# gem 'simple_form', '3.0.2'
+# gem 'simple_form'
 
 # Helper for creating css class strings inspired by ReactJS classSet
 gem 'css-class-string', '~> 0.1.1'
@@ -63,29 +62,33 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0',          group: :doc
-
-# Preview mail in the browser instead of sending.
-gem 'letter_opener', '1.3.0', group: :development
-
-# Mutes assets pipeline log messages.
-gem 'quiet_assets', group: :development
-
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring', group: :development
+gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use unicorn as the app server
+# Use Unicorn as the app server
 # gem 'unicorn'
 
+# Preview mail in the browser instead of sending.
+gem 'letter_opener', '1.4.1', group: :development
+
+# Mutes assets pipeline log messages.
+gem 'quiet_assets', group: :development
+
 # Use Mina for deployment
-gem 'mina', group: :development
+gem 'mina', '0.3.4', group: :development
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
 
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
+
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+end

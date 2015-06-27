@@ -1,7 +1,5 @@
 class NavItem < ActiveRecord::Base
 
-  # stored fields: :title, :url_type, :url_page, :url_text, :prior, :hided
-
   belongs_to :url_page, class_name: "Page"
 
   validates :url_type, numericality: { only_integer: true }

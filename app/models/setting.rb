@@ -1,7 +1,5 @@
 class Setting < ActiveRecord::Base
 
-  # stored fields: :ident, :name, :descr, :vtype, :val, :group, :often, :hidden
-
   # Value types constants
   VTYPE_STRING    = 0
   VTYPE_BOOLEAN   = 1

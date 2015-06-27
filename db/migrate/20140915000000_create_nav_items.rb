@@ -8,9 +8,8 @@ class CreateNavItems < ActiveRecord::Migration
       t.integer    :prior,    default: 9,     null: false
       t.boolean    :hided,    default: false, null: false
 
-      t.timestamps
+      t.timestamps null: false
     end
-
     add_index :nav_items, :prior
     add_index :nav_items, :hided
   end

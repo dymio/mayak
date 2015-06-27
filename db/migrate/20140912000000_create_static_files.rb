@@ -7,7 +7,7 @@ class CreateStaticFiles < ActiveRecord::Migration
       t.string     :name
       t.float      :size
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

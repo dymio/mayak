@@ -10,9 +10,8 @@ class CreateNews < ActiveRecord::Migration
       t.text     :seodata
       t.boolean  :hided,        default: false, null: false
 
-      t.timestamps
+      t.timestamps null: false
     end
-
     add_index :news, :slug, unique: true
     add_index :news, :published_at
     add_index :news, :hided

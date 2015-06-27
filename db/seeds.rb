@@ -9,12 +9,11 @@
 # def seedfile(fname)
 #   File.open File.join(Rails.root, "public/system/seeds/", fname)
 # end
-#
+
 # sig = StaticImage.new
 # sig.image = seedfile "example_pic.jpg"
 # sig.save
 
-# # TeST
 # Setting.create([
 #   { ident: "sealed", vtype: Setting::VTYPE_BOOLEAN, name: "Запечатан" },
 #   { ident: "rating", vtype: Setting::VTYPE_NUMBER, name: "Рейтинг", val: 78.4 },

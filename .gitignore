@@ -12,15 +12,15 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
+/log/*
+!/log/.keep
 /tmp
 
 # Ignore local database config
 /config/database.yml
 
-# Ignore some specific tools files
+# Ignore systems and tools files
 *.DS_Store
-.rvmrc
 .ruby-gemset
 .powrc
 .powder

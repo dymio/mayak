@@ -1,8 +1,6 @@
 Mayak Rails Website Template
 ============================
 
-Attention! Right now application is broken. Please use [previous stable version](https://github.com/dymio/mayak/tree/version_zero_dot_six).
-
 Mayak - is simple Rails application made for fast start of a common web-project. I call it 'site template' because rails [application templates](http://guides.rubyonrails.org/rails_application_templates.html) already exists. Website template gives you major components of (almost) any website:
 
 * admin panel;
@@ -17,7 +15,7 @@ Mayak - is simple Rails application made for fast start of a common web-project.
 Software and coventions
 -----------------------
 
-Template based on Ruby 2.1.5 and use many brilliant ruby gems (check full list and versions in Gemfile):
+Template based on Ruby 2.2.0 and use many brilliant ruby gems (check full list and versions in Gemfile):
 
 * [Ruby on Rails](http://rubyonrails.org/);
 * [ActiveAdmin](http://activeadmin.info/) for admin panel;
@@ -73,7 +71,7 @@ Installation
 17. When done, run:
 
     ```
-    $ bundle install --without production
+    $ bin/bundle install --without production
     $ bin/rake db:create db:migrate
     ```
 

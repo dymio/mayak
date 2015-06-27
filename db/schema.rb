@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140916000000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admin_users", force: true do |t|
+  create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -27,28 +27,28 @@ ActiveRecord::Schema.define(version: 20140916000000) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "nav_items", force: true do |t|
+  create_table "nav_items", force: :cascade do |t|
     t.string   "title"
     t.integer  "url_type",    default: 0,     null: false
     t.integer  "url_page_id"
     t.string   "url_text"
     t.integer  "prior",       default: 9,     null: false
     t.boolean  "hided",       default: false, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "nav_items", ["hided"], name: "index_nav_items_on_hided", using: :btree
   add_index "nav_items", ["prior"], name: "index_nav_items_on_prior", using: :btree
 
-  create_table "news", force: true do |t|
+  create_table "news", force: :cascade do |t|
     t.string   "title",                        null: false
     t.string   "slug",                         null: false
     t.datetime "published_at",                 null: false
@@ -57,15 +57,15 @@ ActiveRecord::Schema.define(version: 20140916000000) do
     t.text     "body"
     t.text     "seodata"
     t.boolean  "hided",        default: false, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "news", ["hided"], name: "index_news_on_hided", using: :btree
   add_index "news", ["published_at"], name: "index_news_on_published_at", using: :btree
   add_index "news", ["slug"], name: "index_news_on_slug", unique: true, using: :btree
 
-  create_table "pages", force: true do |t|
+  create_table "pages", force: :cascade do |t|
     t.string   "title"
     t.string   "slug",                       null: false
     t.boolean  "fixed"
@@ -73,15 +73,15 @@ ActiveRecord::Schema.define(version: 20140916000000) do
     t.text     "seodata"
     t.integer  "prior",      default: 9,     null: false
     t.boolean  "hided",      default: false, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "pages", ["hided"], name: "index_pages_on_hided", using: :btree
   add_index "pages", ["prior"], name: "index_pages_on_prior", using: :btree
   add_index "pages", ["slug"], name: "index_pages_on_slug", using: :btree
 
-  create_table "settings", force: true do |t|
+  create_table "settings", force: :cascade do |t|
     t.string   "ident",                      null: false
     t.string   "name"
     t.text     "descr"
@@ -90,25 +90,25 @@ ActiveRecord::Schema.define(version: 20140916000000) do
     t.string   "group"
     t.boolean  "often"
     t.boolean  "hidden",     default: false, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "settings", ["hidden"], name: "index_settings_on_hidden", using: :btree
   add_index "settings", ["ident"], name: "index_settings_on_ident", using: :btree
   add_index "settings", ["often"], name: "index_settings_on_often", using: :btree
 
-  create_table "static_files", force: true do |t|
+  create_table "static_files", force: :cascade do |t|
     t.integer  "holder_id"
     t.string   "holder_type"
     t.string   "file",        null: false
     t.string   "filetype"
     t.string   "name"
     t.float    "size"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "static_files", ["holder_id", "holder_type"], name: "index_static_files_on_holder_id_and_holder_type", using: :btree
+  add_index "static_files", ["holder_type", "holder_id"], name: "index_static_files_on_holder_type_and_holder_id", using: :btree
 
 end

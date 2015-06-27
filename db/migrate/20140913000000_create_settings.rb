@@ -29,9 +29,8 @@ class CreateSettings < ActiveRecord::Migration
       t.boolean :often
       t.boolean :hidden, default: false, null: false
 
-      t.timestamps
+      t.timestamps null: false
     end
-
     add_index :settings, :ident
     add_index :settings, :often
     add_index :settings, :hidden

@@ -1,8 +1,5 @@
 class Post < ActiveRecord::Base
 
-  # stored fields: :title, :slug, :published_at, :author_id,
-  #                :image, :intro, :body, :seodata, :prior, :hided
-
 ## ASSOCIATIONS
 
   belongs_to :author, inverse_of: :posts

@@ -14,9 +14,8 @@ class CreatePages < ActiveRecord::Migration
       t.integer :prior,   default: 9,     null: false
       t.boolean :hided,   default: false, null: false
 
-      t.timestamps
+      t.timestamps null: false
     end
-
     add_index :pages, :slug
     add_index :pages, :prior
     add_index :pages, :hided

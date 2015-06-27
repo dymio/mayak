@@ -119,10 +119,10 @@ ActiveAdmin.setup do |config|
   # This allows your users to comment on any resource registered with Active Admin.
   #
   # You can completely disable comments:
-  config.allow_comments = false
+  config.comments = false
   #
   # You can disable the menu item for the comments index page:
-  config.show_comments_in_menu = false
+  # config.show_comments_in_menu = false
   #
   # You can change the name under which comments are registered:
   # config.comments_registration_name = 'AdminComment'
@@ -142,7 +142,7 @@ ActiveAdmin.setup do |config|
 
   # == Setting a Favicon
   #
-  # config.favicon = '/assets/favicon.ico'
+  # config.favicon = 'favicon.ico'
 
   # == Removing Breadcrumbs
   #
@@ -171,7 +171,8 @@ ActiveAdmin.setup do |config|
   #
   config.register_javascript 'chosen.jquery.js'
   config.register_javascript 'redactor.js'
-  config.register_javascript 'redactor_lang_ru.js'
+  config.register_javascript 'redactor_ru.js'
+  config.register_javascript 'redactor_video.js'
 
   # == CSV options
   #

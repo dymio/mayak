@@ -1,7 +1,5 @@
 class Page < ActiveRecord::Base
 
-  # stored fields: :title, :slug, :fixed, :body, :seodata, :prior, :hided
-
   acts_as_seo_carrier
   acts_as_static_files_holder
 

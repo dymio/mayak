@@ -39,3 +39,4 @@ $(document).ready ->
       checkTypeElementsVisibility $(this).val()
       false
     checkTypeElementsVisibility()
+

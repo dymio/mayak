@@ -1,7 +1,5 @@
 class StaticFile < ActiveRecord::Base
 
-  # stored fields: :holder_id, :holder_type, :file, :filetype, :name, :size
-
   belongs_to :holder, polymorphic: true
 
   mount_uploader :file, StaticFileUploader

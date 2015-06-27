@@ -1,8 +1,5 @@
 class News < ActiveRecord::Base
 
-  # stored fields: :title, :slug, :published_at, :preview,
-  #                :intro, :body, :seodata, :hided
-
   acts_as_seo_carrier
   acts_as_static_files_holder
 
