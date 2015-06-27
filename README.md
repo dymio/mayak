@@ -140,3 +140,5 @@ TODO list
 - create tests
 
 - replace Redactor
+
+- add social links setting and view helper
