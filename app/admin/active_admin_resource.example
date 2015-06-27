@@ -199,7 +199,7 @@ ActiveAdmin.register Post do
     f.inputs '' do
       f.input :title
       f.input :slug, hint: I18n.t('active_admin.hints.slug').html_safe
-      f.input :published_at
+      f.input :published_at, start_year: 1971
       f.input :author, collection: Author.all.collect { |a| [ a.name, a.id ] },
                        include_blank: false,
                        input_html: { class: 'chzn-select' }

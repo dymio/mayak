@@ -85,7 +85,7 @@ ActiveAdmin.register News do
 
       f.input :title
       f.input :slug, hint: I18n.t('active_admin.hints.slug').html_safe
-      f.input :published_at
+      f.input :published_at, start_year: 1971
 
       f.input :preview, hint:
         [ "Изображение будет уменьшено до размеров 280 на 150 пикселей, если оно большего размера.",
