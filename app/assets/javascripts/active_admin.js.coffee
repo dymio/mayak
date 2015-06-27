@@ -21,6 +21,7 @@ $(document).ready ->
       uploadImageFields: uploadsFields
       fileUpload: file_upload_url
       uploadFileFields: uploadsFields
+      plugins: ['video']
 
 ## Remote deletion of the Static File
   $(".delete-static-file").on 'ajax:success', (data, status, xhr) ->
