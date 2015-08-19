@@ -79,24 +79,27 @@ Demo data you can install with command: `bin/rake db:seed`
 
 Else you want to remove demo data you need to: TODO.
 
+Do not forget to change `public/favicon.ico` and all icons in directory `public/ico/`, fill `public/humans.txt` with correct data and uncomment correct lines in `public/robots.txt` before publish.
+
 Your app ready for use. You can launch webserver with command `bin/rails server` and see home page at [localhost:3000](http://localhost:3000/) url.
 
-And, when you finish installation, pleace replace this file content with description of your project.
+And, when you finish installation, replace content of this file with description about your project and other usefull information.
 As example:
 
-    ```
     Your project name
     =================
 
     Short project description here.
     Production url is [example.com](http://example.com).
 
-    You can find required version of Ruby in file `.ruby-version` in the root directory of the application.
+    Project based on [Mayak Rails website template](http://mayak.io).
 
     Getting Started
     ---------------
 
-    If you use RVM, add [.ruby-gemset file](http://stackoverflow.com/questions/15708916/use-rvmrc-or-ruby-version-file-to-set-a-project-gemset-with-rvm) to the root derectory of the application.
+    You can find required version of Ruby in file `.ruby-version` in the root directory of the application.
+
+    If you use RVM, add [.ruby-gemset file](http://stackoverflow.com/questions/15708916/use-rvmrc-or-ruby-version-file-to-set-a-project-gemset-with-rvm) to the root directory of the application.
 
     Create file `config/database.yml` for database connection with content like:
 
@@ -112,12 +115,9 @@ As example:
         $ bin/bundle install --without production
         $ bin/rake db:create db:migrate
 
-    Demo data you can install with command: `bin/rake db:seed`
+    You can install demo data using command: `bin/rake db:seed`
 
     Application ready for start. You can launch webserver with command `bin/rails server` and see home page at [localhost:3000](http://localhost:3000/) url.
-    ```
-
-PS: Do not forget change `public/favicon.ico` and all icons in directory `public/ico/`, fill `public/humans.txt` with correct data and uncomment correct lines in `public/robots.txt` before publish.
 
 
 License
