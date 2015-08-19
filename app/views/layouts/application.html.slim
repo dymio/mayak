@@ -34,7 +34,7 @@ html lang=I18n.locale
     / meta itemprop="name" content=seo.title
     / - if seo.description
     /   meta itemprop="description" content=seo.description
-    / meta itemprop="image" content=(seo.image || "#{root_url}ico/favicon310.png")
+    / meta itemprop="image" content=(seo.image || "#{root_url}ico/mayak_icon_310.png")
 
     //// Twitter Card
     meta name="twitter:card" content="summary"
@@ -43,14 +43,14 @@ html lang=I18n.locale
     - if seo.description
       meta name="twitter:description" content=seo.description
     // meta name="twitter:creator" content="@dymio"
-    meta name="twitter:image:src" content=(seo.image || "#{root_url}ico/favicon280-150.png")
+    meta name="twitter:image:src" content=(seo.image || "#{root_url}ico/mayak_icon_280-150.png")
     // Twitter summary card with large image must be at least 280x150px
 
     //// Open Graph protocol
     meta property="og:title" content=seo.title
     meta property="og:url" content=request.original_url
     meta property="og:type" content="website"
-    meta property="og:image" content=(seo.image || "#{root_url}ico/favicon310.png")
+    meta property="og:image" content=(seo.image || "#{root_url}ico/mayak_icon_310.png")
     - if seo.description
       meta property="og:description" content=seo.description
     meta property="og:site_name" content=setting_value(:site_name)
@@ -69,39 +69,39 @@ html lang=I18n.locale
       link rel="shortcut icon" href="#{root_path}favicon.ico"
 
     // Apple Touch Icons
-    link rel="apple-touch-icon" href="#{root_path}ico/favicon152.png"
+    link rel="apple-touch-icon" href="#{root_path}ico/mayak_icon_152.png"
     // if you want to remove gloss use 'apple-touch-icon-precomposed' instead 'apple-touch-icon'
 
     // // or you can use full stack if you need it
-    // link rel="apple-touch-icon" sizes="152x152" href="#{root_path}ico/favicon152.png"
-    // link rel="apple-touch-icon" sizes="144x144" href="#{root_path}ico/favicon144.png"
-    // link rel="apple-touch-icon" sizes="120x120" href="#{root_path}ico/favicon120.png"
-    // link rel="apple-touch-icon" sizes="114x114" href="#{root_path}ico/favicon114.png"
-    // link rel="apple-touch-icon" sizes="76x76" href="#{root_path}ico/favicon76.png"
-    // link rel="apple-touch-icon" sizes="72x72" href="#{root_path}ico/favicon72.png"
-    // link rel="apple-touch-icon" sizes="60x60" href="#{root_path}ico/favicon60.png"
-    // link rel="apple-touch-icon" href="#{root_path}ico/favicon57.png"
+    // link rel="apple-touch-icon" sizes="152x152" href="#{root_path}ico/mayak_icon_152.png"
+    // link rel="apple-touch-icon" sizes="144x144" href="#{root_path}ico/mayak_icon_144.png"
+    // link rel="apple-touch-icon" sizes="120x120" href="#{root_path}ico/mayak_icon_120.png"
+    // link rel="apple-touch-icon" sizes="114x114" href="#{root_path}ico/mayak_icon_114.png"
+    // link rel="apple-touch-icon" sizes="76x76" href="#{root_path}ico/mayak_icon_76.png"
+    // link rel="apple-touch-icon" sizes="72x72" href="#{root_path}ico/mayak_icon_72.png"
+    // link rel="apple-touch-icon" sizes="60x60" href="#{root_path}ico/mayak_icon_60.png"
+    // link rel="apple-touch-icon" href="#{root_path}ico/mayak_icon_57.png"
 
     // IE 10 Metro tile icon (Metro equivalent of apple-touch-icon):
     meta name="msapplication-TileColor" content="#ffffff"
-    meta name="msapplication-TileImage" content="#{root_path}ico/favicon144.png"
+    meta name="msapplication-TileImage" content="#{root_path}ico/mayak_icon_144.png"
 
     // // And optional favicons (free to ignore):
     // // IE 11 live tiles:
-    // meta name="msapplication-square70x70logo" content="#{root_path}ico/favicon70.png"
-    // meta name="msapplication-square150x150logo" content="#{root_path}ico/favicon150.png"
-    // meta name="msapplication-wide310x150logo" content="#{root_path}ico/favicon310-150.png"
-    // meta name="msapplication-square310x310logo" content="#{root_path}ico/favicon310.png"
+    // meta name="msapplication-square70x70logo" content="#{root_path}ico/mayak_icon_70.png"
+    // meta name="msapplication-square150x150logo" content="#{root_path}ico/mayak_icon_150.png"
+    // meta name="msapplication-wide310x150logo" content="#{root_path}ico/mayak_icon_310-150.png"
+    // meta name="msapplication-square310x310logo" content="#{root_path}ico/mayak_icon_310.png"
     //
     // // Other GoogleTV, Opera etc. (free to ignore)
-    // link rel="icon" type="image/png" href="#{root_path}ico/favicon228.png" sizes="228x228"
-    // link rel="icon" type="image/png" href="#{root_path}ico/favicon196.png" sizes="196x196"
-    // link rel="icon" type="image/png" href="#{root_path}ico/favicon160.png" sizes="160x160"
-    // link rel="icon" type="image/png" href="#{root_path}ico/favicon96.png" sizes="96x96"
-    // link rel="icon" type="image/png" href="#{root_path}ico/favicon64.png" sizes="64x64"
-    // link rel="icon" type="image/png" href="#{root_path}ico/favicon48.png" sizes="48x48"
-    // link rel="icon" type="image/png" href="#{root_path}ico/favicon16.png" sizes="16x16"
-    // link rel="icon" type="image/png" href="#{root_path}ico/favicon32.png" sizes="32x32"
+    // link rel="icon" type="image/png" href="#{root_path}ico/mayak_icon_228.png" sizes="228x228"
+    // link rel="icon" type="image/png" href="#{root_path}ico/mayak_icon_196.png" sizes="196x196"
+    // link rel="icon" type="image/png" href="#{root_path}ico/mayak_icon_160.png" sizes="160x160"
+    // link rel="icon" type="image/png" href="#{root_path}ico/mayak_icon_96.png" sizes="96x96"
+    // link rel="icon" type="image/png" href="#{root_path}ico/mayak_icon_64.png" sizes="64x64"
+    // link rel="icon" type="image/png" href="#{root_path}ico/mayak_icon_48.png" sizes="48x48"
+    // link rel="icon" type="image/png" href="#{root_path}ico/mayak_icon_16.png" sizes="16x16"
+    // link rel="icon" type="image/png" href="#{root_path}ico/mayak_icon_32.png" sizes="32x32"
 
     // HTML5 shim, for IE6-8 support of HTML5 elements
     /[if (lt IE 9) & (!IEMobile)]
