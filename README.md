@@ -36,7 +36,7 @@ And we respect [humans.txt](http://humanstxt.org/) convention.
 Installation
 ------------
 
-1. Clone code of this project.
+1. Get copy of code of this project (without git history).
 
 2. Make sure that you have Ruby version installed, specified in `.ruby-version` and `Gemfile` files.
 
@@ -54,17 +54,17 @@ Installation
 
 9. Setting up the mailer in `config/environments/production.rb` file, if you need to sending emails from site.
 
-10. Check file `config/autoprefixer.yml` and set [settings](github.com/postcss/autoprefixer#browsers) you need.
+10. In the file `config/initializers/active_admin.rb` replace `config.site_title` with title of your site.
 
-11. In the file `config/initializers/active_admin.rb` replace `config.site_title` with title of your site.
+11. In the file `config/initializers/devise.rb` replace value of `config.mailer_sender`.
 
-12. In the file `config/initializers/devise.rb` replace value of `config.mailer_sender`.
+12. In the file `config/initializers/session_store.rb` replace session key `_mayak_session` with your project key.
 
-13. In the file `config/initializers/session_store.rb` replace session key `_mayak_session` with your project key.
+13. TODO : In the migration file of site settings (`db/migrate/20140405000000_create_site_settings.rb`) you can change default settings values and add new settings.
 
-14. TODO : In the migration file of site settings (`db/migrate/20140405000000_create_site_settings.rb`) you can change default settings values and add new settings.
+14. In the first migration file (`db/migrate/20140911000000_devise_create_admin_users.rb`) you can change email and password of admin user. By default it admin@example.com with password 'password'.
 
-15. In the first migration file (`db/migrate/20140911000000_devise_create_admin_users.rb`) you can change email and password of admin user. By default it admin@example.com with password 'password'.
+15. Check file `app/assets/browserslist` and set [settings](https://github.com/ai/browserslist#queries) you need for Autoprefixer.
 
 16. Replace or remove LICENSE.txt and UPDATE.md files.
 
