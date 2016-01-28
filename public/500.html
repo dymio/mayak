@@ -1,68 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Mayak</title>
-  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
-  <meta content="no" http-equiv="msthemecompatible" />
-  <meta content="Mayak" itemprop="name">
-
-  <link href="/favicon.ico" rel="icon" sizes="16x16 32x32 48x48 64x64">
-  <!--[if IE]><link href="/favicon.ico" rel="shortcut icon" /><![endif]-->
-  <link href='https://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+  <title>We're sorry, but something went wrong (500)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    body {
-      background: #fff;
-      color: #000;
-      min-width: 511px;
-      font-family: "PT Sans Caption", Helvetica, sans-serif;
-    }
-    a {
-      color: #32327f !important;
-      text-decoration: underline;
-    }
-    a:hover {
-      text-decoration: none;
-    }
-    .dialog-wrap {
-      display: block;
-      overflow: hidden;
-      height: auto;
-      width: 511px;
-      min-height: 100px;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      margin: -50px auto auto -255px;
-    }
+  body {
+    background-color: #EFEFEF;
+    color: #2E2F30;
+    text-align: center;
+    font-family: arial, sans-serif;
+    margin: 0;
+  }
 
-      .dialog--title {
-        display: block;
-        overflow: hidden;
-        margin: 0 0 4px;
-        font: 56px/56px "PT Sans Caption", Helvetica, sans-serif;
-        letter-spacing: 8px;
-      }
+  div.dialog {
+    width: 95%;
+    max-width: 33em;
+    margin: 4em auto 0;
+  }
 
-      .dialog--text {
-        display: block;
-        text-align: left;
-        font: 16px/18px "PT Sans Caption", Helvetica, sans-serif;
-        margin: 0;
-      }
+  div.dialog > div {
+    border: 1px solid #CCC;
+    border-right-color: #999;
+    border-left-color: #999;
+    border-bottom-color: #BBB;
+    border-top: #B00100 solid 4px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    background-color: white;
+    padding: 7px 12% 0;
+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  }
 
+  h1 {
+    font-size: 100%;
+    color: #730E15;
+    line-height: 1.5em;
+  }
 
+  div.dialog > p {
+    margin: 0 0 1em;
+    padding: 1em;
+    background-color: #F7F7F7;
+    border: 1px solid #CCC;
+    border-right-color: #999;
+    border-left-color: #999;
+    border-bottom-color: #999;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-color: #DADADA;
+    color: #666;
+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  }
   </style>
 </head>
 
 <body>
-
-<div class="dialog-wrap">
-  <div class="dialog--title">500</div>
-  <p class="dialog--text">
-    На сервере произошла ошибка. Попробуйте начать с  <a href="/" title="Перейти на главную">главной</a>.
-  </p>
-</div>
-
+  <!-- This file lives in public/500.html -->
+  <div class="dialog">
+    <div>
+      <h1>We're sorry, but something went wrong.</h1>
+    </div>
+    <p>If you are the application owner check the logs for more information.</p>
+  </div>
 </body>
 </html>
