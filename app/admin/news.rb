@@ -102,7 +102,7 @@ ActiveAdmin.register News do
     end
 
     Seo::FormtasticSeoFieldset::build f
-    
+
     f.actions
   end
 

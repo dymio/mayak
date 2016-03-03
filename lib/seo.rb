@@ -8,13 +8,13 @@ module Seo
         if seo_obj.respond_to?(:seo_title) && seo_obj.seo_title.present?
           @_title = seo_obj.seo_title
         end
-        
+
         @_description = seo_obj.seo_descr if seo_obj.respond_to? :seo_descr
-        
+
         @_keywords = seo_obj.seo_keywords if seo_obj.respond_to? :seo_keywords
 
         @_image = seo_obj.seo_image if seo_obj.respond_to? :seo_image
-        
+
         if seo_obj.respond_to?(:no_title_postfix) && seo_obj.no_title_postfix == '1'
           @_no_postfix = true
         end
@@ -131,7 +131,7 @@ module ActiveAdmin
       #     hide_no_title_postfix - boolean - same for no_title_postfix row
       def build(seo_carrier, attributes = {})
         super t('seo.seo_parameters'), {}
-        
+
         attributes_table_for seo_carrier do
           unless attributes[:hide_seo_title]
             row I18n.t('seo.carrier_attributes.seo_title') do

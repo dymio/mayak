@@ -48,7 +48,7 @@ module ActiveAdmin
       #   holder is object of model which acts_as_static_files_holder
       def build(holder)
         super I18n.t("activerecord.models.static_file", count: 1.2), {}
-        
+
         if holder.static_files.any?
           table_for holder.static_files do
             column I18n.t('activerecord.attributes.static_file.filetype'), :filetype do |sf|

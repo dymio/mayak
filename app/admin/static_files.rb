@@ -59,7 +59,7 @@ ActiveAdmin.register StaticFile do
       row(:url) { static_file.file.url }
       row :filetype
       row :size
-      row :holder do 
+      row :holder do
         if static_file.holder.present?
           [ I18n.t("activerecord.models.#{static_file.holder_type.underscore}",
                    count: 1),
