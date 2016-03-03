@@ -1,7 +1,7 @@
 class CreateNavItems < ActiveRecord::Migration
   def change
     create_table :nav_items do |t|
-      t.string     :title
+      t.string     :title,                    null: false
       t.integer    :url_type, default: 0,     null: false
       t.references :url_page
       t.string     :url_text

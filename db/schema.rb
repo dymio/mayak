@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20140916000000) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "nav_items", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",                       null: false
     t.integer  "url_type",    default: 0,     null: false
     t.integer  "url_page_id"
     t.string   "url_text"
