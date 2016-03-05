@@ -27,6 +27,8 @@ SitemapGenerator::Sitemap.create do
 
   exclude_from_pages = ["/"]
 
+  exclude_from_pages << feedback_path # because crawlers don't need this page
+
   add news_index_path
   exclude_from_pages << news_index_path
 

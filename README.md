@@ -10,6 +10,7 @@ Mayak - is simple Rails application made for fast start of a common web-project.
 * seo parameters system;
 * navigation items;
 * news;
+* feedback form;
 
 
 Software and coventions

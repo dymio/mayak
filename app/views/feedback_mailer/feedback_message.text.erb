@@ -1,0 +1,8 @@
+You have got the feedback!
+
+<%= t('feedback.name') %>: <%= @feedback.name %>
+<%= t('feedback.email') %>: <%= @feedback.email %>
+<%= t('feedback.message') %>:
+<%= @feedback.message %>
+
+<%=t 'mailer.manager_receieving_reason', site_name: @site_name %>

@@ -21,3 +21,16 @@
 
 en:
   hello: "Hello world"
+  defaults:
+    page_titles:
+      feedback: "Feedback"
+  feedback:
+    name: "Fullname"
+    email: "Email"
+    message: "Message"
+    submit: "Submit"
+    success: "Thank you for your feedback!"
+  mailer:
+    robot_signature: "Robot of the site"
+    robot_wish: "Wish you a good day"
+    manager_receieving_reason: "You have received this email because your email address added to %{site_name} as manager's email"

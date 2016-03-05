@@ -1,0 +1,9 @@
+<h1>You have got the feedback!</h1>
+<p>
+  <%= t('feedback.name') %>: <strong><%= @feedback.name %></strong><br>
+  <%= t('feedback.email') %>: <strong><%= @feedback.email %></strong><br>
+  <%= t('feedback.message') %>:<br>
+  <%= @feedback.message %>
+</p>
+<p><br></p>
+<p><small><%=t 'mailer.manager_receieving_reason', site_name: @site_name %></small></p>

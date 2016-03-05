@@ -38,6 +38,9 @@ gem 'russian', '0.6.0'
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Rails
 gem 'kaminari', '0.16.3'
 
+# ActiveModel Validation for email
+gem 'valid_email', '0.0.12'
+
 # A simple Ruby on Rails plugin for creating and managing a breadcrumb navigation
 # gem 'breadcrumbs_on_rails'
 

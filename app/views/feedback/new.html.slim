@@ -1,0 +1,31 @@
+section.holder
+  h1.h1-title = @seo_carrier.title
+
+  - if @success_feedback
+    p = t 'feedback.success'
+
+  - else
+    = form_for @feedback, method: :post, url: feedback_path do |f|
+      .f-field.f-field-required
+        .f-line = f.label :name, t('feedback.name')
+        .f-line = f.text_field :name
+
+      / Fake field — the trap for robots
+      /   display:none rule better move to css file
+      /   html code must be similar to other fields — it's important
+      .f-field.f-field-required style="display:none"
+        .f-line
+          label for="feedback_surname" Surname
+        .f-line
+          input type="text" name="feedback[surname]" id="feedback_surname"
+
+      .f-field.f-field-required
+        .f-line = f.label :email, t('feedback.email')
+        .f-line = f.email_field :email
+
+      .f-field.f-field-required
+        .f-line = f.label :message, t('feedback.message')
+        .f-line = f.text_area :message
+
+      .f-field.f-submit
+        = f.submit t('feedback.submit')

@@ -21,6 +21,7 @@
 #   Art by Sulliwan Sucks
 
 #! User-agent: Yandex
+#! Disallow: /feedback
 #! Disallow: /admin/
 #! Disallow: /humans.txt
 #! Disallow: /*.xls$
@@ -28,12 +29,14 @@
 #! Host: example.com
 #! 
 #! User-agent: Googlebot
+#! Disallow: /feedback
 #! Disallow: /admin/
 #! Disallow: /humans.txt
 #! Disallow: /*.xls$
 #! Allow: /
 #! 
 #! User-agent: *
+#! Disallow: /feedback
 #! Disallow: /admin/
 #! Disallow: /humans.txt
 #! Disallow: /temp/privatedata.xls

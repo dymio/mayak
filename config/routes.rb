@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
+  # feedback
+  get 'feedback' => 'feedback#new', as: :feedback
+  post 'feedback' => 'feedback#create'
+
   # news
   resources :news, only: [:index, :show]
 
