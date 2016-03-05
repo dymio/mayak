@@ -6,20 +6,29 @@
   Contact: mstrdymio [at] gmail.com
   Site: dymio.net
   Site: proektmarketing.ru
+  Site: codenohito.ru
+  Github: @dymio
   Twitter: @dymio
   From: Krasnoyarsk, Russia
 
-/* THANKS */
-  Lovely wife: Maria Dymkova
-  Twitter: @o_mafka
+  Frontend-developer: Elena Bozina
+  Github: @palutova
   From: Krasnoyarsk, Russia
 
+  Backend-developer: Pavel Rojkov
+  Github: @projkov
+  Twitter: @prozskov
+  From: Krasnoyarsk, Russia
+
+/* THANKS */
+  To whole Proektmarketing.ru team
+
 /* SITE */
-  Last update: 2015/06/27
+  Last update: 2016/03/05
   Language: English / Russian
   Standarts: HTML5, CSS3
   Components: Ruby on Rails, jQuery, Normalize, Chosen
-  Software: Sublime Text 2, iTerm2, Mac OS X
+  Software: Sublime Text, RubyMine, iTerm, Mac OS X
 
 
                      __....+-488888"`488888888oo...___
