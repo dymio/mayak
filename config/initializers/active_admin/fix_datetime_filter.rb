@@ -4,7 +4,7 @@
 ActiveAdmin::ResourceController.class_eval do
   before_filter :fix_datetime_filter_inclusion, only: :index
 
-private 
+private
 
   def fix_datetime_filter_inclusion
     resource_class.columns.each do |c|

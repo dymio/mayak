@@ -2,6 +2,7 @@ class NavItem < ActiveRecord::Base
 
   belongs_to :url_page, class_name: "Page"
 
+  validates :title,    presence: true
   validates :url_type, numericality: { only_integer: true }
   validates :url_type, inclusion: (0..1)
   validates :url_text, presence: true, if: Proc.new { |ni| ni.url_type == 0 }
