@@ -22,6 +22,7 @@ else
   set :domain, 'mayak.dymio.net'
   set :user, 'dymio'
   set :deploy_to, '/home/dymio/www/mayak'
+  # set :rails_env, 'staging' # use it when you adding new environment
 end
 
 set :repository, 'git@github.com:dymio/mayak.git'
