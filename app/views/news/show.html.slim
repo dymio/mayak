@@ -2,5 +2,4 @@ section.holder
   article.content
     h1 = @news.title
     .published_at: em = I18n.l @news.published_at, format: :long
-
     == @news.body

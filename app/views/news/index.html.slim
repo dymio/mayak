@@ -1,6 +1,6 @@
 section.holder
   article.content
-    h1 = t 'defaults.page_titles.news'
+    h1 = @seo_carrier.title # it will be or Page.title or default_title from I18n yml
 
     - if @news_list.any?
       ul

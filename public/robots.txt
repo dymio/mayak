@@ -19,8 +19,7 @@
 #       """  sul
 #
 #   Art by Sulliwan Sucks
-#
-#
+
 #! User-agent: Yandex
 #! Disallow: /admin/
 #! Disallow: /humans.txt

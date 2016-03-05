@@ -15,4 +15,5 @@ Rails.application.config.assets.precompile += %w(
     redactor.js
     redactor_ru.js
     redactor_video.js
+    redactor_table.js
   )

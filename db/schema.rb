@@ -111,4 +111,5 @@ ActiveRecord::Schema.define(version: 20140916000000) do
 
   add_index "static_files", ["holder_type", "holder_id"], name: "index_static_files_on_holder_type_and_holder_id", using: :btree
 
+  add_foreign_key "nav_items", "pages", column: "url_page_id", on_delete: :cascade
 end

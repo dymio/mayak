@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   # pages
   get '*page_path' => 'pages#show', as: :page
 
+  # You can have the root of your site routed with "root"
   root 'home#index'
 
   # Example of regular route:

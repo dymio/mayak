@@ -12,5 +12,6 @@ class CreateNavItems < ActiveRecord::Migration
     end
     add_index :nav_items, :prior
     add_index :nav_items, :hided
+    add_foreign_key :nav_items, :pages, column: :url_page_id, on_delete: :cascade
   end
 end

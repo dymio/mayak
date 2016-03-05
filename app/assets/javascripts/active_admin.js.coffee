@@ -21,12 +21,11 @@ $(document).ready ->
       uploadImageFields: uploadsFields
       fileUpload: file_upload_url
       uploadFileFields: uploadsFields
-      plugins: ['video']
+      plugins: ['video', 'table']
 
 ## Remote deletion of the Static File
   $(".delete-static-file").on 'ajax:success', (data, status, xhr) ->
     $(this).closest('tr').remove()
-
 
 ## Nav Items hiding variables fields on show and new pages
   if $("#edit_nav_item, #new_nav_item").length
@@ -40,4 +39,3 @@ $(document).ready ->
       checkTypeElementsVisibility $(this).val()
       false
     checkTypeElementsVisibility()
-

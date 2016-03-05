@@ -4,5 +4,5 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   # HTTP basis authentication
-  #http_basic_authenticate_with name: "proekt", password: "palenin" if Rails.env == 'production'
+  # http_basic_authenticate_with name: "proekt", password: "palenin" if %w(production staging).include?(Rails.env)
 end

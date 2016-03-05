@@ -11,6 +11,7 @@ Updating process
     $ rvm --default use ruby-new.version
     $ rvm gemset create mayak
     $ rvm gemset use mayak
+    $ gem install bundler
     $ gem install --no-rdoc --no-ri rails -v rails.new.version
     $ rails new mayak --skip-bundle --skip-test-unit --database=postgresql
     $ mv mayak rails_new.version
@@ -22,7 +23,8 @@ Updating process
 
     ```
     $ bin/bundle install
-    $ bin/rails generate scaffold Article author:references{polymorphic} title:string slug:string:index published_at:datetime:index image:string intro:text body:text seodata:text hided:boolean:index
+    $ bin/rails generate scaffold Author name:string
+    $ bin/rails generate scaffold Article author:belongs_to source:references{polymorphic} title:string slug:string:index published_at:datetime:index image:string intro:text body:text seodata:text hided:boolean:index
     $ bin/rake db:drop db:create db:migrate
     ```
 
@@ -34,11 +36,12 @@ Updating process
 
 * Merge 'Gemfile' from old Mayak with updating versions of gems
 
-* Run `bin/bundle install` and generate all configs:
+* Run `bin/bundle install --without production` and generate all configs:
 
     ```
     bin/rails g active_admin:install
     bin/rails g kaminari:config
+    bin/rails g uploader Avatar
     bin/rake sitemap:install
     bin/bundle exec wheneverize .
     bin/bundle exec mina init

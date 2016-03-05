@@ -15,7 +15,7 @@ Mayak - is simple Rails application made for fast start of a common web-project.
 Software and coventions
 -----------------------
 
-Template based on Ruby 2.2.0 and use many brilliant ruby gems (check full list and versions in Gemfile):
+Template based on Ruby 2.2.3 and use many brilliant ruby gems (check full list and versions in Gemfile):
 
 * [Ruby on Rails](http://rubyonrails.org/);
 * [ActiveAdmin](http://activeadmin.info/) for admin panel;
