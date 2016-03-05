@@ -19,6 +19,9 @@
 # Ignore local database config
 /config/database.yml
 
+# Ignore application configuration
+/config/application.yml
+
 # Ignore systems and tools files
 *.DS_Store
 .ruby-gemset

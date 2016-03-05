@@ -53,6 +53,9 @@ gem 'sitemap_generator', '5.1.0'
 # Whenever is a Ruby gem that provides a clear syntax for writing and deploying cron jobs.
 gem 'whenever', '0.9.4'
 
+# Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file
+# gem 'figaro', '1.1.1'
+
 # Rails forms made easy.
 # gem 'simple_form'
 
