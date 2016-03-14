@@ -7,6 +7,11 @@ ActiveAdmin.register News do
   ### Setting up the menu element of this page
   menu priority: 3 #, parent: "Blog"
 
+  ### Action items (buttons on the top right of the page)
+  action_item only: :show do
+    link_to 'Создать новую', new_admin_news_path
+  end
+
 ## INDEX
 
   ### Index page Configuration
