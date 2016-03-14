@@ -26,7 +26,7 @@ class News < ActiveRecord::Base
   end
 
   def prepare_slug
-    self.slug = SlugPreparatorRus.slug self.slug, self.title
+    self.slug = UrlStringPreparator.slug self.slug, self.title
   end
 
 end

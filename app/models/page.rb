@@ -23,7 +23,7 @@ class Page < ActiveRecord::Base
   private
 
   def prepare_slug
-    self.slug = SlugPreparatorRus.slug self.slug, self.title unless self.home?
+    self.slug = UrlStringPreparator.path self.slug, self.title unless self.home?
   end
 
   def check_destroying_possibility
