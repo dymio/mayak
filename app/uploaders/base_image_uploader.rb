@@ -37,7 +37,7 @@ class BaseImageUploader < BaseUploader
 
   # def grayscale()
   #   manipulate! do |img|
-  #     img.combine_options { |c| c.colorspace "Gray" }
+  #     img.colorspace('Gray')
   #     img
   #   end
   # end
