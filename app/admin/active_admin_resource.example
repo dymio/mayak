@@ -242,7 +242,7 @@ ActiveAdmin.register Post do
   # #   <%= f.inputs :title, :body %>
   # #   <%= f.actions do %>
   # #     <%= f.action :submit %>
-  # #     <li class="cancel"><%= link_to 'Cancel', collection_path %></li>
+  # #     <%= cancel_link %>
   # #   <% end %>
   # # <% end %>
 
