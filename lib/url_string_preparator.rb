@@ -1,4 +1,4 @@
-# Prepare string for using as slug/path.
+# Prepare string for using as slug or path.
 # Has russian version (can transliterate russian chars). requires gem 'russian'
 
 class UrlStringPreparator

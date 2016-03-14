@@ -38,8 +38,8 @@ SitemapGenerator::Sitemap.create do
 
   Page.visibles.ordered.each do |page|
     next if page.home?
-    unless exclude_from_pages.include? page_path(page.slug)
-      add page_path(page.slug), lastmod: page.updated_at, changefreq: 'monthly'
+    unless exclude_from_pages.include? page_path(page.path)
+      add page_path(page.path), lastmod: page.updated_at, changefreq: 'monthly'
     end
   end
 end

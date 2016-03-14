@@ -6,7 +6,7 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
-        panel "Последние Добавленные Новости" do
+        panel "Последние добавленные Новости" do
           if News.any?
             table_for News.order(created_at: :desc).limit(10) do
               column :title do |news|

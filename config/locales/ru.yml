@@ -95,7 +95,7 @@ ru:
         updated_at:  "Обновлён"
       page:
         title:      "Заголовок"
-        slug:       "slug"
+        path:       "URL‐путь"
         body:       "Содержание"
         prior:      "Порядок"
         hided:      "Скрыта?"

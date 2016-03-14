@@ -1,5 +1,5 @@
 ActiveAdmin.register Page do
-  permit_params :title, :slug, :body, :prior, :hided,
+  permit_params :title, :path, :body, :prior, :hided,
                 :no_title_postfix, :seo_title, :seo_descr, :seo_keywords
 
   ### Setting up the menu element of this page
@@ -20,11 +20,11 @@ ActiveAdmin.register Page do
   ### Index as table
   index download_links: false do
     column :title
-    column :slug, sortable: :slug do |page|
+    column :path, sortable: :path do |page|
       if page.home?
         link_to "/", root_path, target: '_blank'
       else
-        link_to page.slug, page_path(page.slug), target: '_blank'
+        link_to page.path, page_path(page.path), target: '_blank'
       end
     end
     column :prior
@@ -38,8 +38,8 @@ ActiveAdmin.register Page do
     attributes_table do
       unless page.home?
         row :title
-        row :slug do
-          link_to page.slug, page_path(page.slug), target: '_blank'
+        row :path do
+          link_to page.path, page_path(page.path), target: '_blank'
         end
       end
       row(:body) { raw page.body }
@@ -69,7 +69,7 @@ ActiveAdmin.register Page do
     f.inputs '' do
       f.input :title unless page.home?
       unless page.home? || page.fixed?
-        f.input :slug, hint: I18n.t('active_admin.hints.slug').html_safe
+        f.input :path, hint: 'Уникальная часть URL-адреса, идущая после домена, которая указывает на эту страницу. Например, для адреса `example.com/information/delivery` часть `information/delivery` &mdash; URL-путь к странице. <a href="https://ru.wikipedia.org/wiki/URL" target="_blank">Подробнее на Википедии</a>.<br>Если оставить поле пустым, то URL-путь будет сгенерирован на основе заголовка.'.html_safe
       end
       f.input :body, input_html: { class: 'editor',
                                    'data-type' => f.object.class.name,

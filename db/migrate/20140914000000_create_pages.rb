@@ -1,13 +1,13 @@
 class CreatePages < ActiveRecord::Migration
   def migrate(direction)
     super
-    Page.create!(title: "Главная", slug: "", body: "<p>Добро пожаловать!</p>", prior: 1) if direction == :up
+    Page.create!(title: "Главная", path: "", body: "<p>Добро пожаловать!</p>", prior: 1) if direction == :up
   end
 
   def change
     create_table :pages do |t|
       t.string  :title
-      t.string  :slug,                    null: false
+      t.string  :path,                    null: false
       t.boolean :fixed
       t.text    :body
       t.text    :seodata
@@ -16,7 +16,7 @@ class CreatePages < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_index :pages, :slug
+    add_index :pages, :path
     add_index :pages, :prior
     add_index :pages, :hided
   end

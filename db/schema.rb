@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20140916000000) do
 
   create_table "pages", force: :cascade do |t|
     t.string   "title"
-    t.string   "slug",                       null: false
+    t.string   "path",                       null: false
     t.boolean  "fixed"
     t.text     "body"
     t.text     "seodata"
@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(version: 20140916000000) do
   end
 
   add_index "pages", ["hided"], name: "index_pages_on_hided", using: :btree
+  add_index "pages", ["path"], name: "index_pages_on_path", using: :btree
   add_index "pages", ["prior"], name: "index_pages_on_prior", using: :btree
-  add_index "pages", ["slug"], name: "index_pages_on_slug", using: :btree
 
   create_table "settings", force: :cascade do |t|
     t.string   "ident",                      null: false

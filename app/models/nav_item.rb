@@ -25,7 +25,7 @@ class NavItem < ActiveRecord::Base
 
   def url
     if inner_link?
-      url_page ? "/#{url_page.slug}" : ""
+      url_page ? "/#{url_page.path}" : ""
     else
       url_text
     end
