@@ -133,7 +133,7 @@ ActiveAdmin.register Post do
       row :title
       row(:slug) { link_to post.slug, post_path(post.slug), target: '_blank' }
       row(:tags) { post.tags.pluck(:name).join(', ') }
-      row :published_at
+      row :published_at, start_year: 1971
       row :image do
         image_tag(post.image.url) unless post.image.blank?
       end
