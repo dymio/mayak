@@ -2,7 +2,7 @@ ActiveAdmin.register Post do
   permit_params :title, :slug, :published_at, :author_id,
                 :image, :image_cache, :remove_image,
                 :intro, :body, :prior, :hided,
-                
+
                 # TODO find the way to move seo params permition to lib/seo.rb
                 :no_title_postfix, :seo_title, :seo_descr, :seo_keywords,
 
@@ -20,6 +20,10 @@ ActiveAdmin.register Post do
   #      label: proc { I18n.t("mypost") },
   #      if: proc { current_admin_user.can_edit_posts? },
   #      parent: "Blog"
+
+  # for creating two level menu
+  # menu parent: "Товары"
+
 
   ### Custom Controller Actions
   # collection_action :import_csv, method: :post do
