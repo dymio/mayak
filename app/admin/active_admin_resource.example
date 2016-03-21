@@ -24,7 +24,6 @@ ActiveAdmin.register Post do
   # for creating two level menu
   # menu parent: "Товары"
 
-
   ### Custom Controller Actions
   # collection_action :import_csv, method: :post do
   #   # Do some CSV importing work here...
