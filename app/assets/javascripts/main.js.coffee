@@ -8,3 +8,4 @@ detectIe = () ->
   if (msie > 0)
     $("body").addClass("lt-ie-11")
   return
+
