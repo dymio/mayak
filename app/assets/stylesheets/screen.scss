@@ -1,13 +1,15 @@
+@import "mixins";
+
 /** STICKY FOOTER **/
 html, body { height: 100%; }
 #wrap {
   min-height: 100%;
-  margin-bottom: -72px; }
-  #wrap:after {
-    content: " ";
-    display: block;
-    height: 72px; }
-#footer { height: 72px; background: silver; }
+  margin-bottom: $ftr-hght*(-1); }
+#wrap:after {
+  content: " ";
+  display: block;
+  height: $ftr-hght; }
+#footer { height: $ftr-hght; background: silver; }
 /** END OF STICKY FOOTER FUNCTIONAL **/
 
 /*

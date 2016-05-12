@@ -1,17 +1,15 @@
+@import "mixins";
 /*!
  * Screen base styles
  *  taken from Bootstrap v3.2.0 | MIT License | getbootstrap.com
  */
 
 html {
-  font-size: 10px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font: #{$html-font-size}/#{$html-line-height} $font;
 }
-
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.42857143;
+  @include font-rem(14px, 16px, $font);
   color: #000;
   background-color: #fff;
 }

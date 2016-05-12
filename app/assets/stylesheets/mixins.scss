@@ -1,0 +1,62 @@
+
+/* use only popular color, font and sizes like variable */
+//$clr-gray: #a3a3a3;
+$ftr-hght: 72px;
+$font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$html-font-size: 16px;
+$html-line-height: 22px;
+/* end use only popular color and sizes like variable */
+
+/* mixins for responsive and resizable design */
+@mixin mediumscreen { @media (max-width: 1200px) { @content; } }
+@mixin bigscreen { @media (min-width: 1201px) { @content; } }
+//@mixin mobile {    @media (max-width: 480px) { @content; } }
+//@mixin tablet {   @media (min-width: 481px) and (max-width: 760px) { @content; } }
+//@mixin devices { @media (max-width: 980px) { @content; }  }
+//@mixin desktop { @media (min-width: 981px) { @content; }  }
+/* end mixins for responsive and resizable design */
+
+/* mixins for thin border for links */
+@mixin thin-inline-lnk($clr: #fff, $opacity: 0.60, $brd: 1px) {
+  @at-root {
+    a#{&},
+    a &,
+    & > a {
+      display: inline;
+      color: $clr;
+      text-decoration: none !important;
+      border-bottom: $brd solid rgba($clr, $opacity);
+      &:hover {
+        border-bottom: none;
+      }
+    }
+  }
+}
+/* end mixins for thin border for links */
+
+/* to use rem on ie10 */
+@function calculateRemFS($size) {
+  $remSize: $size / $html-font-size;
+  @return $remSize * 1rem;
+}
+
+@function calculateRemLH($line-h) {
+  $remSize: $line-h / $html-line-height;
+  @return $remSize * 1rem;
+}
+
+@mixin font-rem-size($size) {
+  body.lt-ie-11 {
+    font-size: $size;
+  }
+  font-size: calculateRemFS($size);
+}
+
+@mixin font-rem($size, $line-h, $f-style, $f-param: '') {
+  body.lt-ie-11 & {
+    font: #{$f-param} $size#{"/"}$line-h $f-style;
+  }
+  font: #{$f-param} calculateRemFS($size)#{"/"}calculateRemFS($line-h) $f-style;
+}
+/* end to use rem on ie10 */
+
