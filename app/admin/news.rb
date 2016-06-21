@@ -97,7 +97,7 @@ ActiveAdmin.register News do
           f.object.preview? ? "<br>Текущее изображение:<br>#{image_tag(f.object.preview.url)}" : ""
         ].join.html_safe
       f.input :preview_cache, as: :hidden
-      f.input :remove_preview, as: :boolean
+      f.input :remove_preview, as: :boolean if f.object.preview?
 
       f.input :intro, input_html: { rows: 4  }
       f.input :body, input_html: { class: 'editor',

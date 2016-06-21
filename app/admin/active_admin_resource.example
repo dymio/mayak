@@ -2,7 +2,7 @@ ActiveAdmin.register Post do
   permit_params :title, :slug, :published_at, :author_id,
                 :image, :image_cache, :remove_image,
                 :intro, :body, :prior, :hided,
-                
+
                 # TODO find the way to move seo params permition to lib/seo.rb
                 :no_title_postfix, :seo_title, :seo_descr, :seo_keywords,
 
@@ -211,7 +211,7 @@ ActiveAdmin.register Post do
         ].join.html_safe
       # f.input :remote_image_url
       f.input :image_cache, as: :hidden
-      f.input :remove_image, as: :boolean
+      f.input :remove_image, as: :boolean if f.object.image?
 
       f.input :intro, input_html: { rows: 4  }
       f.input :body, input_html: { class: 'editor',
