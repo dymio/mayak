@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :tags,
                                 allow_destroy: true,
                                 reject_if: :all_blank
-  # `belongs_to :post, inverse_of: :tags` in the Tag model  
+  # `belongs_to :post, inverse_of: :tags` in the Tag model
 
   has_many :visits, as: :material, dependent: :destroy
   has_many :visitors, through: :visits
@@ -51,7 +51,7 @@ class Post < ActiveRecord::Base
 
 ## SCOPES
 
-  scope :visibles, -> { where("posts.published_at < TIMESTAMP 'tomorrow'").
+  scope :visibles, -> { where("posts.published_at < ?", Date.tomorrow.to_time).
                         where(hided: false) }
   scope :ordered, -> { order(published_at: :desc, id: :desc) }
 
