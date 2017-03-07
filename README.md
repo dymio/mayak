@@ -67,35 +67,38 @@ Installation
 6. Create file `config/database.yml` for database connection.
     There is `config/database_example.yml` for example.
 
-7. Change `default-host` setting in the file `config/sitemap.rb`
+7. Create file `config/application.yml` for app configuration management with
+    Figaro gem. There is `config/application_example.yml` for example.
+
+8. Change `default-host` setting in the file `config/sitemap.rb`
     (and do not forget about sitemap during development).
 
-8. Setting up the mailer in `config/environments/production.rb` file,
+9. Setting up the mailer in `config/environments/production.rb` file,
     if you need to sending emails from site.
 
-9. In the file `config/initializers/active_admin.rb`
+10. In the file `config/initializers/active_admin.rb`
     replace `config.site_title` with title of your site.
 
-10. In the file `config/initializers/devise.rb`
+11. In the file `config/initializers/devise.rb`
     replace value of `config.mailer_sender`.
 
-11. In the file `config/initializers/session_store.rb` replace
+12. In the file `config/initializers/session_store.rb` replace
     session key `_mayak_session` with your project key.
 
-12. In the migration file of site settings
+13. In the migration file of site settings
     (`db/migrate/20170307000002_create_settings.rb`) you can change default
     settings values and add new settings. TODO
 
-13. In the seeds file (`db/seeds.rb`) you can change email and password
+14. In the seeds file (`db/seeds.rb`) you can change email and password
     of admin user. By default it admin@example.com with password 'password'.
 
-14. Check file `app/assets/browserslist` file and set
+15. Check file `app/assets/browserslist` file and set
     [settings](https://github.com/ai/browserslist#queries) you need
     for Autoprefixer.
 
-15. Replace or remove LICENSE and UPDATE.md files.
+16. Replace or remove LICENSE and UPDATE.md files.
 
-16. When done, run:
+17. When done, run:
 
     ```
     $ bin/bundle install --without production
