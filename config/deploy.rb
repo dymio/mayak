@@ -15,6 +15,7 @@ set :domain, 'codenohito.server' # mayak.dymio.net
 set :deploy_to, '/home/dymio/www/mayak_demo'
 set :repository, 'git@github.com:dymio/mayak.git'
 set :branch, 'master'
+set :whenever_name, 'mayak' # default: "#{domain}_#{rails_env}"
 
 # Optional settings:
 #   set :user, 'foobar'          # Username in the server to SSH to.
