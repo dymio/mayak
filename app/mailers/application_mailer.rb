@@ -1,5 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "no-reply@example.com"
   layout 'mailer'
   # a lot of useful email templates you will find at https://github.com/mailchimp/email-blueprints
 

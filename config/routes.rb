@@ -3,10 +3,13 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # No-WWW redirection
-  # Use webserver (nginx or Apache) redirection too, because static files requests evade this rule
   constraints host: /^www\./i do
-    get ':any', to: redirect {|p, req| "#{req.protocol}#{req.host_with_port[4..-1]}/#{p[:any]}" }, any: /.*/
+    get ':any',
+        to: redirect {|p, req| "#{req.protocol}#{req.host_with_port[4..-1]}/#{p[:any]}" },
+        any: /.*/
   end
+  # Always prefer web-server redirect instead this solution,
+  # because static files requests evades this rule!
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

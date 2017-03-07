@@ -6,19 +6,23 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# def time_point_string
-#   Time.now.strftime("%H:%M:%S:%L")
-# end
+def time_point_string; Time.now.strftime("%H:%M:%S:%L") end
 
 # def seedfile(fname)
 #   File.open File.join(Rails.root, "public/content/seeds/", fname)
 # end
 
-# puts "#{time_point_string}: Start seeding"
-
 # # Use code of file 'db/seeds_more.rb'. This is way to split big seeds.rb file.
 # # You can use instance variables (@something) declared in that file.
 # require_relative 'seeds_more'
+
+puts "#{time_point_string}: Start seeding"
+
+# = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = --
+puts "#{time_point_string}: seed Admin Users"
+AdminUser.create! email: 'admin@example.com',
+                  password: 'password',
+                  password_confirmation: 'password'
 
 # = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = --
 # puts "#{time_point_string}: seed Static Files"
@@ -28,4 +32,4 @@
 # sig.file = seedfile "example_pic.jpg"
 # sig.save
 
-# puts "#{time_point_string}: Seeding is done!"
+puts "#{time_point_string}: Seeding is done!"

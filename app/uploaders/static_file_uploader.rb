@@ -10,8 +10,4 @@ class StaticFileUploader < BaseUploader
     process resize_to_fill: [96, 96]
   end
 
-  # def extension_white_list
-  #   %w(jpg jpeg gif png)
-  # end
-
 end

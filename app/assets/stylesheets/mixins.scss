@@ -54,9 +54,9 @@ $html-line-height: 22px;
 
 @mixin font-rem($size, $line-h, $f-style, $f-param: '') {
   body.lt-ie-11 & {
-    font: #{$f-param} $size#{"/"}$line-h $f-style;
+    font: $f-param $size'/'$line-h $f-style;
   }
-  font: #{$f-param} calculateRemFS($size)#{"/"}calculateRemFS($line-h) $f-style;
+  font: $f-param calculateRemFS($size)'/'calculateRemFS($line-h) $f-style;
 }
 /* end to use rem on ie10 */
 

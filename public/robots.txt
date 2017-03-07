@@ -1,5 +1,5 @@
 # See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
-#        _
+#
 #       ( )
 #        H
 #        H
@@ -20,29 +20,29 @@
 #
 #   Art by Sulliwan Sucks
 
-#! User-agent: Yandex
-#! Disallow: /feedback
-#! Disallow: /admin/
-#! Disallow: /humans.txt
-#! Disallow: /*.xls$
-#! Allow: /
-#! Host: example.com
-#! 
-#! User-agent: Googlebot
-#! Disallow: /feedback
-#! Disallow: /admin/
-#! Disallow: /humans.txt
-#! Disallow: /*.xls$
-#! Allow: /
-#! 
-#! User-agent: *
-#! Disallow: /feedback
-#! Disallow: /admin/
-#! Disallow: /humans.txt
-#! Disallow: /temp/privatedata.xls
-#! Disallow:
-#! 
-#! Sitemap: http://example.com/sitemap.xml.gz
+# User-agent: Yandex
+# Disallow: /feedback
+# Disallow: /admin/
+# Disallow: /humans.txt
+# Disallow: /*.xls$
+# Allow: /
+# Host: example.com
+#
+# User-agent: Googlebot
+# Disallow: /feedback
+# Disallow: /admin/
+# Disallow: /humans.txt
+# Disallow: /*.xls$
+# Allow: /
+#
+# User-agent: *
+# Disallow: /feedback
+# Disallow: /admin/
+# Disallow: /humans.txt
+# Disallow: /temp/privatedata.xls
+# Disallow:
+#
+# Sitemap: http://example.com/sitemap.xml.gz
 
 # Ban all spiders from the entire site
 User-agent: *

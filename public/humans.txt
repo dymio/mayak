@@ -5,29 +5,36 @@
   Developer: Ivan Dymkov
   Contact: mstrdymio [at] gmail.com
   Site: dymio.net
-  Site: proektmarketing.ru
   Site: codenohito.ru
   Github: @dymio
   Twitter: @dymio
   From: Krasnoyarsk, Russia
 
-  Frontend-developer: Elena Bozina
+  Developer: Sergey Haritonov
+  Github: @enhray
+  From: Krasnoyarsk, Russia
+
+  Developer: Elena Bozina
   Github: @palutova
   From: Krasnoyarsk, Russia
 
-  Backend-developer: Pavel Rojkov
+  Developer: Pavel Rozhkov
   Github: @projkov
   Twitter: @prozskov
   From: Krasnoyarsk, Russia
 
+  Developer: Stanislav Chereshkevich
+  Github: @dissident
+  From: Krasnoyarsk, Russia
+
 /* THANKS */
-  To whole Proektmarketing.ru team
+  To the Proektmarketing.ru team
 
 /* SITE */
-  Last update: 2016/03/05
+  Last update: 2017/03/07
   Language: English / Russian
-  Standarts: HTML5, CSS3
-  Components: Ruby on Rails, jQuery, Normalize, Chosen
+  Standarts: HTML5, CSS3, ECMAScript 5.1
+  Components: Ruby on Rails, jQuery, Normalize
   Software: Sublime Text, RubyMine, iTerm, Mac OS X
 
 

@@ -23,14 +23,8 @@ class BaseUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_white_list
+  # def extension_whitelist
   #   %w(jpg jpeg gif png)
-  # end
-
-  # Override the filename of the uploaded files:
-  # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
   # end
 
   # Override the filename of the uploaded files:
@@ -39,14 +33,6 @@ class BaseUploader < CarrierWave::Uploader::Base
     # Translit russian file names
     Russian::translit(original_filename) if original_filename
   end
-
-  # By default, CarrierWave copies an uploaded file twice,
-  # first copying the file into the cache, then copying the file into the store.
-  # For large files, this can be prohibitively time consuming.
-  # This has only been tested with the local filesystem store.
-  #
-  # def move_to_cache; false end
-  # def move_to_store; false end
 
   def image?(_ = nil)
     self.file.content_type.include? 'image'

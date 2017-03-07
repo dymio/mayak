@@ -2,14 +2,14 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.7.1'
+gem 'rails', '4.2.8'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.15'
 # A thin and fast web server
 gem 'thin'
 
 # Template language, replacing html/erb
-gem 'slim', '3.0.6'
+gem 'slim', '3.0.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -22,24 +22,25 @@ gem 'autoprefixer-rails'
 gem 'therubyracer', platforms: :ruby, group: :production
 
 # Flexible authentication solution for Rails with Warden
-gem 'devise', '3.5.6'
+gem 'devise', '4.2.0'
 
 # The administration framework for Ruby on Rails applications.
-gem 'activeadmin', '1.0.0.pre2'
+gem 'activeadmin', '~> 1.0.0.pre4'
 
 # Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
-gem 'carrierwave', '0.10.0'
+gem 'carrierwave', '1.0.0'
+gem 'carrierwave-i18n', '0.1.0'
 # A ruby wrapper for ImageMagick or GraphicsMagick command line.
-gem 'mini_magick', '4.4.0'
+gem 'mini_magick', '4.6.1'
 
 # Russian language support for Ruby and Rails
 gem 'russian', '0.6.0'
 
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Rails
-gem 'kaminari', '0.16.3'
+gem 'kaminari', '~> 0.17.0'
 
 # ActiveModel Validation for email
-gem 'valid_email', '0.0.12'
+gem 'valid_email', '0.0.13'
 
 # A simple Ruby on Rails plugin for creating and managing a breadcrumb navigation
 # gem 'breadcrumbs_on_rails'
@@ -48,13 +49,13 @@ gem 'valid_email', '0.0.12'
 # gem 'ancestry'
 
 # SitemapGenerator is a framework-agnostic XML Sitemap generator written in Ruby with automatic Rails integration. It supports Video, News, Image, Geo, Mobile, PageMap and Alternate Links sitemap extensions and includes Rake tasks for managing your sitemaps, as well as many other great features.
-gem 'sitemap_generator', '5.1.0'
+gem 'sitemap_generator', '5.3.1'
 
 # Whenever is a Ruby gem that provides a clear syntax for writing and deploying cron jobs.
-gem 'whenever', '0.9.4'
+gem 'whenever', '0.9.7'
 
 # Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file
-# gem 'figaro', '1.1.1'
+# gem 'figaro'
 
 # Rails forms made easy.
 # gem 'simple_form'
@@ -64,6 +65,8 @@ gem 'css-class-string', '0.1.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+# jQuery UI's JavaScript, CSS, and image files packaged for the Rails 3.1+
+gem 'jquery-ui-rails', '~> 5.0.5' # activeadmin 1.0.0.pre4 needs this version
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -78,7 +81,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'unicorn'
 
 # Use Mina for deployment
-gem 'mina', '0.3.8', group: :development
+gem 'mina', '1.0.6', group: :development
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

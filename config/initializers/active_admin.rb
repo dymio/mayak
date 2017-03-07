@@ -121,15 +121,18 @@ ActiveAdmin.setup do |config|
   # You can completely disable comments:
   config.comments = false
   #
-  # You can disable the menu item for the comments index page:
-  # config.show_comments_in_menu = false
-  #
   # You can change the name under which comments are registered:
   # config.comments_registration_name = 'AdminComment'
   #
   # You can change the order for the comments and you can change the column
-  # to be used for ordering
+  # to be used for ordering:
   # config.comments_order = 'created_at ASC'
+  #
+  # You can disable the menu item for the comments index page:
+  # config.comments_menu = false
+  #
+  # You can customize the comment menu:
+  # config.comments_menu = { parent: 'Admin', priority: 1 }
 
   # == Batch Actions
   #
@@ -187,13 +190,13 @@ ActiveAdmin.setup do |config|
   #
   # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
   #   config.register_stylesheet 'my_print_stylesheet.css', media: :print
-  #
+
   config.register_stylesheet 'chosen.css'
   config.register_stylesheet 'redactor.css'
 
   # To load a javascript file:
   #   config.register_javascript 'my_javascript.js'
-  #
+
   config.register_javascript 'chosen.jquery.js'
   config.register_javascript 'redactor.js'
   config.register_javascript 'redactor_ru.js'
@@ -268,4 +271,11 @@ ActiveAdmin.setup do |config|
   # You can enable or disable them for all resources here.
   #
   # config.filters = true
+  #
+  # By default the filters include associations in a select, which means
+  # that every record will be loaded for each association.
+  # You can enabled or disable the inclusion
+  # of those filters by default here.
+  #
+  # config.include_default_association_filters = true
 end

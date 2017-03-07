@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
 
 ## ASSOCIATIONS
 
-  belongs_to :author, inverse_of: :posts
+  belongs_to :author, inverse_of: :posts, required: true
   # `has_many :posts, inverse_of: :author, dependent: :destroy` in the Author model
 
   has_many :tags, inverse_of: :post, dependent: :destroy
