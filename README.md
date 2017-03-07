@@ -123,7 +123,7 @@ As example:
 
 License
 -------
-Mayak Rails Website Template is released under the [MIT License](LICENSE.txt).
+Mayak Rails Website Template is released under the [MIT License](LICENSE).
 
 
 Contributing
