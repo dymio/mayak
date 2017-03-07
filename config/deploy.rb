@@ -51,6 +51,7 @@ end
 # All paths in `shared_dirs` and `shared_paths` will be created on their own.
 task :setup do
   # command %{rbenv install 2.3.0}
+  comment "Don't forget to create shared/config/database.yml file"
 end
 
 desc "Deploys the current version to the server."
@@ -83,10 +84,10 @@ end
 namespace :rails do
   desc "Seed database"
   task :db_seed do
-    comment "Seed database for #{domain}_#{rails_env}"
-    # in_path(fetch(:current_path)) do
-    command %{#{fetch(:rake)} db:create}
-    # end
+    comment "Seed database for #{fetch(:domain)}_#{fetch(:rails_env)}"
+    in_path(fetch(:current_path)) do
+      command %{#{fetch(:rake)} db:seed}
+    end
     comment 'Seeding is done.'
   end
 end
