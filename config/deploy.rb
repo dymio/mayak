@@ -1,6 +1,6 @@
 require 'mina/rails'
 require 'mina/git'
-# require 'mina/whenever'
+require 'mina/whenever'
 # require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 # require 'mina/rvm'    # for rvm support. (https://rvm.io)
 
@@ -73,7 +73,7 @@ task :deploy do
         command %{mkdir -p tmp/}
         command %{touch tmp/restart.txt}
       end
-      # invoke :'whenever:update'
+      invoke :'whenever:update'
     end
   end
 

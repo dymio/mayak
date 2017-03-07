@@ -82,6 +82,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Mina for deployment
 gem 'mina', '1.0.6', group: :development
+gem 'mina-whenever', '1.0.0', group: :development
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
