@@ -26,8 +26,9 @@ set :forward_agent, true # SSH forward_agent.
 # just enter your server with `ssh user@server -A` and clone your repo to any folder
 
 # shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
-# set :shared_dirs, fetch(:shared_dirs, []).push('somedir')
-# set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml')
+set :shared_dirs, fetch(:shared_dirs, []).push('public/uploads',
+                                               'public/content')
+set :shared_files, fetch(:shared_files, []).push('config/database.yml')
 
 # Production environment deploy: 'mina production deploy'
 task :production do
