@@ -15,6 +15,8 @@ Website template gives you major components of (almost) any website:
 * news
 * feedback form
 
+[Mayak.io](http://mayak.io/) — project's website.
+
 
 Software and coventions
 -----------------------
