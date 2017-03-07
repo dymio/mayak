@@ -71,7 +71,7 @@ Rails.application.configure do
   # config.action_mailer.smtp_settings = {
   #   address:        "smtp.yandex.ru",
   #   user_name:      "yandex_user",
-  #   password:       "user_password",
+  #   password:       ENV["mailer_smtp_password"],
   #   authentication: "plain" }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

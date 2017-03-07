@@ -55,7 +55,7 @@ gem 'sitemap_generator', '5.3.1'
 gem 'whenever', '0.9.7'
 
 # Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file
-# gem 'figaro'
+gem 'figaro', '~> 1.1.1'
 
 # Rails forms made easy.
 # gem 'simple_form'

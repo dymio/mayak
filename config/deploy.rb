@@ -29,7 +29,8 @@ set :forward_agent, true # SSH forward_agent.
 # shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
 set :shared_dirs, fetch(:shared_dirs, []).push('public/uploads',
                                                'public/content')
-set :shared_files, fetch(:shared_files, []).push('config/database.yml')
+set :shared_files, fetch(:shared_files, []).push('config/database.yml',
+                                                 'config/application.yml')
 
 # Production environment deploy: 'mina production deploy'
 task :production do
@@ -53,6 +54,7 @@ end
 task :setup do
   # command %{rbenv install 2.3.0}
   comment "Don't forget to create shared/config/database.yml file"
+  comment "Don't forget to create shared/config/application.yml file"
 end
 
 desc "Deploys the current version to the server."
