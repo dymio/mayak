@@ -1,48 +1,91 @@
-@import "mixins";
 /*!
- * Screen base styles
- *  taken from Bootstrap v3.2.0 | MIT License | getbootstrap.com
+ * Screen base styles and forms base styles
+ *  based on Bootstrap v3.3.7 styles | MIT License | getbootstrap.com
  */
 
+@import "mixins";
+
 html {
+  font-size: $html-font-size;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  font: #{$html-font-size}/#{$html-line-height} $font;
 }
+
 body {
-  @include font-rem(14px, 16px, $font);
-  color: #000;
+  font: #{$base-font-size}/#{$base-line-height} $base-font;
   background-color: #fff;
+  color: #000;
 }
 
 a {
-  color: #428bca;
+  color: #337ab7;
   text-decoration: none;
+  &:hover, &:focus {
+    color: #23527c;
+    text-decoration: underline;
+  }
+  &:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
 }
-a:hover,
-a:focus {
-  color: #2a6496;
-  text-decoration: underline;
+
+figure { margin: 0; }
+img { vertical-align: middle; }
+[role="button"] { cursor: pointer; }
+
+@-ms-viewport { width: device-width; }
+
+
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
-a:focus {
-  outline: thin dotted;
+fieldset { min-width: 0; padding: 0; margin: 0; border: 0; }
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 21px;
+  line-height: inherit;
+  color: #333;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+input[type="search"] { box-sizing: border-box; }
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 4px 0 0;
+  margin-top: 1px \9;
+  line-height: normal;
+}
+input[type="file"] { display: block; }
+input[type="range"] { display: block; width: 100%; }
+select[multiple], select[size] { height: auto; }
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
-/* anchor underline variants */
-/* - single line only variant -
-  display: inline-block;
-  border-bottom: 1px solid;
-  line-height: 90%;
-*/
-/* - good variant for single color inline link (can be multiline) -
-  background: url('one_px_428bca.png') repeat-x left 1.26em;
-*/
-
-figure {
-  margin: 0;
+output {
+  display: block;
+  padding-top: 7px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
 }
-img {
-  vertical-align: middle;
+input[type="search"] { -webkit-appearance: none; }
+input[type="radio"][disabled],
+input[type="checkbox"][disabled],
+fieldset[disabled] input[type="radio"],
+fieldset[disabled] input[type="checkbox"] {
+  cursor: not-allowed;
 }
-
-@-ms-viewport { width: device-width; }

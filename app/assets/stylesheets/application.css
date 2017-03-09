@@ -12,11 +12,9 @@
  *
  * do not require_tree .
  *= require normalize
- *= require basis
  *= require print
- *= require forms_basis
+ *= require basis
  *= require content
- *= require helpers
  *= require screen
  *= require_self
  */

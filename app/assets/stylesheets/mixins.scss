@@ -1,47 +1,71 @@
+// Variables
+//   use only popular color, font and sizes as variables
+$html-font-size: 10px;
+$base-font-size: 16px;
+$base-line-height: 22px;
+$base-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$footer-height: 72px;
 
-/* use only popular color, font and sizes like variable */
-//$clr-gray: #a3a3a3;
-$ftr-hght: 72px;
-$font: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$html-font-size: 16px;
-$html-line-height: 22px;
-/* end use only popular color and sizes like variable */
 
-/* mixins for responsive and resizable design */
+// Mixins for responsive and adaptive design
+@mixin devicescreen { @media (max-width: 980px)  { @content; } }
 @mixin mediumscreen { @media (max-width: 1200px) { @content; } }
-@mixin bigscreen { @media (min-width: 1201px) { @content; } }
-//@mixin mobile {    @media (max-width: 480px) { @content; } }
-//@mixin tablet {   @media (min-width: 481px) and (max-width: 760px) { @content; } }
-//@mixin devices { @media (max-width: 980px) { @content; }  }
-//@mixin desktop { @media (min-width: 981px) { @content; }  }
-/* end mixins for responsive and resizable design */
+@mixin bigscreen    { @media (min-width: 1201px) { @content; } }
+// @mixin mobile  { @media (max-width: 480px) { @content; } }
+// @mixin tablet  { @media (min-width: 481px) and (max-width: 760px) { @content; } }
+// @mixin desktop { @media (min-width: 981px) { @content; } }
+//
+// Example of media rules from Bootstrap 3:
+// Default is EXTRA SMALL - less than 768px
+// @media (min-width: 768px) {} /* SMALL */
+// @media (min-width: 992px) {} /* MEDIUM */
+// @media (min-width: 1200px) {} /* LARGE */
+//
+// Example of media rules from Bootstrap 2:
+// @media (min-width: 1200px) { } /* Large desktop */
+// Default is width from 980px to 1999px
+// @media (min-width: 768px) and (max-width: 979px) { } /* Portrait tablet to landscape and desktop */
+// @media (max-width: 767px) { } /* Landscape phone to portrait tablet */
+// @media (max-width: 480px) { } /* Landscape phones and down */
 
-/* mixins for thin border for links */
+
+// Micro clearfix hack mixin
+//   http://nicolasgallagher.com/micro-clearfix-hack/
+//   http://stackoverflow.com/questions/211383/which-method-of-clearfix-is-best
+@mixin clearfix {
+  &:before, &:after { display: table; content: " "; }
+  &:after { clear: both; }
+}
+
+
+// Mixin for a think underline for an inline link
 @mixin thin-inline-lnk($clr: #fff, $opacity: 0.60, $brd: 1px) {
   @at-root {
-    a#{&},
-    a &,
-    & > a {
+    a#{&}, a &, & > a {
       display: inline;
-      color: $clr;
-      text-decoration: none !important;
       border-bottom: $brd solid rgba($clr, $opacity);
-      &:hover {
-        border-bottom: none;
-      }
+      text-decoration: none !important;
+      color: $clr;
+      &:hover { border-bottom: none; }
     }
   }
 }
-/* end mixins for thin border for links */
+// Think underline variant for inline-block link:
+//   display: inline-block;
+//   border-bottom: 1px solid;
+//   line-height: 90%;
+// Thin underline variant for inline with 1 square px image:
+//   background: url('one_px_428bca.png') repeat-x left 1.26em;
 
-/* to use rem on ie10 */
+
+// Mixins and function for using rem units without problems on IE10
 @function calculateRemFS($size) {
   $remSize: $size / $html-font-size;
   @return $remSize * 1rem;
 }
 
 @function calculateRemLH($line-h) {
-  $remSize: $line-h / $html-line-height;
+  $remSize: $line-h / $base-line-height;
   @return $remSize * 1rem;
 }
 
@@ -58,5 +82,3 @@ $html-line-height: 22px;
   }
   font: $f-param calculateRemFS($size)'/'calculateRemFS($line-h) $f-style;
 }
-/* end to use rem on ie10 */
-

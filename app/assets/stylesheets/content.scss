@@ -1,0 +1,171 @@
+/*!
+ * Content styles for html made by user (with wysiwyg redactor as example)
+ *  based on Bootstrap v3.3.7 | MIT License | getbootstrap.com
+ */
+
+@import "mixins";
+
+.content {
+  img { max-width: 100%; }
+  hr {
+    margin-top: $base-line-height;
+    margin-bottom: $base-line-height;
+    border: 0;
+    border-top: 1px solid #eee;
+  }
+  small { font-size: 85%; }
+  mark { padding: .2em; background-color: #fcf8e3; }
+
+  p { margin: 0 0 $base-line-height; }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+  }
+  h1, h2, h3 {
+    margin-top: $base-line-height * 2;
+    margin-bottom: $base-line-height;
+  }
+  h4, h5, h6 {
+    margin-top: $base-line-height;
+    margin-bottom: $base-line-height;
+  }
+
+  h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+    font-weight: normal;
+    line-height: 1;
+    color: #777;
+  }
+  h1 small, h2 small, h3 small { font-size: 65%; }
+  h4 small, h5 small, h6 small { font-size: 75%; }
+
+  h1 { font-size: $base-font-size * 2.5; }
+  h2 { font-size: $base-font-size * 2.25; }
+  h3 { font-size: $base-font-size * 1.75; }
+  h4 { font-size: $base-font-size * 1.25; }
+  h5 { font-size: $base-font-size; }
+  h6 { font-size: $base-font-size * 0.85; }
+
+  ul, ol { margin-top: 0; margin-bottom: $base-line-height; }
+  ul ul, ol ul, ul ol, ol ol { margin-bottom: 0; }
+
+  dl { margin-top: 0; margin-bottom: $base-line-height * 2; }
+  dt, dd { line-height: 1.42857143; }
+  dt { font-weight: bold; }
+  dd { margin-left: 0; }
+
+  abbr[title], abbr[data-original-title] {
+    cursor: help;
+    border-bottom: 1px dotted #777;
+  }
+
+  blockquote {
+    padding: 10px 20px;
+    margin: 0 0 $base-line-height * 2;
+    font-size: $base-font-size * 1.25;
+    border-left: 5px solid #eee;
+  }
+  blockquote p:last-child,
+  blockquote ul:last-child,
+  blockquote ol:last-child {
+    margin-bottom: 0;
+  }
+  blockquote footer,
+  blockquote small {
+    display: block;
+    font-size: 80%;
+    line-height: 1.42857143;
+    color: #777;
+  }
+  blockquote footer:before,
+  blockquote small:before {
+    content: '\2014 \00A0';
+  }
+  blockquote:before, blockquote:after { content: ""; }
+
+  address {
+    margin-bottom: $base-line-height * 2;
+    font-style: normal;
+    line-height: 1.42857143;
+  }
+
+  code, kbd, pre, samp {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  }
+  code {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+  }
+  kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #fff;
+    background-color: #333;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25);
+  }
+  kbd kbd { padding: 0; font-size: 100%; font-weight: bold; box-shadow: none; }
+  pre {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 $base-line-height;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  pre code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    white-space: pre-wrap;
+    background-color: transparent;
+    border-radius: 0;
+  }
+
+  table {
+    margin-bottom: $base-line-height * 2;
+    width: 100%;
+    max-width: 100%;
+    background-color: transparent;
+  }
+  caption {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: #777;
+    text-align: left;
+  }
+  th { text-align: left; }
+  table {
+    & > thead > tr > th, & > tbody > tr > th, & > tfoot > tr > th,
+    & > thead > tr > td, & > tbody > tr > td, & > tfoot > tr > td {
+      padding: 8px;
+      line-height: 1.42857143;
+      vertical-align: top;
+      border-top: 1px solid #ddd;
+    }
+    & > thead > tr > th {
+      vertical-align: bottom;
+      border-bottom: 2px solid #ddd;
+    }
+    & > caption + thead > tr:first-child > th,
+    & > colgroup + thead > tr:first-child > th,
+    & > thead:first-child > tr:first-child > th,
+    & > caption + thead > tr:first-child > td,
+    & > colgroup + thead > tr:first-child > td,
+    & > thead:first-child > tr:first-child > td {
+      border-top: 0;
+    }
+    & > tbody + tbody { border-top: 2px solid #ddd; }
+    & table { background-color: #fff; }
+  }
+}
