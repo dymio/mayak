@@ -48,9 +48,9 @@ html, body { height: 100%; }
     color: #fff;
     & > a {
       display: inline-block;
-      margin: 0 6px;
+      margin: 0 12px 0 6px;
       color: #fff;
-      & + a { margin-left: 12px; }
+      &:last-child { margin-right: 0; }
     }
   }
 }

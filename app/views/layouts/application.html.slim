@@ -3,33 +3,33 @@ html lang=I18n.locale
   head
     meta charset=Rails.application.config.encoding
 
-    //// Base SEO
     title = seo.title
     - if seo.description
       meta name="description" content=seo.description
     - if seo.keywords
       meta name="keywords" content=seo.keywords
 
-    //// Humans.txt
     link rel="author" type="text/plain" href="#{root_path}humans.txt"
 
-    //// Hack for old IE browsers but gives wrong validation
+    // Hack for old IE browsers but gives wrong validation
     meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
     meta http-equiv="msthemecompatible" content="no"
 
-    //// Responsive or adaptive functionality
-    // meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0"
-    // meta name="HandheldFriendly" content="True"
-    // meta name="MobileOptimized" content="320"
-    // // also remove '@-ms-viewport { width: device-width; }' from basis.css if don't want adaptive functional
+    // Responsive or adaptive functionality
+    / meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0"
+    / meta name="HandheldFriendly" content="True"
+    / meta name="MobileOptimized" content="320"
+    // Remove '@-ms-viewport' rule from basis.css
+    // in case of not using responsive or adaptive functionality
 
-    // // Rails assets storage host
-    // meta name="asset_host" content=Rails.application.config.action_controller.asset_host
+    // Rails assets storage host
+    / meta name="asset_host" content=Rails.application.config.action_controller.asset_host
 
     // RSS
-    // =# auto_discovery_link_tag(:rss, "http://feeds.feedburner.com/mayak", { title: setting_value(:site_name) })
+    / =# auto_discovery_link_tag(:rss, "http://feeds.feedburner.com/mayak", \
+    /                                  { title: setting_value(:site_name) })
 
-    //// Schema.org markup for Google+
+    // Schema.org markup for Google+
     // use with `<html itemscope itemtype="http://schema.org/Product">` as example
     / meta itemprop="name" content=seo.title
     / - if seo.description
