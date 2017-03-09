@@ -59,26 +59,16 @@ $footer-height: 72px;
 
 
 // Mixins and function for using rem units without problems on IE10
-@function calculateRemFS($size) {
-  $remSize: $size / $html-font-size;
-  @return $remSize * 1rem;
+@function px-from-rem($size) {
+  @return $size * $html-font-size;
 }
-
-@function calculateRemLH($line-h) {
-  $remSize: $line-h / $base-line-height;
-  @return $remSize * 1rem;
-}
-
 @mixin font-rem-size($size) {
-  body.lt-ie-11 & {
-    font-size: $size;
-  }
-  font-size: calculateRemFS($size);
+  body.lt-ie-11 & { font-size: px-from-rem($size); }
+  font-size: $size + rem;
 }
-
-@mixin font-rem($size, $line-h, $f-style, $f-param: '') {
+@mixin font-rem($size, $line-h, $f-fam: $base-font, $f-param: '') {
   body.lt-ie-11 & {
-    font: $f-param $size'/'$line-h $f-style;
+    font: #{$f-param} #{px-from-rem($size)}/#{px-from-rem($line-h)} $f-fam;
   }
-  font: $f-param calculateRemFS($size)'/'calculateRemFS($line-h) $f-style;
+  font: #{$f-param} #{1rem * $size}/#{1rem * $line-h} $f-fam;
 }
