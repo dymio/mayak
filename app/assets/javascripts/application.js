@@ -12,6 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require main
 //= require turbolinks
 // do not require_tree .
+
+function detectIe() {
+  var ua = window.navigator.userAgent;
+  if (ua.indexOf("MSIE ") > 0) {
+    $("body").addClass("lt-ie-11");
+  }
+  return;
+}
+
+$(function() { detectIe(); return; });
