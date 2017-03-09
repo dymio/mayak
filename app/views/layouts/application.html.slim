@@ -3,24 +3,60 @@ html lang=I18n.locale
   head
     meta charset=Rails.application.config.encoding
 
+    // Responsive or adaptive functionality
+    meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"
+    // Remove '@-ms-viewport' rule from basis.css file if you don't need
+    // responsive or adaptive functionality.
+
+    // Hack for old IE browsers but gives wrong validation
+    meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
+    meta http-equiv="msthemecompatible" content="no"
+
     title = seo.title
     - if seo.description
       meta name="description" content=seo.description
     - if seo.keywords
       meta name="keywords" content=seo.keywords
 
-    link rel="author" type="text/plain" href="#{root_path}humans.txt"
+    // Twitter Card (https://dev.twitter.com/cards)
+    meta name="twitter:card" content="summary"
+    / meta name="twitter:site" content="@mayak"
+    / meta name="twitter:creator" content="@dymio"
+    // Title, description and image Twitter will get from Open Graph tags:
+    // https://dev.twitter.com/cards/getting-started#twitter-cards-and-open-graph
+    // Use other Twitter Card tags only in special cases (look in docs).
 
-    // Hack for old IE browsers but gives wrong validation
-    meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
-    meta http-equiv="msthemecompatible" content="no"
+    // Open Graph protocol (http://ogp.me/)
+    meta property="og:type" content="website"
+    meta property="og:title" content=seo.title
+    meta property="og:url" content=request.original_url
+    meta property="og:image" content=(seo.image || "#{root_url}ico/mayak_310.png")
+    - if seo.description
+      meta property="og:description" content=seo.description
+    meta property="og:site_name" content=setting_value(:site_name)
+    meta property="og:locale" content=I18n.locale
 
-    // Responsive or adaptive functionality
-    / meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0"
-    / meta name="HandheldFriendly" content="True"
-    / meta name="MobileOptimized" content="320"
-    // Remove '@-ms-viewport' rule from basis.css
-    // in case of not using responsive or adaptive functionality
+    // Facebook Open Graph (https://developers.facebook.com/docs/sharing/webmasters)
+    / meta property="fb:app_id" content="00000000000"
+
+    // Favicons and touch icons
+    link rel="icon" sizes="16x16 32x32 48x48 64x64" href="#{root_path}favicon.ico"
+    /[if IE]
+      link rel="shortcut icon" href="#{root_path}favicon.ico"
+
+    // Apple Touch Icons
+    // https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
+    // https://developer.apple.com/ios/human-interface-guidelines/graphics/app-icon/#app-icon-sizes
+    link rel="apple-touch-icon" href="#{root_path}ico/mayak_180.png"
+
+    // Windows pinned sites icon
+    // https://msdn.microsoft.com/en-us/library/hh772707.aspx
+    meta name="msapplication-TileColor" content="#ffffff"
+    meta name="msapplication-TileImage" content="#{root_path}ico/mayak_144.png"
+    / meta name="msapplication-square70x70logo" content=""
+    / meta name="msapplication-square150x150logo" content=""
+    / meta name="msapplication-wide310x150logo" content=""
+    / meta name="msapplication-square310x310logo" content=""
 
     // Rails assets storage host
     / meta name="asset_host" content=Rails.application.config.action_controller.asset_host
@@ -29,81 +65,8 @@ html lang=I18n.locale
     / =# auto_discovery_link_tag(:rss, "http://feeds.feedburner.com/mayak", \
     /                                  { title: setting_value(:site_name) })
 
-    // Schema.org markup for Google+
-    // use with `<html itemscope itemtype="http://schema.org/Product">` as example
-    / meta itemprop="name" content=seo.title
-    / - if seo.description
-    /   meta itemprop="description" content=seo.description
-    / meta itemprop="image" content=(seo.image || "#{root_url}ico/mayak_icon_310.png")
+    link rel="author" type="text/plain" href="#{root_path}humans.txt"
 
-    //// Twitter Card
-    meta name="twitter:card" content="summary"
-    // meta name="twitter:site" content="@mayak"
-    meta name="twitter:title" content=seo.title
-    - if seo.description
-      meta name="twitter:description" content=seo.description
-    // meta name="twitter:creator" content="@dymio"
-    meta name="twitter:image:src" content=(seo.image || "#{root_url}ico/mayak_icon_280-150.png")
-    // Twitter summary card with large image must be at least 280x150px
-
-    //// Open Graph protocol
-    meta property="og:title" content=seo.title
-    meta property="og:url" content=request.original_url
-    meta property="og:type" content="website"
-    meta property="og:image" content=(seo.image || "#{root_url}ico/mayak_icon_310.png")
-    - if seo.description
-      meta property="og:description" content=seo.description
-    meta property="og:site_name" content=setting_value(:site_name)
-    // meta property="fb:app_id" content="00000000000"
-    // meta property="fb:admins" content="Facebook numberic ID"
-
-    //// MSApplication
-    meta name="application-name" content=seo.title
-    - if seo.description
-      meta name="msapplication-tooltip" content=seo.description
-    meta name="msapplication-starturl" content=request.original_url
-
-    //// FAVICONS AND TOUCH ICONS
-    link rel="icon" sizes="16x16 32x32 48x48 64x64" href="#{root_path}favicon.ico"
-    /[if IE]
-      link rel="shortcut icon" href="#{root_path}favicon.ico"
-
-    // Apple Touch Icons
-    link rel="apple-touch-icon" href="#{root_path}ico/mayak_icon_152.png"
-    // if you want to remove gloss use 'apple-touch-icon-precomposed' instead 'apple-touch-icon'
-
-    // // or you can use full stack if you need it
-    // link rel="apple-touch-icon" sizes="152x152" href="#{root_path}ico/mayak_icon_152.png"
-    // link rel="apple-touch-icon" sizes="144x144" href="#{root_path}ico/mayak_icon_144.png"
-    // link rel="apple-touch-icon" sizes="120x120" href="#{root_path}ico/mayak_icon_120.png"
-    // link rel="apple-touch-icon" sizes="114x114" href="#{root_path}ico/mayak_icon_114.png"
-    // link rel="apple-touch-icon" sizes="76x76" href="#{root_path}ico/mayak_icon_76.png"
-    // link rel="apple-touch-icon" sizes="72x72" href="#{root_path}ico/mayak_icon_72.png"
-    // link rel="apple-touch-icon" sizes="60x60" href="#{root_path}ico/mayak_icon_60.png"
-    // link rel="apple-touch-icon" href="#{root_path}ico/mayak_icon_57.png"
-
-    // IE 10 Metro tile icon (Metro equivalent of apple-touch-icon):
-    meta name="msapplication-TileColor" content="#ffffff"
-    meta name="msapplication-TileImage" content="#{root_path}ico/mayak_icon_144.png"
-
-    // // And optional favicons (free to ignore):
-    // // IE 11 live tiles:
-    // meta name="msapplication-square70x70logo" content="#{root_path}ico/mayak_icon_70.png"
-    // meta name="msapplication-square150x150logo" content="#{root_path}ico/mayak_icon_150.png"
-    // meta name="msapplication-wide310x150logo" content="#{root_path}ico/mayak_icon_310-150.png"
-    // meta name="msapplication-square310x310logo" content="#{root_path}ico/mayak_icon_310.png"
-    //
-    // // Other GoogleTV, Opera etc. (free to ignore)
-    // link rel="icon" type="image/png" href="#{root_path}ico/mayak_icon_228.png" sizes="228x228"
-    // link rel="icon" type="image/png" href="#{root_path}ico/mayak_icon_196.png" sizes="196x196"
-    // link rel="icon" type="image/png" href="#{root_path}ico/mayak_icon_160.png" sizes="160x160"
-    // link rel="icon" type="image/png" href="#{root_path}ico/mayak_icon_96.png" sizes="96x96"
-    // link rel="icon" type="image/png" href="#{root_path}ico/mayak_icon_64.png" sizes="64x64"
-    // link rel="icon" type="image/png" href="#{root_path}ico/mayak_icon_48.png" sizes="48x48"
-    // link rel="icon" type="image/png" href="#{root_path}ico/mayak_icon_16.png" sizes="16x16"
-    // link rel="icon" type="image/png" href="#{root_path}ico/mayak_icon_32.png" sizes="32x32"
-
-    // HTML5 shim, for IE6-8 support of HTML5 elements
     /[if (lt IE 9) & (!IEMobile)]
       script src="http://html5shim.googlecode.com/svn/trunk/html5.js"
 
@@ -114,11 +77,11 @@ html lang=I18n.locale
     //  if you don't plan to use turbolinks
 
   body
-    //// Flash notices
-    // - if flash[:notice]
-    //   p.notice = flash[:notice]
-    // - if flash[:alert]
-    //   p.alert = flash[:alert]
+    // Flash notices
+    / - if flash[:notice]
+    /   p.notice = flash[:notice]
+    / - if flash[:alert]
+    /   p.alert = flash[:alert]
 
     #wrap
       header#header
