@@ -70,7 +70,7 @@ $footer-height: 72px;
 }
 
 @mixin font-rem-size($size) {
-  body.lt-ie-11 {
+  body.lt-ie-11 & {
     font-size: $size;
   }
   font-size: calculateRemFS($size);

@@ -18,4 +18,39 @@ html, body { height: 100%; }
   content: " ";
   display: block;
   height: $footer-height; }
-#footer { height: $footer-height - 1px; border-top: 1px solid #ccc; }
+#footer {
+  height: $footer-height;
+}
+
+.holder {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 20px;
+  padding-left: 20px;
+  max-width: 980px;
+}
+#footer {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+  height: $footer-height - 21px;
+}
+#header {
+  margin-bottom: $base-line-height;
+  font-size: $base-font-size * 1.5;
+  line-height: $base-line-height * 2;
+  font-weight: bold;
+  color: #dd2129;
+  nav {
+    min-height: $base-line-height * 1.5;
+    background: #555;
+    font-size: $base-font-size;
+    line-height: $base-line-height * 1.5;
+    color: #fff;
+    & > a {
+      display: inline-block;
+      margin: 0 6px;
+      color: #fff;
+      & + a { margin-left: 12px; }
+    }
+  }
+}

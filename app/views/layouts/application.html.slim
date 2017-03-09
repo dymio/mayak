@@ -108,7 +108,10 @@ html lang=I18n.locale
       script src="http://html5shim.googlecode.com/svn/trunk/html5.js"
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    // Will be better to move javascript_include_tag to the end of body tag
+    //  if you don't plan to use turbolinks
 
   body
     //// Flash notices
@@ -119,17 +122,18 @@ html lang=I18n.locale
 
     #wrap
       header#header
-        nav.main-nav.clearfix
-          ul
+        .holder
+          = setting_value(:site_name)
+          nav
             - @nav_items.each do |ni|
-              li class=class_string(active: (ni == @active_nav_item)) = link_to ni.title, ni.url
+              = link_to ni.title, ni.url, \
+                        :class => class_string(active: (ni == @active_nav_item))
 
       = yield
 
     footer#footer
-
-    //// Le javascript =================================
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+      .holder
+        = "#{setting_value(:site_name)}, #{Date.today.year}"
 
     - bodyend_codes = setting_value(:bodyend_codes)
     - if bodyend_codes && bodyend_codes.present?
