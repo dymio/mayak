@@ -30,6 +30,7 @@
 .railsrc
 .idea
 .sass-cache
+.byebug_history
 
 # Other
 /public/assets
