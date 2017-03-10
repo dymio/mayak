@@ -37,8 +37,8 @@ AdminUser.create! email: 'admin@example.com',
 puts "#{time_point_string}: seed Pages"
 # = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = --
 pages = Page.create!([
-  { title: "Новости",        path: "news",     fixed: true, prior: 1 },
-  { title: "Обратная связь", path: "feedback", fixed: true, prior: 2 },
+  { title: "Новости",        path: "news",     prior: 1 },
+  { title: "Обратная связь", path: "feedback", prior: 2 },
   { title: "Демо-страница",
     path: "content-demo",
     body: @seeds_contents[:content_demo_page],

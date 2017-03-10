@@ -167,6 +167,17 @@ Example:
     at [localhost:3000](http://localhost:3000/) url.
 
 
+    Project life cycle
+    ------------------
+
+    ### Adding new routes
+
+    Put added route path to a config.fixed_pages_paths array
+    (in 'config/application.rb') if a Page object should cover this path.
+
+    Add the new route to the 'config/sitemap.xml' file.
+
+
     Deploy
     ------
 

@@ -66,6 +66,13 @@ ActiveAdmin.register Page do
       row :created_at
       row :updated_at
     end
+    if page.fixed?
+      para '<span style="text-decoration:uppercase;font-weight:bold">'\
+           'Страница зафиксирована</span>'.html_safe
+      para 'Эта страница специального назначения, она <b>зафиксирована</b>. '\
+           'Это значит, что её нельзя ни удалить, ни скрыть, ни поменять '\
+           'её URL-путь.'.html_safe
+    end
   end
 
 ## FORM

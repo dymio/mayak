@@ -36,5 +36,13 @@ module Mayak
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Mark page object as "fixed" by adding his path to array below.
+    # Fixed pages protected from hiding, deleting and changing path.
+    # Homepage (with empty path) is fixed by default.
+    config.fixed_pages_paths = %w(
+        news
+        feedback
+      )
   end
 end

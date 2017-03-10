@@ -8,7 +8,6 @@ class CreatePages < ActiveRecord::Migration
     create_table :pages do |t|
       t.string  :title
       t.string  :path,                    null: false
-      t.boolean :fixed
       t.text    :body
       t.text    :seodata
       t.integer :prior,   default: 9,     null: false

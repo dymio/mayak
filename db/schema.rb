@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(version: 20170307000006) do
   create_table "pages", force: :cascade do |t|
     t.string   "title"
     t.string   "path",                       null: false
-    t.boolean  "fixed"
     t.text     "body"
     t.text     "seodata"
     t.integer  "prior",      default: 9,     null: false

@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
+  # !
+  # Put added route path to a config.fixed_pages_paths array
+  # (in 'config/application.rb') if a Page object should cover this path.
+
   # feedback
   get 'feedback' => 'feedback#new', as: :feedback
   post 'feedback' => 'feedback#create'
