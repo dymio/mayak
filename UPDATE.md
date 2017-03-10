@@ -55,6 +55,9 @@ Updating process
 
 * Run `bin/rake db:drop db:create db:migrate db:seed`
 
+* Update information about software versions in the [readme file](README.md)
+    and in the [admin dashboard file](app/admin/dashboard.rb).
+
 * Check all changes using `git diff` : we need to be sure that we didn't lost anything important
 
 * Run `bin/rails server` and check result manually

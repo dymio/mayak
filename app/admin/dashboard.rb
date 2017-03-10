@@ -6,7 +6,7 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
-        panel "Последние добавленные Новости" do
+        panel "Последние добавленные новости" do
           if News.any?
             table_for News.order(created_at: :desc).limit(10) do
               column :title do |news|
@@ -24,27 +24,36 @@ ActiveAdmin.register_page "Dashboard" do
           end
         end
       end
+    end # columns
 
+    columns do
       column do
         panel "О Системе" do
+          para "Сайт разработан специально под нужды вашей компании на очень " \
+               "гибкой платформе, которая позволяет и добавлять новые модули "\
+               "сайта, и вносить практически любые изменения в существующие."
           para do
-            [ "Добро пожаловать в панель управления сайтом, построенном на основе Mayak Rails Website Template.  ",
-              "Больше информации можно найти на сайте ",
-              link_to("mayak.io", "http://mayak.io"),
-              ". Надеюсь вам понравится пользоваться моей разработкой и она вам поможет в вашей работе." ].join.html_safe
+            ( "Тут стоит поместить информацию о том, кто оказывает тех. " +
+              "поддержку сайту и не забыть ссылку на" +
+              link_to("их сайт", "http://dev.pro/", target: '_blank') +
+              ". По вопросам использования системы или её доработки " +
+              "вы можете обращаться к тому-то, оставлять сообщения о багах " +
+              "там-то, все контакты " +
+              link_to("вот тут", 'http://dev.pro/contacts', target: '_blank') +
+              ".").html_safe
           end
+        end
+      end
+
+      column do
+        panel "Техническая информация" do
+          para "Сайт написан на языке Ruby 2.2.3 с применением веб-фреймворка" \
+               "Ruby on Rails 4.2.8. Используется СУБД PostgreSQL."
           para do
-            [ "Если у вас будут вопросы или предложения по улучшению Mayak, смело пишите ",
-              link_to('issue на GitHub', 'https://github.com/dymio/mayak/issues'),
-              " или лично мне на почту ",
-              mail_to("mstrdymio@gmail.com") ].join.html_safe
-          end
-          para do
-            [ "Исходный код проекта Mayak Rails Site Template выложен на GitHub - ",
-             link_to("dymio/mayak", "http://github.com/dymio/mayak"),
-             ". Приглашаю всех желающих присоединиться к разработке проекта, инструкция по тому как это cделать находится ",
-             link_to("в описании проекта на GitHub'е", 'https://github.com/dymio/mayak#contributing'),
-             "." ].join.html_safe
+            ( "Основой для сайта является Mayak Rails Website Template. " +
+              "Больше информации можно найти на сайте " +
+              link_to("mayak.io", "http://mayak.io", target: '_blank') +
+              ".").html_safe
           end
         end
       end
