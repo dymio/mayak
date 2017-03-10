@@ -28,32 +28,29 @@ html lang=I18n.locale
     meta property="og:type" content="website"
     meta property="og:title" content=seo.title
     meta property="og:url" content=request.original_url
-    meta property="og:image" content=(seo.image || "#{root_url}ico/mayak_310.png")
+    meta property="og:image" content=(seo.image || asset_url('ico/mayak_310.png'))
     - if seo.description
       meta property="og:description" content=seo.description
     meta property="og:site_name" content=setting_value(:site_name)
     / meta property="fb:app_id" content="00000000000"
 
     // Favicons and touch icons
-    link rel="icon" sizes="16x16 32x32 48x48 64x64" href="#{root_path}favicon.ico"
+    = favicon_link_tag '/favicon.ico', rel: 'icon', sizes: '16x16 32x32 48x48 64x64'
     /[if IE]
-      link rel="shortcut icon" href="#{root_path}favicon.ico"
+      = favicon_link_tag '/favicon.ico'
 
-    // Apple Touch Icons (https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html)
-    link rel="apple-touch-icon" href="#{root_path}ico/mayak_180.png"
+    // Apple Touch Icons https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
+    link rel="apple-touch-icon" href=asset_path('ico/mayak_180.png')
 
     // Windows pinned sites icon https://msdn.microsoft.com/en-us/library/hh772707.aspx
     meta name="msapplication-TileColor" content="#ffffff"
-    meta name="msapplication-TileImage" content="#{root_path}ico/mayak_144.png"
-
-    // Rails assets storage host
-    / meta name="asset_host" content=Rails.application.config.action_controller.asset_host
+    meta name="msapplication-TileImage" content=asset_path('ico/mayak_144.png')
 
     // RSS
     / =# auto_discovery_link_tag(:rss, "http://feeds.feedburner.com/mayak", \
     /                                  { title: setting_value(:site_name) })
 
-    link rel="author" type="text/plain" href="#{root_path}humans.txt"
+    link rel="author" type="text/plain" href=asset_path('humans.txt')
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
