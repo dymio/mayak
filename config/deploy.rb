@@ -77,6 +77,7 @@ task :deploy do
         command %{touch tmp/restart.txt}
       end
       invoke :'whenever:update'
+      invoke :rake, 'sitemap:refresh:no_ping'
     end
   end
 
