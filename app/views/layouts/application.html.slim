@@ -3,14 +3,14 @@ html lang=I18n.locale
   head
     meta charset=Rails.application.config.encoding
 
-    // Responsive or adaptive functionality
+    // Compatibility with mobile screens
     meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"
-    // Remove '@-ms-viewport' rule from basis.css file if you don't need
-    // responsive or adaptive functionality.
+    / also @-ms-viewport rule in basis.css file.
 
-    // Hack for old IE browsers but gives wrong validation
+    // Place Internet Explorer into the highest supported document mode
     meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
-    meta http-equiv="msthemecompatible" content="no"
+    /[if (lt IE 9) & (!IEMobile)]
+      script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"
 
     title = seo.title
     - if seo.description
@@ -22,11 +22,9 @@ html lang=I18n.locale
     meta name="twitter:card" content="summary"
     / meta name="twitter:site" content="@mayak"
     / meta name="twitter:creator" content="@dymio"
-    // Title, description and image Twitter will get from Open Graph tags:
-    // https://dev.twitter.com/cards/getting-started#twitter-cards-and-open-graph
-    // Use other Twitter Card tags only in special cases (look in docs).
+    // Title, description and image Twitter will get from Open Graph tags.
 
-    // Open Graph protocol (http://ogp.me/)
+    // Open Graph protocol (http://ogp.me/) with https://developers.facebook.com/docs/sharing/webmasters
     meta property="og:type" content="website"
     meta property="og:title" content=seo.title
     meta property="og:url" content=request.original_url
@@ -34,8 +32,6 @@ html lang=I18n.locale
     - if seo.description
       meta property="og:description" content=seo.description
     meta property="og:site_name" content=setting_value(:site_name)
-
-    // Facebook Open Graph (https://developers.facebook.com/docs/sharing/webmasters)
     / meta property="fb:app_id" content="00000000000"
 
     // Favicons and touch icons
@@ -43,19 +39,12 @@ html lang=I18n.locale
     /[if IE]
       link rel="shortcut icon" href="#{root_path}favicon.ico"
 
-    // Apple Touch Icons
-    // https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
-    // https://developer.apple.com/ios/human-interface-guidelines/graphics/app-icon/#app-icon-sizes
+    // Apple Touch Icons (https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html)
     link rel="apple-touch-icon" href="#{root_path}ico/mayak_180.png"
 
-    // Windows pinned sites icon
-    // https://msdn.microsoft.com/en-us/library/hh772707.aspx
+    // Windows pinned sites icon https://msdn.microsoft.com/en-us/library/hh772707.aspx
     meta name="msapplication-TileColor" content="#ffffff"
     meta name="msapplication-TileImage" content="#{root_path}ico/mayak_144.png"
-    / meta name="msapplication-square70x70logo" content=""
-    / meta name="msapplication-square150x150logo" content=""
-    / meta name="msapplication-wide310x150logo" content=""
-    / meta name="msapplication-square310x310logo" content=""
 
     // Rails assets storage host
     / meta name="asset_host" content=Rails.application.config.action_controller.asset_host
@@ -65,9 +54,6 @@ html lang=I18n.locale
     /                                  { title: setting_value(:site_name) })
 
     link rel="author" type="text/plain" href="#{root_path}humans.txt"
-
-    /[if (lt IE 9) & (!IEMobile)]
-      script src="http://html5shim.googlecode.com/svn/trunk/html5.js"
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true

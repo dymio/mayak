@@ -176,6 +176,7 @@ Example:
 
 License
 -------
+
 Mayak Rails Website Template is released under the [MIT License](LICENSE).
 
 
