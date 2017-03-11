@@ -6,7 +6,7 @@ ActiveAdmin.register Page do
   menu priority: 2 #, parent: "Сайт"
 
   ### Action items (buttons on the top right of the page)
-  action_item only: :show do
+  action_item :create_new, only: :show do
     link_to 'Создать новую', new_admin_page_path
   end
 
