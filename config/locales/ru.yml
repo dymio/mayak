@@ -22,7 +22,8 @@ ru:
         hide: "Скрыть"
         show: "Не скрывать"
     hints:
-      slug: 'Уникальная завершающая часть URL адреса, которая обозначает эту страницу. Например, для адреса `example.com/pages/foton.html` часть `foton` - slug страницы. <a href="http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug" target="_blank">Подробнее</a>.<br>Если оставить поле пустым, то slug будет сгенерирован на основе заголовка.'
+      slug: 'Уникальная завершающая часть URL-адреса страницы, которая её обозначает. Например, для адреса `example.com/pages/foton.html` часть `foton` - slug страницы. <a href="http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug" target="_blank">Подробнее</a>.<br>Если оставить поле пустым, то slug будет сгенерирован на основе заголовка.'
+      path: 'Уникальная часть URL-адреса, идущая после домена, которая указывает на эту страницу. Например, для адреса `example.com/information/delivery` часть `information/delivery` &mdash; URL-путь к странице. <a href="https://ru.wikipedia.org/wiki/URL" target="_blank">Подробнее на Википедии</a>.<br>Если оставить поле пустым, то URL-путь будет сгенерирован на основе заголовка.'
   feedback:
     name: "Имя"
     surname: "Фамилия"

@@ -3,7 +3,7 @@ class Page < ActiveRecord::Base
   acts_as_seo_carrier
   acts_as_static_files_holder
 
-  validates :path, presence: true, unless: Proc.new { |a| a.home? }
+  validates :path, uniqueness: true
   validates :prior, numericality: { only_integer: true }
   validate :fixed_page_visible_and_path_not_changed
 
@@ -18,12 +18,11 @@ class Page < ActiveRecord::Base
   def display_name; title end
 
   def home?
-    path.blank? && (!new_record? || self.class.count == 0)
+    path_was == '' && !new_record?
   end
 
   def fixed?
-    return false if self.new_record?
-    path_is_fixed? path_was
+    !new_record? && path_is_fixed?(path_was)
   end
 
   def will_be_fixed_after_save?
@@ -38,7 +37,7 @@ class Page < ActiveRecord::Base
 
   # before validation
   def prepare_path
-    self.path = UrlStringPreparator.path self.path, self.title unless self.home?
+    self.path = UrlStringPreparator.path path, title unless home?
   end
 
   # validation

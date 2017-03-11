@@ -37,12 +37,13 @@ AdminUser.create! email: 'admin@example.com',
 puts "#{time_point_string}: seed Pages"
 # = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = --
 pages = Page.create!([
+  { title: "Главная",        path: "/",        prior: 0, body: '<h1>Hi</h1>' },
   { title: "Новости",        path: "news",     prior: 1 },
   { title: "Обратная связь", path: "feedback", prior: 2 },
   { title: "Демо-страница",
     path: "content-demo",
-    body: @seeds_contents[:content_demo_page],
-    prior: 3 }
+    prior: 3,
+    body: @seeds_contents[:content_demo_page] }
 ])
 
 
@@ -52,7 +53,7 @@ puts "#{time_point_string}: seed Nav Items"
 NavItem.create!([
   { title: 'Главная', url_type: 0, url_text: '/',         prior: 0 },
   { title: 'Новости', url_type: 0, url_text: '/news',     prior: 3 },
-  { title: 'Демо',    url_type: 1, url_page: pages[2],    prior: 5 },
+  { title: 'Демо',    url_type: 1, url_page: pages[3],    prior: 5 },
   { title: 'Связь',   url_type: 0, url_text: '/feedback', prior: 7 }
 ])
 

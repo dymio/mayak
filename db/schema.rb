@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20170307000006) do
   end
 
   add_index "pages", ["hided"], name: "index_pages_on_hided", using: :btree
-  add_index "pages", ["path"], name: "index_pages_on_path", using: :btree
+  add_index "pages", ["path"], name: "index_pages_on_path", unique: true, using: :btree
   add_index "pages", ["prior"], name: "index_pages_on_prior", using: :btree
 
   create_table "settings", force: :cascade do |t|

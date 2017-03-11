@@ -1,9 +1,4 @@
 class CreatePages < ActiveRecord::Migration
-  def migrate(direction)
-    super
-    Page.create!(title: "Главная", path: "", body: "<p>Добро пожаловать!</p>", prior: 1) if direction == :up
-  end
-
   def change
     create_table :pages do |t|
       t.string  :title
@@ -15,7 +10,7 @@ class CreatePages < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_index :pages, :path
+    add_index :pages, :path, unique: true
     add_index :pages, :prior
     add_index :pages, :hided
   end

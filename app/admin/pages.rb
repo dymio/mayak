@@ -34,7 +34,31 @@ ActiveAdmin.register Page do
     end
     column :prior
     column :hided
-    actions
+
+    actions defaults: false do |resource|
+      if controller.action_methods.include?('show') &&
+         authorized?(ActiveAdmin::Auth::READ, resource)
+        item I18n.t('active_admin.view'), resource_path(resource),
+                                          class: "view_link member_link",
+                                          title: I18n.t('active_admin.view')
+      end
+      if controller.action_methods.include?('edit') &&
+         authorized?(ActiveAdmin::Auth::UPDATE, resource)
+        item I18n.t('active_admin.edit'), edit_resource_path(resource),
+                                          class: "edit_link member_link",
+                                          title: I18n.t('active_admin.edit')
+      end
+      if controller.action_methods.include?('destroy') &&
+         authorized?(ActiveAdmin::Auth::DESTROY, resource) &&
+         !resource.home? && !resource.fixed?
+        item I18n.t('active_admin.delete'),
+             resource_path(resource),
+             class: "delete_link member_link",
+             title: I18n.t('active_admin.delete'),
+             method: :delete,
+             data: {confirm: I18n.t('active_admin.delete_confirmation')}
+      end
+    end
   end
 
 ## SHOW
@@ -81,7 +105,7 @@ ActiveAdmin.register Page do
     f.inputs '' do
       f.input :title unless page.home?
       unless page.home? || page.fixed?
-        f.input :path, hint: 'Уникальная часть URL-адреса, идущая после домена, которая указывает на эту страницу. Например, для адреса `example.com/information/delivery` часть `information/delivery` &mdash; URL-путь к странице. <a href="https://ru.wikipedia.org/wiki/URL" target="_blank">Подробнее на Википедии</a>.<br>Если оставить поле пустым, то URL-путь будет сгенерирован на основе заголовка.'.html_safe
+        f.input :path, hint: I18n.t('active_admin.hints.path').html_safe
       end
       f.input :body, input_html: { class: 'editor',
                                    'data-type' => f.object.class.name,
