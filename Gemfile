@@ -25,7 +25,7 @@ gem 'therubyracer', platforms: :ruby, group: :production
 gem 'devise', '4.2.0'
 
 # The administration framework for Ruby on Rails applications.
-gem 'activeadmin', '~> 1.0.0.pre4'
+gem 'activeadmin', '~> 1.0.0.pre5'
 
 # Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
 gem 'carrierwave', '1.0.0'
