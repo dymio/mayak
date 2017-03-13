@@ -184,6 +184,11 @@ Example:
     Run deploy with command `mina deploy` or `mina production deploy`
     for production instance.
 
+    Before the first deploy to server you'll need to run 'mina setup'
+    or `mina production setup` for production. Also you'll need create file
+    'application.yml' in 'shared/config' directory on the server.
+    Example of this file you can find in 'config' directory of the project.
+
 
 License
 -------
