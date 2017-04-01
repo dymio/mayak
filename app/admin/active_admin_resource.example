@@ -229,10 +229,11 @@ ActiveAdmin.register Post do
       f.has_many :tags, { heading: 'Post tags',
                           allow_destroy: true,
                           new_record: 'Add Tag',
-                          sortable: :created_at } do |a|
+                          sortable: :prior } do |a|
         a.input :name
       end
     end
+
     f.actions
   end
 
