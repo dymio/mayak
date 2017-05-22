@@ -12,6 +12,8 @@ html {
 
 body {
   font: #{$base-font-size}/#{$base-line-height} $base-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background-color: #fff;
   color: #000;
 }
