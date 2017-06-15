@@ -16,4 +16,7 @@ Rails.application.config.assets.precompile += %w(
     redactor_ru.js
     redactor_video.js
     redactor_table.js
+    trumbowyg.css
+    trumbowyg.js
+    trumbowyg_ru.min.js
   )

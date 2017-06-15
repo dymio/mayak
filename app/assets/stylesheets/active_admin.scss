@@ -19,11 +19,49 @@
 #main_content img { max-width: 100%; }
 
 // Redactor fixes
-.redactor-box { display: inline-block; width: calc(80% - 22px); }
-.redactor-editor {
+// .redactor-box { display: inline-block; width: calc(80% - 22px); }
+// .redactor-editor {
+//   ul { list-style: disc; }
+//   ol { list-style: decimal; }
+//   ul > li, ol > li { padding: 0; } }
+
+// Fixes to Trumbowyg working under destructive ActiveAdmin styles
+.trumbowyg-box {
+  color: #000;
+  button {
+    margin-right: 0px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+    color: #000;
+    &:not(.disabled):hover { background-image: none; }
+  }
+}
+.trumbowyg-dropdown button:not(.disabled):hover { background: #ecf0f1; }
+.trumbowyg-modal button {
+  padding-top: 2px;
+  padding-right: 6px;
+  padding-bottom: 3px;
+  padding-left: 6px;
+}
+form fieldset ol > li .trumbowyg-modal label {
+  float: none;
+  margin: 15px 12px;
+  width: auto;
+  height: 29px;
+  line-height: 29px;
+  font-size: 14px;
+  font-weight: normal;
+}
+.trumbowyg-editor {
   ul { list-style: disc; }
   ol { list-style: decimal; }
-  ul > li, ol > li { padding: 0; } }
+  ul > li, ol > li { padding: 0; }
+}
 
 // Static File Icon
 .file-icon {
