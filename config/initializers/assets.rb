@@ -17,6 +17,10 @@ Rails.application.config.assets.precompile += %w(
     redactor_video.js
     redactor_table.js
     trumbowyg.css
-    trumbowyg.js
-    trumbowyg_ru.min.js
+    trumbowyg/trumbowyg.js
+    trumbowyg/trumbowyg_ru.min.js
+    trumbowyg/trumbowyg.noembed.js
+    trumbowyg/trumbowyg.table.js
+    trumbowyg/trumbowyg.upload.js
+    trumbowyg/trumbowyg.upload_to_link.js
   )

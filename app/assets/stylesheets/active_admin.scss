@@ -27,7 +27,10 @@
 
 // Fixes to Trumbowyg working under destructive ActiveAdmin styles
 .trumbowyg-box {
+  display: inline-block !important;
+  width: calc(80% - 22px) !important;
   color: #000;
+
   button {
     margin-right: 0px;
     border: none;
@@ -61,6 +64,34 @@ form fieldset ol > li .trumbowyg-modal label {
   ul { list-style: disc; }
   ol { list-style: decimal; }
   ul > li, ol > li { padding: 0; }
+  table {
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 100%;
+    background-color: transparent;
+  }
+  caption {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: #777;
+    text-align: left;
+  }
+  th { text-align: left; }
+  table {
+    & > thead > tr > th, & > tbody > tr > th, & > tfoot > tr > th,
+    & > thead > tr > td, & > tbody > tr > td, & > tfoot > tr > td {
+      padding: 8px;
+      line-height: 1.42857143;
+      vertical-align: top;
+      border: 1px solid #ddd;
+    }
+    & > thead > tr > th {
+      vertical-align: bottom;
+      border-bottom: 2px solid #ddd;
+    }
+    & > tbody + tbody { border-top: 2px solid #ddd; }
+    & table { background-color: #fff; }
+  }
 }
 
 // Static File Icon

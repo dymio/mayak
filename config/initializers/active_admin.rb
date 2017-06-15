@@ -198,8 +198,12 @@ ActiveAdmin.setup do |config|
   #   config.register_javascript 'my_javascript.js'
 
   config.register_javascript 'chosen.jquery.js'
-  config.register_javascript 'trumbowyg.js'
-  config.register_javascript 'trumbowyg_ru.min.js'
+  config.register_javascript 'trumbowyg/trumbowyg.js'
+  config.register_javascript 'trumbowyg/trumbowyg_ru.min.js'
+  config.register_javascript 'trumbowyg/trumbowyg.noembed.js'
+  config.register_javascript 'trumbowyg/trumbowyg.table.js'
+  config.register_javascript 'trumbowyg/trumbowyg.upload.js'
+  config.register_javascript 'trumbowyg/trumbowyg.upload_to_link.js'
 
   # == CSV options
   #

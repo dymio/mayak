@@ -16,7 +16,7 @@ ActiveAdmin.register StaticFile do
       sf.holder_id = params[:holder_id]
     end
     if sf.save
-      render json: { filelink: sf.file.url, filename: sf.name }
+      render json: { success: true, filelink: sf.file.url, filename: sf.name }
     else
       render json: { error: "Ошибка при загрузке" }
     end

@@ -26,26 +26,46 @@ $(document).ready ->
 ## Init Trumbowyg editor
   if (editr = $('.editor:first')).length
 
+    file_upload_path = "/admin/static_files/upload.json"
+    uploadsFields = []
+    uploadsFields.push {name: 'authenticity_token', value: $("meta[name=csrf-token]").attr('content')}
+    uploadsFields.push {name: 'holder_type', value: editr.attr('data-type') }
+    uploadsFields.push {name: 'holder_id', value: editr.attr('data-id') } if editr.is("[data-id]")
+
     $.trumbowyg.svgPath = '/assets/trumbowyg_icons.svg';
 
     $('.editor').trumbowyg
       lang: 'ru'
       resetCss: true
       removeformatPasted: false
-      autogrow: true
+      autogrow: false
+      plugins:
+        upload:
+          serverPath: file_upload_path
+          fileFieldName: 'file'
+          data: uploadsFields
+          urlPropertyName: 'filelink'
+      btnsDef:
+        image:
+          dropdown: ['upload', 'insertImage']
+          ico: 'insertImage'
+        link:
+          dropdown: ['createLink', 'unlink', 'upload_to_link']
+          ico: 'link'
       btns: [
         ['viewHTML'],
         ['formatting'],
         'btnGrp-semantic',
         # ['superscript', 'subscript'],
         ['link'],
-        ['insertImage'],
+        ['image', 'noembed'],
         'btnGrp-justify',
         'btnGrp-lists',
+        ['table'],
         ['horizontalRule'],
         ['removeformat'],
         ['fullscreen']
-    ]
+      ]
 
 ## Remote deletion of the Static File
   $(".delete-static-file").on 'ajax:success', (data, status, xhr) ->
