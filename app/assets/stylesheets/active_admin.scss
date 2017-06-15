@@ -18,13 +18,6 @@
 
 #main_content img { max-width: 100%; }
 
-// Redactor fixes
-// .redactor-box { display: inline-block; width: calc(80% - 22px); }
-// .redactor-editor {
-//   ul { list-style: disc; }
-//   ol { list-style: decimal; }
-//   ul > li, ol > li { padding: 0; } }
-
 // Fixes to Trumbowyg working under destructive ActiveAdmin styles
 .trumbowyg-box {
   display: inline-block !important;
