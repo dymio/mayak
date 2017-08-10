@@ -18,12 +18,74 @@
 
 #main_content img { max-width: 100%; }
 
-// Redactor fixes
-.redactor-box { display: inline-block; width: calc(80% - 22px); }
-.redactor-editor {
+// Fixes to Trumbowyg working under destructive ActiveAdmin styles
+.trumbowyg-box {
+  display: inline-block !important;
+  width: calc(80% - 22px) !important;
+  color: #000;
+
+  button {
+    margin-right: 0px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+    color: #000;
+    &:not(.disabled):hover { background-image: none; }
+  }
+}
+.trumbowyg-dropdown button:not(.disabled):hover { background: #ecf0f1; }
+.trumbowyg-modal button {
+  padding-top: 2px;
+  padding-right: 6px;
+  padding-bottom: 3px;
+  padding-left: 6px;
+}
+form fieldset ol > li .trumbowyg-modal label {
+  float: none;
+  margin: 15px 12px;
+  width: auto;
+  height: 29px;
+  line-height: 29px;
+  font-size: 14px;
+  font-weight: normal;
+}
+.trumbowyg-editor {
   ul { list-style: disc; }
   ol { list-style: decimal; }
-  ul > li, ol > li { padding: 0; } }
+  ul > li, ol > li { padding: 0; }
+  table {
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 100%;
+    background-color: transparent;
+  }
+  caption {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: #777;
+    text-align: left;
+  }
+  th { text-align: left; }
+  table {
+    & > thead > tr > th, & > tbody > tr > th, & > tfoot > tr > th,
+    & > thead > tr > td, & > tbody > tr > td, & > tfoot > tr > td {
+      padding: 8px;
+      line-height: 1.42857143;
+      vertical-align: top;
+      border: 1px solid #ddd;
+    }
+    & > thead > tr > th {
+      vertical-align: bottom;
+      border-bottom: 2px solid #ddd;
+    }
+    & > tbody + tbody { border-top: 2px solid #ddd; }
+    & table { background-color: #fff; }
+  }
+}
 
 // Static File Icon
 .file-icon {

@@ -36,6 +36,7 @@ Also we use:
 * [normalize.css](http://necolas.github.io/normalize.css/)
 * [Dymio's HTML CSS template](https://github.com/dymio/html-css-template)
 * [Chosen](http://harvesthq.github.io/chosen/)
+* [Trumbowyg WYSIWYG editor](https://github.com/Alex-D/Trumbowyg)
 
 And we respect [humans.txt](http://humanstxt.org/) convention.
 

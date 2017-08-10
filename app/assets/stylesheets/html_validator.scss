@@ -1,0 +1,46 @@
+// Define clearly noticeable alert style
+$alertBackground: #ff0000;
+$elementAlert: 5px solid $alertBackground;
+
+//Define your alert type
+@mixin alert { border: $elementAlert; }
+
+//Searching for missing document language
+html:not([lang]), html[lang=""] {
+  @include alert;
+}
+
+//Searching for deprecated html5 elements
+html script[type="text/javascript"],
+html link[rel="stylesheet"][type="text/css"] {
+  @include alert;
+}
+
+//Searching for inline styles
+*[style] {
+  @include alert;
+}
+
+//Searching for invalid links
+a:not([href]), a[href="#"], a[href=""], a[href*="javascript:void(0)"] {
+  @include alert;
+}
+
+//Searching for patentially seo-invalid images
+img:not([alt]), img:not([title]), img:not([src]),
+img[alt=""], img[title=""], img[src="#"] {
+  @include alert;
+}
+
+//Searching for invalid form elements
+input:not([id]), select:not([id]), textarea:not([id]), label:not([for]),
+input:not([name]), select:not([name]), textarea:not([name]),
+form:not([name]):not([id]), form:not([action]) {
+  @include alert;
+}
+
+//Searching for empty interactive elements
+button:empty, a:empty {
+  @include alert;
+}
+
