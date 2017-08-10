@@ -108,8 +108,7 @@ ActiveAdmin.register Page do
         f.input :path, hint: I18n.t('active_admin.hints.path').html_safe
       end
       f.input :body, input_html: { class: 'editor',
-                                   'data-type' => f.object.class.name,
-                                   'data-id' => f.object.id }
+                                   data: { type: f.object.class.name, id: f.object.id } }
       f.input :prior, hint: "Меньше значение => раньше в списке"
       f.input :hided unless page.home? || page.fixed?
     end
