@@ -101,8 +101,7 @@ ActiveAdmin.register News do
 
       f.input :intro, input_html: { rows: 4  }
       f.input :body, input_html: { class: 'editor',
-                                   'data-type' => f.object.class.name,
-                                   'data-id' => f.object.id }
+                                   data: { type: f.object.class.name, id: f.object.id } }
       f.input :hided
     end
 
