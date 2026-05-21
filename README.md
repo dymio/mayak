@@ -1,6 +1,9 @@
 Mayak Rails Website Template
 ============================
 
+> [!WARNING]
+> This project has been archived and is no longer supported.
+
 Mayak - is simple Rails application made for fast start of a common web-project.
 I called it 'site template' because rails 'application templates'
 [already exist](http://guides.rubyonrails.org/rails_application_templates.html).
@@ -15,7 +18,7 @@ Website template gives you major components of (almost) any website:
 * news
 * feedback form
 
-[Mayak.io](http://mayak.io/) — project's website.
+[mayak.archive.dymio.net](http://mayak.archive.dymio.net/) — project's website.
 
 
 Software and coventions
